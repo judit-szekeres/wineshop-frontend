@@ -1,0 +1,12 @@
+.dropdown .dropdown-menu {
+    margin-top: 0;
+    padding-top: 10px;
+    box-shadow: none;
+    background: #000;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.dropdown .dropdown-menu li:hover a {
+    background-color: #eee;
+}
