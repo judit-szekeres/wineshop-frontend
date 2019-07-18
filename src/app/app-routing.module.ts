@@ -5,7 +5,7 @@ import { SpecialOffersComponent } from './components/landing-page/special-offers
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
-  { path: 'landning-special-offers', component: SpecialOffersComponent },
+  { path: 'landing-special-offers', component: SpecialOffersComponent },
 
 
 ]
