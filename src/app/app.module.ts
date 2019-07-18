@@ -13,6 +13,7 @@ import { SpecialOffersComponent } from './components/landing-page/special-offers
 import { LoginRegistrationModalComponent } from './components/login-registration-modal/login-registration-modal.component';
 import { PolicyComponent } from './components/footer/policy/policy.component';
 import { ContactComponent } from './components/footer/contact/contact.component';
+import { ProductCardComponent } from './components/product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ContactComponent } from './components/footer/contact/contact.component'
     SpecialOffersComponent,
     LoginRegistrationModalComponent,
     PolicyComponent,
-    ContactComponent
+    ContactComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,
