@@ -14,6 +14,7 @@ import { LoginRegistrationModalComponent } from './components/login-registration
 import { PolicyComponent } from './components/footer/policy/policy.component';
 import { ContactComponent } from './components/footer/contact/contact.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
+import { TermOfServicesComponent } from './components/footer/term-of-services/term-of-services.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ProductCardComponent } from './components/product-card/product-card.com
     LoginRegistrationModalComponent,
     PolicyComponent,
     ContactComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    TermOfServicesComponent
   ],
   imports: [
     BrowserModule,
