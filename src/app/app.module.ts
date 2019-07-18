@@ -11,6 +11,9 @@ import { CartComponent } from './components/cart/cart.component';
 import { RedWhiteCategoriesComponent } from './components/landing-page/red-white-categories/red-white-categories.component';
 import { SpecialOffersComponent } from './components/landing-page/special-offers/special-offers.component';
 import { LoginRegistrationModalComponent } from './components/login-registration-modal/login-registration-modal.component';
+import { PolicyComponent } from './components/footer/policy/policy.component';
+import { ContactComponent } from './components/footer/contact/contact.component';
+import { ProductCardComponent } from './components/product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { LoginRegistrationModalComponent } from './components/login-registration
     CartComponent,
     RedWhiteCategoriesComponent,
     SpecialOffersComponent,
-    LoginRegistrationModalComponent
+    LoginRegistrationModalComponent,
+    PolicyComponent,
+    ContactComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,
