@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,7 @@ import { TermOfServicesComponent } from './components/footer/term-of-services/te
 import { QuoteComponent } from './components/footer/quote/quote.component';
 import { CartTableComponent } from './components/cart/cart-table/cart-table.component';
 import { CartTotalComponent } from './components/cart/cart-total/cart-total.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { CartTotalComponent } from './components/cart/cart-total/cart-total.comp
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
