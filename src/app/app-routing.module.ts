@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'policy', component: PolicyComponent },
   { path: 'term-of-services', component: TermOfServicesComponent },
   { path: 'log-reg', component: LoginRegistrationModalComponent },
+  { path: 'products', component: ProductsComponent },
 
 ]
 
