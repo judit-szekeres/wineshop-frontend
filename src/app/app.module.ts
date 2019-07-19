@@ -13,6 +13,8 @@ import { SpecialOffersComponent } from './components/landing-page/special-offers
 import { LoginRegistrationModalComponent } from './components/login-registration-modal/login-registration-modal.component';
 import { PolicyComponent } from './components/footer/policy/policy.component';
 import { ContactComponent } from './components/footer/contact/contact.component';
+import { LoginModalComponent } from './components/login-registration-modal/login-modal/login-modal.component';
+import { RegistrationModalComponent } from './components/login-registration-modal/registration-modal/registration-modal.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { TermOfServicesComponent } from './components/footer/term-of-services/term-of-services.component';
 import { QuoteComponent } from './components/footer/quote/quote.component';
@@ -31,6 +33,9 @@ import { CartTotalComponent } from './components/cart/cart-total/cart-total.comp
     SpecialOffersComponent,
     LoginRegistrationModalComponent,
     PolicyComponent,
+    ContactComponent,
+    LoginModalComponent,
+    RegistrationModalComponent,
     ContactComponent,
     ProductCardComponent,
     TermOfServicesComponent,

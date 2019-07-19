@@ -1,6 +1,6 @@
 export interface WineCard {
 
-  // image: Image;
+  image: string;
   id: number,
   name: string,
   price: number,
