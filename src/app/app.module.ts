@@ -35,7 +35,7 @@ import { CartTotalComponent } from './components/cart/cart-total/cart-total.comp
     PolicyComponent,
     ContactComponent,
     LoginModalComponent,
-    RegistrationModalComponent
+    RegistrationModalComponent,
     ContactComponent,
     ProductCardComponent,
     TermOfServicesComponent,
