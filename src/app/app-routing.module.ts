@@ -6,6 +6,7 @@ import {RedWhiteCategoriesComponent} from './components/landing-page/red-white-c
 import { ProductsComponent } from './components/products/products.component';
 import { ContactComponent } from './components/footer/contact/contact.component';
 import { PolicyComponent } from './components/footer/policy/policy.component';
+import { TermOfServicesComponent } from './components/footer/term-of-services/term-of-services.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: LandingPageComponent },
@@ -15,6 +16,8 @@ const routes: Routes = [
   {path: 'products/category-red', component: ProductsComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'policy', component: PolicyComponent },
+  { path: 'term-of-services', component: TermOfServicesComponent },
+
 ]
 
 

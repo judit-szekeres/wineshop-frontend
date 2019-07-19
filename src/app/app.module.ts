@@ -15,6 +15,7 @@ import { PolicyComponent } from './components/footer/policy/policy.component';
 import { ContactComponent } from './components/footer/contact/contact.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { TermOfServicesComponent } from './components/footer/term-of-services/term-of-services.component';
+import { QuoteComponent } from './components/footer/quote/quote.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { TermOfServicesComponent } from './components/footer/term-of-services/te
     PolicyComponent,
     ContactComponent,
     ProductCardComponent,
-    TermOfServicesComponent
+    TermOfServicesComponent,
+    QuoteComponent
   ],
   imports: [
     BrowserModule,
