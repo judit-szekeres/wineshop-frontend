@@ -20,6 +20,7 @@ import { TermOfServicesComponent } from './components/footer/term-of-services/te
 import { QuoteComponent } from './components/footer/quote/quote.component';
 import { CartTableComponent } from './components/cart/cart-table/cart-table.component';
 import { CartTotalComponent } from './components/cart/cart-total/cart-total.component';
+import { ValidateTokenComponent } from './components/validate-token/validate-token.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { CartTotalComponent } from './components/cart/cart-total/cart-total.comp
     TermOfServicesComponent,
     QuoteComponent,
     CartTableComponent,
-    CartTotalComponent
+    CartTotalComponent,
+    ValidateTokenComponent
   ],
   imports: [
     BrowserModule,
