@@ -23,22 +23,25 @@ export class SpecialOfferService {
     this.wineCards = [
 
       {
+        image: "https://cdn.pixabay.com/photo/2013/07/12/16/28/bordeaux-150955_960_720.png",
         id: 1,
         name: "Nagyon Finom",
         price: 15000,
         salePrice: 13000,
         rating: null, //null ha nincs
         numberOfRating: 0,
-},
+      },
       {
+        image: "https://cdn.pixabay.com/photo/2013/07/12/16/28/bordeaux-150955_960_720.png",
         id: 2,
         name: "Koccintós",
         price: 500,
         salePrice: 400,
         rating: null, //null ha nincs
         numberOfRating: 0,
-},
+      },
       {
+        image: "https://cdn.pixabay.com/photo/2013/07/12/16/28/bordeaux-150955_960_720.png",
         id: 3,
         name: "Teszt Bor",
         price: 20000,
