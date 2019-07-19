@@ -15,6 +15,11 @@ import { PolicyComponent } from './components/footer/policy/policy.component';
 import { ContactComponent } from './components/footer/contact/contact.component';
 import { LoginModalComponent } from './components/login-registration-modal/login-modal/login-modal.component';
 import { RegistrationModalComponent } from './components/login-registration-modal/registration-modal/registration-modal.component';
+import { ProductCardComponent } from './components/product-card/product-card.component';
+import { TermOfServicesComponent } from './components/footer/term-of-services/term-of-services.component';
+import { QuoteComponent } from './components/footer/quote/quote.component';
+import { CartTableComponent } from './components/cart/cart-table/cart-table.component';
+import { CartTotalComponent } from './components/cart/cart-total/cart-total.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +36,12 @@ import { RegistrationModalComponent } from './components/login-registration-moda
     ContactComponent,
     LoginModalComponent,
     RegistrationModalComponent
+    ContactComponent,
+    ProductCardComponent,
+    TermOfServicesComponent,
+    QuoteComponent,
+    CartTableComponent,
+    CartTotalComponent
   ],
   imports: [
     BrowserModule,
