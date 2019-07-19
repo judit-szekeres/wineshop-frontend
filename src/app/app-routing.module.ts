@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'policy', component: PolicyComponent },
   { path: 'term-of-services', component: TermOfServicesComponent },
+  { path: 'products', component: ProductsComponent },
 
 ]
 
