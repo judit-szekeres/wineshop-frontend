@@ -21,6 +21,7 @@ import { QuoteComponent } from './components/footer/quote/quote.component';
 import { CartTableComponent } from './components/cart/cart-table/cart-table.component';
 import { CartTotalComponent } from './components/cart/cart-total/cart-total.component';
 import { ValidateTokenComponent } from './components/validate-token/validate-token.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ValidateTokenComponent } from './components/validate-token/validate-tok
     QuoteComponent,
     CartTableComponent,
     CartTotalComponent,
-    ValidateTokenComponent
+    ValidateTokenComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
