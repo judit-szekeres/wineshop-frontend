@@ -1,14 +1,16 @@
-<div class="box p-50"><!-- Nav tabs --><!-- Tab panes -->
+<div class="box p-50">
+  <!-- Nav tabs -->
+  <!-- Tab panes -->
   <h3 class="f-25 p-t-0 line-default m-b-30">REGISTER FORM</h3>
-  <form>
-    <input type="text" class="form-item" placeholder="Full name">
-    <input type="text" class="form-item" placeholder="Username">
-    <input type="text" class="form-item" placeholder="Email">
-    <input type="password" class="form-item" placeholder="Password">
-    <input type="password" class="form-item" placeholder="Confrim password">
+
+    <div class="form-group">
+      <input type="text" class="form-item" [(ngModel)]="user.email" placeholder="Email">
+    </div>
+    <input type="password" class="form-item" [(ngModel)]="user.password" placeholder="Password">
+    <input type="password" class="form-item" [(ngModel)]="user.passwordConfirm" placeholder="Confrim password">
     <div class="checkbox">
       <label><input type="checkbox" value="">Lorem ipsum dolor sit amet consectetur</label>
     </div>
-    <button type="submit" class="ht-btn ht-btn-2x bg-dc4c46">Register</button>
-  </form>
+    <button type="submit" class="ht-btn ht-btn-2x bg-dc4c46" (click)="submit()">Register</button>
+
 </div>

@@ -7,6 +7,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { ContactComponent } from './components/footer/contact/contact.component';
 import { PolicyComponent } from './components/footer/policy/policy.component';
 import { TermOfServicesComponent } from './components/footer/term-of-services/term-of-services.component';
+import { LoginRegistrationModalComponent } from './components/login-registration-modal/login-registration-modal.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: LandingPageComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'policy', component: PolicyComponent },
   { path: 'term-of-services', component: TermOfServicesComponent },
+  { path: 'log-reg', component: LoginRegistrationModalComponent },
 
 ]
 
