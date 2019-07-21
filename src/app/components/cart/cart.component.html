@@ -13,7 +13,13 @@
         <div class="responsive_grid">
           <div class="row">
             <div class="col-sm-8">
-              <app-cart-table></app-cart-table>
+              <div class="row grid-table-heading">
+                <div class="col-xs-2 grid-item"></div>
+                <div class="col-xs-5 grid-item"><b>Product name</b></div>
+                <div class="col-xs-2 grid-item"><b>Quantity</b></div>
+                <div class="col-xs-2 grid-item"><b>Price</b></div>
+              </div>
+              <app-cart-table *ngFor="let c of choosenProducts" [choosenProduct]="c"></app-cart-table>
             </div>
             <div class="col-sm-4">
               <app-cart-total></app-cart-total>
