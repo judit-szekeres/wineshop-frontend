@@ -52,7 +52,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CarouselModule
+    CarouselModule,
     HttpClientModule,
     FormsModule
   ],
