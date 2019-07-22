@@ -25,6 +25,7 @@ export class SpecialOffersComponent implements OnInit {
   }
 
   @ViewChild('topCarousel', { static: true }) topCarousel: CarouselComponent;
+  public moreSlides = 2;
 
   ngOnInit() {
     this.specialOfferService.getWines().then(wineCards => {

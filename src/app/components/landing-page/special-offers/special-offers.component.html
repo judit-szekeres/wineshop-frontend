@@ -14,20 +14,20 @@
       <!-- Tab panes -->
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="tab-1">
-          <div class="container">
+          <div class="container-1">
             <!-- Carousel -->
             <tr class="row">
-              <th class="parameter-option btn-l col" align="left">
+              <th class="parameter-option btn-l" align="left">
                 <button class="" (click)="prev()">Prev</button>
               </th>
-              <th class="carousel-box col">
-                <carousel-component class="carousel-component" [autoPlay]="false" [delayAutoPlay]="3000" #topCarousel>
+              <th class="carousel-box">
+                <carousel-component class="carousel-component" [autoPlay]="false" [delayAutoPlay]="3000"  [morePairSlides]="moreSlides" #topCarousel>
                   <!-- Product Card -->
                   <app-product-card class="item-carousel" *ngFor="let w of wineCards" [wineCard]="w"></app-product-card>
                   <div class="item-carousel"></div>
                 </carousel-component>
               </th>
-              <th class="parameter-option btn-r col" align="right">
+              <th class="parameter-option btn-r " align="right">
                 <button class="" (click)="next()">Next</button>
               </th>
             </tr>

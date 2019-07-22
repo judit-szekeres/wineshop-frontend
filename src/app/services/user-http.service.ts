@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User, UserDTO } from '../interfaces/user';
-import { UserError } from '../errors/user-error';
+import { User } from '../interfaces/user';
 
 @Injectable({
   providedIn: 'root'
@@ -12,15 +11,8 @@ export class UserHttpService {
 
   constructor(private http: HttpClient) { }
 
-  private transformsUserDTO(serverData: UserDTO): User {
-    if (!serverData.success) {
-      throw new UserError(serverData['error-infos']);
-    }
-    return serverData.user;
-  }
-
   addUser(user: User): Promise<User> {
-    return this.http.post(this.URL, { user }, { withCredentials: true })
-      .toPromise().then(this.transformsUserDTO);
+    return this.http.post(this.URL, user , { withCredentials: true })
+      .toPromise() as Promise<User>;
   }
 }
