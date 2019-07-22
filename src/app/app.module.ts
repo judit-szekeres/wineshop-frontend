@@ -21,7 +21,6 @@ import { TermOfServicesComponent } from './components/footer/term-of-services/te
 import { QuoteComponent } from './components/footer/quote/quote.component';
 import { CartTableComponent } from './components/cart/cart-table/cart-table.component';
 import { CartTotalComponent } from './components/cart/cart-total/cart-total.component';
-import { ValidateTokenComponent } from './components/validate-token/validate-token.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -46,7 +45,6 @@ import { HttpClientModule } from '@angular/common/http';
     QuoteComponent,
     CartTableComponent,
     CartTotalComponent,
-    ValidateTokenComponent,
     ProductDetailsComponent
   ],
   imports: [
