@@ -1,6 +1,6 @@
 export enum Category {
-  WHITE,
-  RED
+  WHITE='WHITE',
+  RED='RED'
 }
 
 export interface PriceInterval {

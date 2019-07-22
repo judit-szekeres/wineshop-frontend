@@ -1,25 +1,11 @@
 <div class="box">
   <h3 class="title line-default">Search</h3>
-  <select class="form-item">
-    <option>Price</option>
-    <option>$20 - $100</option>
-    <option>100 - $500</option>
-    <option>$500- $5000</option>
-    <option>&gt; $5000</option>
-  </select>
-  <select class="form-item">
-    <option>Year</option>
-    <option>1998</option>
-    <option>2000</option>
-    <option>2007</option>
-    <option>2017</option>
-  </select>
-  <select class="form-item">
-    <option>Wine Size</option>
-    <option>100 ml</option>
-    <option>200 ml</option>
-    <option>300 ml</option>
-    <option>400 ml</option>
+  <label for="name">Name</label>
+  <input id="name" type="text" [(ngModel)]="filterSettings.name" name="" value="">
+
+  <label for="category">Category</label>
+  <select id="category" class="form-item">
+    <option *ngFor="let c of categories" value="{{c.key}}">{{c.value|category}}</option>
   </select>
   <a href="product_1.html#" class="ht-btn bg-dc4c46">Search</a>
 </div>

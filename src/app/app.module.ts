@@ -25,6 +25,7 @@ import {CarouselModule} from "ngx-carousel-lib";
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FilterSettingsComponent } from './components/products/filter-settings/filter-settings.component';
+import { CategoryPipe } from './pipes/category.pipe';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { FilterSettingsComponent } from './components/products/filter-settings/f
     CartTableComponent,
     CartTotalComponent,
     ProductDetailsComponent,
-    FilterSettingsComponent
+    FilterSettingsComponent,
+    CategoryPipe
   ],
   imports: [
     BrowserModule,
