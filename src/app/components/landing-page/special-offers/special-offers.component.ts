@@ -1,6 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { WineCard } from 'src/app/interfaces/wine';
 import { SpecialOfferService } from 'src/app/services/special-offer.service';
+import { enableProdMode } from "@angular/core";
+import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
+
+import { AppModule } from "../../../../app/app.module";
+import { environment } from "../../../../environments/environment";
+import { CarouselComponent } from 'ngx-carousel-lib/public_api';
+
 
 @Component({
   selector: 'landing-special-offers',
@@ -17,6 +24,8 @@ export class SpecialOffersComponent implements OnInit {
 
   }
 
+  @ViewChild('topCarousel', { static: true }) topCarousel: CarouselComponent;
+
   ngOnInit() {
     this.specialOfferService.getWines().then(wineCards => {
       this.wineCards = wineCards;
@@ -27,5 +36,11 @@ export class SpecialOffersComponent implements OnInit {
 
   };
 
+  prev() {
+    this.topCarousel.slidePrev();
+  }
+  next() {
+    this.topCarousel.slideNext();
+  }
 
 }

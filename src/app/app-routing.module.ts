@@ -8,6 +8,7 @@ import { ContactComponent } from './components/footer/contact/contact.component'
 import { PolicyComponent } from './components/footer/policy/policy.component';
 import { TermOfServicesComponent } from './components/footer/term-of-services/term-of-services.component';
 
+
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: LandingPageComponent },
   { path: 'landing-special-offers', component: SpecialOffersComponent },

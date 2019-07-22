@@ -28,7 +28,7 @@ export class SpecialOfferService {
         name: "Nagyon Finom",
         price: 15000,
         salePrice: 13000,
-        rating: null, //null ha nincs
+        rating: -1,
         numberOfRating: 0,
       },
       {
@@ -37,7 +37,7 @@ export class SpecialOfferService {
         name: "Koccintós",
         price: 500,
         salePrice: 400,
-        rating: null, //null ha nincs
+        rating: -1,
         numberOfRating: 0,
       },
       {
@@ -46,7 +46,7 @@ export class SpecialOfferService {
         name: "Teszt Bor",
         price: 20000,
         salePrice: 19000,
-        rating: null, //null ha nincs
+        rating: -1, 
         numberOfRating: 0,
       },
 
