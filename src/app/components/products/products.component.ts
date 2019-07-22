@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SpecialOfferService } from 'src/app/services/special-offer.service';
+import { WineCard } from 'src/app/interfaces/wine';
 
 @Component({
   selector: 'app-products',
