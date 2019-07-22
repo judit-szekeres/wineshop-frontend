@@ -8,7 +8,7 @@ import { UserError } from '../errors/user-error';
 })
 export class UserHttpService {
 
-  private readonly URL = 'http://192.168.1.232:8080/registration';
+  private readonly URL = 'http://192.168.1.231:8080/registration';
 
   constructor(private http: HttpClient) { }
 

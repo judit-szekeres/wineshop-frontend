@@ -27,7 +27,7 @@ export class RegistrationModalComponent implements OnInit {
 
   submit(): void {
     this.userService.addUser(this.user).then(() => {
-      this.router.navigate(['landing-special-offers']);
+      this.router.navigate(['reg-conf-page']);
     }).catch(userError => {
         this.errors = userError.errorInfos;
         console.log(this.errors);

@@ -24,6 +24,7 @@ import { CartTotalComponent } from './components/cart/cart-total/cart-total.comp
 import {CarouselModule} from "ngx-carousel-lib";
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RegConfirmationPageComponent } from './components/login-registration-modal/reg-confirmation-page/reg-confirmation-page.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { HttpClientModule } from '@angular/common/http';
     QuoteComponent,
     CartTableComponent,
     CartTotalComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    RegConfirmationPageComponent
   ],
   imports: [
     BrowserModule,
