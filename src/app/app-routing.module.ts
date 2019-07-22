@@ -8,6 +8,7 @@ import { ContactComponent } from './components/footer/contact/contact.component'
 import { PolicyComponent } from './components/footer/policy/policy.component';
 import { TermOfServicesComponent } from './components/footer/term-of-services/term-of-services.component';
 import { LoginRegistrationModalComponent } from './components/login-registration-modal/login-registration-modal.component';
+import { CartComponent } from './components/cart/cart.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,7 @@ const routes: Routes = [
   { path: 'term-of-services', component: TermOfServicesComponent },
   { path: 'log-reg', component: LoginRegistrationModalComponent },
   { path: 'products', component: ProductsComponent },
-
+  { path: 'cart', component: CartComponent },
 ]
 
 
