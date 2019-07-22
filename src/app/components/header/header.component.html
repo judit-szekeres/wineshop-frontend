@@ -10,24 +10,25 @@
             <ul>
               <li><a routerLink="/">home</a></li>
               <li class="dropdown">
-                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">product</a>
+                <a routerLink="/products" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">product</a>
                 <ul class="dropdown-menu">
-                  <li><a href="">White wines</a></li>
-                  <li><a href="">Red wines</a></li>
-                  <li><a href="">Rozé wines</a></li>
+                  <li><a routerLink="/products/category-white">White wines</a></li>
+                  <li><a routerLink="/products/category-red">Red wines</a></li>
+                  <li><a routerLink="/products/category-rose">Rozé wines</a></li>
                 </ul>
               </li>
               <li><a routerLink="/contact">contact</a></li>
-              <li><a href="">login/registration</a></li>
+              <li><a routerLink="/log-reg">login/registration</a></li>
             </ul>
           </nav>
         </div>
         <div class="col-xs-6 col-sm-2 text-right">
           <ul class="list list-inline pull-right m-t-5">
+
             <li>
               <i class="fa icon-search f-18 icon-30 text-center fa-search"></i>
             </li>
-            <li class="pull-right">
+            <li>
               <div class="cart dropdown">
                 <a href="" class="cart-item dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <span>2</span>
@@ -35,8 +36,8 @@
                 </a>
               </div>
             </li>
-            <li class="menu-btn">
-              <i class="fa fa-bars f-18 icon-30 text-right"></i>
+            <li>
+              <i class="fa fa-user f-18 icon-30" aria-hidden="true"></i>
             </li>
           </ul>
         </div>
