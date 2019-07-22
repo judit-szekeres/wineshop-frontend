@@ -1,0 +1,11 @@
+<div class="box">
+  <h3 class="title line-default">Search</h3>
+  <label for="name">Name</label>
+  <input id="name" type="text" [(ngModel)]="filterSettings.name" name="" value="">
+
+  <label for="category">Category</label>
+  <select id="category" class="form-item">
+    <option *ngFor="let c of categories" value="{{c.key}}">{{c.value|category}}</option>
+  </select>
+  <a href="product_1.html#" class="ht-btn bg-dc4c46">Search</a>
+</div>
