@@ -14,9 +14,23 @@
       <!-- Tab panes -->
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="tab-1">
-          <div class="row">
-              <!-- Product Card -->
-            <app-product-card class="" *ngFor="let w of wineCards" [wineCard]="w" ></app-product-card>
+          <div class="container">
+            <!-- Carousel -->
+            <tr class="row">
+              <th class="parameter-option btn-l col" align="left">
+                <button class="" (click)="prev()">Prev</button>
+              </th>
+              <th class="carousel-box col">
+                <carousel-component class="carousel-component" [autoPlay]="false" [delayAutoPlay]="3000" #topCarousel>
+                  <!-- Product Card -->
+                  <app-product-card class="item-carousel" *ngFor="let w of wineCards" [wineCard]="w"></app-product-card>
+                  <div class="item-carousel"></div>
+                </carousel-component>
+              </th>
+              <th class="parameter-option btn-r col" align="right">
+                <button class="" (click)="next()">Next</button>
+              </th>
+            </tr>
           </div>
         </div>
       </div>

@@ -10,6 +10,7 @@ import { TermOfServicesComponent } from './components/footer/term-of-services/te
 import { LoginRegistrationModalComponent } from './components/login-registration-modal/login-registration-modal.component';
 import {CartComponent} from './components/cart/cart.component';
 
+
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: LandingPageComponent },
   { path: 'landing-special-offers', component: SpecialOffersComponent },

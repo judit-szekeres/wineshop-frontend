@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/interfaces/user';
 import { UserHttpService } from 'src/app/services/user-http.service';
 import { Router } from '@angular/router';
