@@ -13,7 +13,8 @@ export class RegistrationModalComponent implements OnInit {
 
   user: User;
   errors: string;
-  badData: boolean;
+  emailErrorMessage = 'Email already exist!';
+  emailError : boolean;
 
   constructor(private userService: UserHttpService, private router: Router) {
     this.user = {
@@ -22,7 +23,7 @@ export class RegistrationModalComponent implements OnInit {
       passwordConfirm: ''
     }
     this.errors = '';
-    this.badData = false;
+    this.emailError = false;
   }
 
   ngOnInit() {
@@ -30,13 +31,12 @@ export class RegistrationModalComponent implements OnInit {
 
   submit(): void {
     this.userService.addUser(this.user).then(() => {
-      this.router.navigate(['']);
+      this.router.navigate(['/reg-conf-page']);
+      this.emailError = false;
     }).catch(userError => {
-        console.log(userError);
-        this.errors = userError.status;
+        this.errors = userError.error.code;
         if(this.errors == '409'){
-            this.badData = true;
-            console.log('Már létező email.')
+            this.emailError = true;
         }
       });
   }

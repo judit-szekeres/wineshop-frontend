@@ -7,7 +7,7 @@ import { User } from '../interfaces/user';
 })
 export class UserHttpService {
 
-  private readonly URL = 'http://192.168.1.231:8080/registration';
+  private readonly URL = 'http://192.168.1.131:8080/registration';
 
   constructor(private http: HttpClient) { }
 
