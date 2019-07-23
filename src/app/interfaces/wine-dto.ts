@@ -1,8 +1,11 @@
 import { WineCard } from './wine';
 
-export interface WineCardDTO {
-
+export interface WineCardResultsDTO {
   success: boolean,
-  wineCards: WineCard[]
+  wineCardsResults: WineCardResults
+}
 
+export interface WineCardResults{
+  wines: WineCard[],
+  numberOfPage: number
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { WineCard } from 'src/app/interfaces/wine';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProductHttpService } from 'src/app/services/product-http.service';
+import { WineCardResults } from 'src/app/interfaces/wine-dto';
 
 
 @Component({
@@ -11,12 +12,11 @@ import { ProductHttpService } from 'src/app/services/product-http.service';
 })
 export class ProductsComponent implements OnInit {
 
+  wineCardResults:WineCardResults;
   wineCards: WineCard[];
 
   constructor(private productHttpService: ProductHttpService, private route: ActivatedRoute) {
-
     this.wineCards = [];
-
   }
 
   ngOnInit() {
@@ -27,8 +27,10 @@ export class ProductsComponent implements OnInit {
   }
 
   refresh() {
-    this.productHttpService.getWines().then(wineCards => {
-      this.wineCards = wineCards;
+    this.productHttpService.getWines().then(wineCardResults => {
+      console.log(wineCardResults);
+      this.wineCardResults = wineCardResults;
+      this.wineCards=wineCardResults.wines;
     });
   };
 
