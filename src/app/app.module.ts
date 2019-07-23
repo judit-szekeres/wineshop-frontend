@@ -24,7 +24,10 @@ import { CartTotalComponent } from './components/cart/cart-total/cart-total.comp
 import {CarouselModule} from "ngx-carousel-lib";
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { RegConfirmationPageComponent } from './components/login-registration-modal/reg-confirmation-page/reg-confirmation-page.component';
+import { FilterSettingsComponent } from './components/products/filter-settings/filter-settings.component';
+import { CategoryPipe } from './pipes/category.pipe';
+import { ValidateTokenComponent } from './components/login-registration-modal/validate-token/validate-token.component';
 
 @NgModule({
   declarations: [
@@ -47,8 +50,12 @@ import { HttpClientModule } from '@angular/common/http';
     QuoteComponent,
     CartTableComponent,
     CartTotalComponent,
-    ProductDetailsComponent
-  ],
+    ProductDetailsComponent,
+    RegConfirmationPageComponent,
+    FilterSettingsComponent,
+    CategoryPipe,
+    ValidateTokenComponent,
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,

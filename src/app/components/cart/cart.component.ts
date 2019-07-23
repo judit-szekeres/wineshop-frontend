@@ -9,16 +9,20 @@ import { WineCard } from "../../interfaces/wine";
   styleUrls: ["./cart.component.css"]
 })
 export class CartComponent implements OnInit {
-  
-  choosenProducts:WineCard[];
 
+  choosenProducts:WineCard[];
+  refreshedProducts:WineCard[];
 
   constructor(public service:CartService) {
-    this.choosenProducts=this.service.addedProduct;
+    this.choosenProducts=[];
   }
 
 
   ngOnInit() {
+    this.choosenProducts=this.service.addedProduct;
+  }
 
+  refreshCartTable(refreshedProducts:WineCard[]):void{
+    this.choosenProducts=refreshedProducts;
   }
 }

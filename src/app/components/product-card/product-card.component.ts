@@ -11,6 +11,9 @@ export class ProductCardComponent implements OnInit {
     @Input()
     wineCard: WineCard;
 
+    @Input()
+    fullWidth: boolean;
+
   constructor() { }
 
   ngOnInit() {
