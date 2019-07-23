@@ -8,25 +8,24 @@ import { CartService } from "../../../services/cart.service";
   styleUrls: ["./cart-table.component.css"]
 })
 export class CartTableComponent implements OnInit {
-
-
   @Input()
-  choosenProduct:WineCard;
+  choosenProduct: WineCard;
   @Output()
   refresh: EventEmitter<WineCard[]> = new EventEmitter();
-
+  @Output()
+  updateQuantity: EventEmitter<null> = new EventEmitter();
 
   constructor(public selectedProducts: CartService) {}
 
   ngOnInit() {}
 
-
-
-
-
-
-  delete(): void {
-    this.refresh.emit(this.selectedProducts.deleteProductFromCart(this.choosenProduct.id));
+  changeQuantity(): void {
+    this.updateQuantity.emit();
   }
 
+  delete(): void {
+    this.refresh.emit(
+      this.selectedProducts.deleteProductFromCart(this.choosenProduct.id)
+    );
+  }
 }

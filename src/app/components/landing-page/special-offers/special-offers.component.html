@@ -13,9 +13,10 @@
     <!-- Carousel -->
     <div class="row">
       <div class="col-xs-1 parameter-option btn-l">
-        <button class="" (click)="prev()"> Prev</button>
+        <button class="fa fa-arrow-circle-o-left" (click)="prev()"></button>
       </div>
       <div class="col-xs-10 carousel-box">
+          <br>
         <carousel-component class="carousel-component" [autoPlay]="false" [morePairSlides]="moreSlides" [initialSlide]="1" #topCarousel>
           <!-- Product Card -->
           <app-product-card class="item-carousel" *ngFor="let w of wineCards" [wineCard]="w" [fullWidth]="true"></app-product-card>
@@ -23,7 +24,7 @@
         </carousel-component>
       </div>
       <div class="col-xs-1 parameter-option btn-r">
-        <button class="" (click)="next()">Next</button>
+        <button class="fa fa-arrow-circle-o-right" (click)="next()"></button>
       </div>
     </div>
   </div>
