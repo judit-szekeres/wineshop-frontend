@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from "@angular/core";
+import { Component,EventEmitter, OnInit,Input,Output } from "@angular/core";
 import { WineCard } from "../../../interfaces/wine";
 import { CartService } from "../../../services/cart.service";
 
@@ -8,10 +8,12 @@ import { CartService } from "../../../services/cart.service";
   styleUrls: ["./cart-table.component.css"]
 })
 export class CartTableComponent implements OnInit {
-  
+
 
   @Input()
   choosenProduct:WineCard;
+  @Output()
+  refresh: EventEmitter<WineCard[]> = new EventEmitter();
 
 
   constructor(public selectedProducts: CartService) {}
@@ -22,7 +24,9 @@ export class CartTableComponent implements OnInit {
 
 
 
+
   delete(): void {
-    this.selectedProducts.addedProduct[0].name = this.selectedProducts.addedProduct[1].name;
+    this.refresh.emit(this.selectedProducts.deleteProductFromCart(this.choosenProduct.id));
   }
+
 }

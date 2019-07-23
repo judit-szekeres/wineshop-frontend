@@ -12,7 +12,8 @@ import { Router } from '@angular/router';
 export class RegistrationModalComponent implements OnInit {
 
   user: User;
-  errors: string[];
+  errors: string;
+  badData: boolean;
 
   constructor(private userService: UserHttpService, private router: Router) {
     this.user = {
@@ -20,6 +21,8 @@ export class RegistrationModalComponent implements OnInit {
       password: '',
       passwordConfirm: ''
     }
+    this.errors = '';
+    this.badData = false;
   }
 
   ngOnInit() {
@@ -27,10 +30,14 @@ export class RegistrationModalComponent implements OnInit {
 
   submit(): void {
     this.userService.addUser(this.user).then(() => {
-      this.router.navigate(['landing-special-offers']);
+      this.router.navigate(['']);
     }).catch(userError => {
-        this.errors = userError.errorInfos;
-        console.log(this.errors);
+        console.log(userError);
+        this.errors = userError.status;
+        if(this.errors == '409'){
+            this.badData = true;
+            console.log('Már létező email.')
+        }
       });
   }
 }

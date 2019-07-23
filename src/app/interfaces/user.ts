@@ -3,8 +3,3 @@ export interface User {
     password:string;
     passwordConfirm :string;
 }
-
-export interface UserDTO {
-    success: boolean;
-    user: User;
-}

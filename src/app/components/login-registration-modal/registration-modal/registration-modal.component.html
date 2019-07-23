@@ -2,15 +2,13 @@
   <!-- Nav tabs -->
   <!-- Tab panes -->
   <h3 class="f-25 p-t-0 line-default m-b-30">REGISTER FORM</h3>
-
     <div class="form-group">
       <input type="text" class="form-item" [(ngModel)]="user.email" placeholder="Email">
     </div>
     <input type="password" class="form-item" [(ngModel)]="user.password" placeholder="Password">
     <input type="password" class="form-item" [(ngModel)]="user.passwordConfirm" placeholder="Confrim password">
     <div class="checkbox">
-      <label><input type="checkbox" value="">By clicking "Register" I agree that I have read and accepted the Terms of services.</label>
+      <label><input type="checkbox" value="">By clicking "Register" I agree that I have read and accepted the <a routerLink="/term-of-services">Terms of services.</a></label>
     </div>
     <button type="submit" class="ht-btn ht-btn-2x bg-dc4c46" (click)="submit()">Register</button>
-
 </div>
