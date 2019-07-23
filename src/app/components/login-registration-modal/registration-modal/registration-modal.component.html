@@ -3,21 +3,25 @@
   <!-- Tab panes -->
   <h3 class="f-25 p-t-0 line-default m-b-30">REGISTER FORM</h3>
 
-    <div class="form-group" [ngClass]="{ 'has-error' : emailError}">
+    <div class="form-group" [ngClass]="{ 'has-error' : emailAlreadyExist || emailNotValidEmail}">
       <input type="text" class="form-control" [(ngModel)]="user.email" placeholder="Email">
-      <div class="text-danger" *ngIf="emailError"> {{ emailErrorMessage }} </div>
+      <div class="text-danger" *ngIf="emailAlreadyExist"> {{ emailAlreadyExistMessage }} </div>
+      <div class="text-danger" *ngIf="emailNotValidEmail"> {{ emailNotValidEmailMessage }} </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" [ngClass]="{ 'has-error' : passwordNotInRange || passwordDoesNotMatch}">
     <input type="password" class="form-control" [(ngModel)]="user.password" placeholder="Password">
     </div>
 
-    <div class="form-group">
+    <div class="form-group" [ngClass]="{ 'has-error' : passwordNotInRange || passwordDoesNotMatch}">
     <input type="password" class="form-control" [(ngModel)]="user.passwordConfirm" placeholder="Confrim password">
+    <div class="text-danger" *ngIf="passwordDoesNotMatch"> {{ passwordDoesNotMatchMessage }} </div>
+    <div class="text-danger" *ngIf="passwordNotInRange"> {{ passwordNotInRangeMessage }} </div>
     </div>
 
     <div class="checkbox">
-      <label><input type="checkbox" value="">By clicking "Register" I agree that I have read and accepted the <a routerLink="/term-of-services">Terms of services.</a></label>
+      <label><input type="checkbox" [(ngModel)]="checkboxValue" value="">By clicking "Register" I agree that I have read and accepted the <a routerLink="/term-of-services">Terms of services.</a></label>
+      <div class="text-danger" *ngIf="!checkboxValue && clickSubmit"> {{ checkboxValueMessage }} </div>
     </div>
     <button type="submit" class="ht-btn ht-btn-2x bg-dc4c46" (click)="submit()">Register</button>
 </div>

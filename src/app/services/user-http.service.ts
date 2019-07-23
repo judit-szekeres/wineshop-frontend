@@ -8,7 +8,7 @@ import { Usercredentials } from '../interfaces/usercredentials'
 })
 export class UserHttpService {
 
-  private readonly URL = 'http://192.168.1.131:8080/registration';
+  private readonly URL = 'http://192.168.1.231:8080';
 
   constructor(private http: HttpClient) { }
 
@@ -18,7 +18,10 @@ export class UserHttpService {
   }
 
   loginUser(user: Usercredentials): Promise<null> {
-    return this.http.post(this.URL + '/login', user , { withCredentials: true })
+      const formData = new FormData();
+      formData.append('username', user.email);
+      formData.append('password', user.password);
+      return this.http.post(this.URL + '/login', formData , { withCredentials: true })
       .toPromise() as Promise<null>;
   }
 }
