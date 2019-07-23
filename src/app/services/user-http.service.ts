@@ -54,4 +54,9 @@ export class UserHttpService {
           return o.pipe(map( u => !! (u as User).id ));
       }
   }
+
+    validateUser(token: string): Promise<null> {
+      return this.http.get(this.URL + '/validation?token=' + token, { withCredentials: true })
+        .toPromise() as Promise<null>;
+    }
 }
