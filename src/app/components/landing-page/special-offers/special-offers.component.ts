@@ -17,16 +17,15 @@ import { CarouselComponent } from 'ngx-carousel-lib/public_api';
 export class SpecialOffersComponent implements OnInit {
 
   wineCards: WineCard[];
+  public moreSlides = 4;
+  @ViewChild('topCarousel', { static: true })
+  topCarousel: CarouselComponent;
 
   constructor(private specialOfferService: SpecialOfferService) {
 
     this.wineCards = [];
 
   }
-
-  @ViewChild('topCarousel', { static: true }) topCarousel: CarouselComponent;
-  public moreSlides = 2;
-
   ngOnInit() {
     this.specialOfferService.getWines().then(wineCards => {
       this.wineCards = wineCards;
