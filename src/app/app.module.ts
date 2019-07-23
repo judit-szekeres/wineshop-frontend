@@ -25,8 +25,12 @@ import {CarouselModule} from "ngx-carousel-lib";
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegConfirmationPageComponent } from './components/login-registration-modal/reg-confirmation-page/reg-confirmation-page.component';
+<<<<<<< Updated upstream
 import { FilterSettingsComponent } from './components/products/filter-settings/filter-settings.component';
 import { CategoryPipe } from './pipes/category.pipe';
+=======
+import { ValidateTokenComponent } from './components/login-registration-modal/validate-token/validate-token.component';
+>>>>>>> Stashed changes
 
 
 @NgModule({
@@ -52,8 +56,12 @@ import { CategoryPipe } from './pipes/category.pipe';
     CartTotalComponent,
     ProductDetailsComponent,
     RegConfirmationPageComponent,
+<<<<<<< Updated upstream
     FilterSettingsComponent,
     CategoryPipe
+=======
+    ValidateTokenComponent
+>>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,
