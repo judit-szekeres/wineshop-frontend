@@ -16,7 +16,7 @@ export class ValidateTokenComponent implements OnInit {
   ngOnInit() {
     this.token = this.route.snapshot.paramMap.get('token');
     this.userHttpService.validateUser(this.token).then(() => {
-      this.router.navigate(['/reg-conf-page']);
+      this.router.navigate(['/successful-registration-page']);
     }).catch(() => {
       this.router.navigate(['/full']);
     });
