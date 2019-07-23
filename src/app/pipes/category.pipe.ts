@@ -7,11 +7,11 @@ import { Category } from '../interfaces/filter-settings';
 export class CategoryPipe implements PipeTransform {
 
   transform(value: Category): string {
-    let cat:string;
+    let cat: string;
 
-    switch(value){
-      case Category.RED: cat='Red';break;
-      case Category.WHITE: cat='White';break;
+    switch (value) {
+      case Category.RED: cat = 'Red'; break;
+      case Category.WHITE: cat = 'White'; break;
     }
 
     return cat;

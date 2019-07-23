@@ -18,7 +18,10 @@ export class UserHttpService {
   }
 
   loginUser(user: Usercredentials): Promise<null> {
-    return this.http.post(this.URL + '/login', user , { withCredentials: true })
+      const formData = new FormData();
+      formData.append('username', user.email);
+      formData.append('password', user.password);
+      return this.http.post(this.URL + '/login', formData , { withCredentials: true })
       .toPromise() as Promise<null>;
   }
 
