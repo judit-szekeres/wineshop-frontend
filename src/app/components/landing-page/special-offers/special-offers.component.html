@@ -16,6 +16,7 @@
         <button class="fa fa-arrow-circle-o-left" (click)="prev()"></button>
       </div>
       <div class="col-xs-10 carousel-box">
+          <br>
         <carousel-component class="carousel-component" [autoPlay]="false" [morePairSlides]="moreSlides" [initialSlide]="1" #topCarousel>
           <!-- Product Card -->
           <app-product-card class="item-carousel" *ngFor="let w of wineCards" [wineCard]="w" [fullWidth]="true"></app-product-card>
