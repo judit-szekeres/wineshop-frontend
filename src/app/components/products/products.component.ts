@@ -19,6 +19,7 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit() {
     this.specialOfferService.getWines().then(wineCards => {
+      let id:number=this.route.snapshot.paramMap.get('category');
       this.wineCards = wineCards;
     });
   }
