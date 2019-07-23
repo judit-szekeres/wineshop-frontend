@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Category } from '../../../interfaces/category';
+
 
 @Component({
   selector: 'app-red-white-categories',
@@ -9,10 +9,10 @@ import { Category } from '../../../interfaces/category';
 export class RedWhiteCategoriesComponent implements OnInit {
 
 
-  category:Category;
+
 
   constructor() {
-    this.category={white:false, red:false};
+    
 
    }
 
@@ -20,13 +20,5 @@ export class RedWhiteCategoriesComponent implements OnInit {
   ngOnInit() {
   }
 
-  chooseWhite() {
-    this.category.white=true;
-    this.category.red=false;
-  }
 
-  chooseRed() {
-    this.category.red=true;
-    this.category.white=false;
-  }
 }
