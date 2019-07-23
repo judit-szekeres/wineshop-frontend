@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SpecialOfferService } from 'src/app/services/special-offer.service';
 import { WineCard } from 'src/app/interfaces/wine';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ProductHttpService } from 'src/app/services/product-http.service';
+
 
 @Component({
   selector: 'app-products',
@@ -11,21 +13,23 @@ export class ProductsComponent implements OnInit {
 
   wineCards: WineCard[];
 
-  constructor(private specialOfferService: SpecialOfferService) {
+  constructor(private productHttpService: ProductHttpService, private route: ActivatedRoute) {
 
     this.wineCards = [];
 
   }
 
   ngOnInit() {
-    this.specialOfferService.getWines().then(wineCards => {
-      let id:number=this.route.snapshot.paramMap.get('category');
-      this.wineCards = wineCards;
-    });
+      let category: string = this.route.snapshot.paramMap.get('category');
+      if (category == null) {
+        this.refresh();
+      }
   }
 
-  getWineCards() {
-
+  refresh() {
+    this.productHttpService.getWines().then(wineCards => {
+      this.wineCards = wineCards;
+    });
   };
 
 }
