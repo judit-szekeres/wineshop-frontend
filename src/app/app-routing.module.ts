@@ -11,6 +11,7 @@ import { LoginRegistrationModalComponent } from './components/login-registration
 import {CartComponent} from './components/cart/cart.component';
 import { RegConfirmationPageComponent } from './components/login-registration-modal/reg-confirmation-page/reg-confirmation-page.component';
 import { ValidateTokenComponent } from './components/login-registration-modal/validate-token/validate-token.component';
+import { SuccessfulRegistrationPageComponent } from './components/login-registration-modal/successful-registration-page/successful-registration-page.component';
 import { CheckoutComponent } from "./components/checkout/checkout.component";
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'reg-conf-page', component: RegConfirmationPageComponent },
   { path: 'validate/:token', component: ValidateTokenComponent },
   { path: 'checkout', component: CheckoutComponent }
+  { path: 'successful-registration-page', component: SuccessfulRegistrationPageComponent },
 ]
 
 

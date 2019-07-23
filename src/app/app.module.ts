@@ -28,6 +28,7 @@ import { RegConfirmationPageComponent } from './components/login-registration-mo
 import { FilterSettingsComponent } from './components/products/filter-settings/filter-settings.component';
 import { CategoryPipe } from './pipes/category.pipe';
 import { ValidateTokenComponent } from './components/login-registration-modal/validate-token/validate-token.component';
+import { SuccessfulRegistrationPageComponent } from './components/login-registration-modal/successful-registration-page/successful-registration-page.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 
 @NgModule({
@@ -57,6 +58,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     CategoryPipe,
     ValidateTokenComponent,
     CheckoutComponent,
+    SuccessfulRegistrationPageComponent,
     ],
   imports: [
     BrowserModule,
