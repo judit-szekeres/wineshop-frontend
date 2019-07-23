@@ -20,6 +20,7 @@
                 <div class="col-xs-2 grid-item"><b>Quantity</b></div>
                 <div class="col-xs-2 grid-item"><b>Price</b></div>
               </div>
+              <div *ngIf="this.choosenProducts.length == 0" class="alert">Your cart is empty.</div>
               <app-cart-table *ngFor="let c of choosenProducts"
                 [choosenProduct]="c" (refresh)="refreshCartTable($event)" (updateQuantity)="udpateQuantity(c)"></app-cart-table>
             </div>
