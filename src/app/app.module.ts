@@ -29,6 +29,7 @@ import { FilterSettingsComponent } from './components/products/filter-settings/f
 import { CategoryPipe } from './pipes/category.pipe';
 import { ValidateTokenComponent } from './components/login-registration-modal/validate-token/validate-token.component';
 import { SuccessfulRegistrationPageComponent } from './components/login-registration-modal/successful-registration-page/successful-registration-page.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { SuccessfulRegistrationPageComponent } from './components/login-registra
     FilterSettingsComponent,
     CategoryPipe,
     ValidateTokenComponent,
+    CheckoutComponent,
     SuccessfulRegistrationPageComponent,
     ],
   imports: [

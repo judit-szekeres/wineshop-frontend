@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Usercredentials } from 'src/app/interfaces/usercredentials';
 import { UserHttpService } from 'src/app/services/user-http.service';
 import { Router } from '@angular/router';
+import { User } from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-login-modal',
@@ -10,15 +10,13 @@ import { Router } from '@angular/router';
 })
 export class LoginModalComponent implements OnInit {
 
-  user: Usercredentials;
+  user: User;
   errors: string;
   badData: boolean;
   emailNotValidEmail : boolean;
-  emailNotRegistered : boolean;
-  invalidPassword : boolean;
+  emailNotRegisteredOrIncorrectPassword : boolean;
   emailNotValidEmailMessage = 'Invalid email address!';
-  emailNotRegisteredMessage = 'Not registered email address!'
-  invalidPasswordMessage = 'Incorrect password!';
+  emailNotRegisteredOrIncorrectPasswordMessage = 'Not registered email address or incorrect password!';
 
   constructor(private userService: UserHttpService, private router: Router) {
     this.user = {
@@ -26,31 +24,25 @@ export class LoginModalComponent implements OnInit {
       password: ''
     }
     this.errors = '';
-    this.emailNotRegistered = false;
+    this.emailNotRegisteredOrIncorrectPassword = false;
     this.emailNotValidEmail = false;
-    this.invalidPassword = false;
   }
 
   ngOnInit() {
   }
   submit(): void {
       this.emailNotValidEmail = false;
-      this.invalidPassword = false;
+      this.emailNotRegisteredOrIncorrectPassword = false;
     if(! this.isEmailValid() ){
         this.emailNotValidEmail = true;
     }else{
-        this.userService.loginUser(this.user).then(() => {
+        this.userService.loginUser(this.user).then( response => {
           this.router.navigate(['']);
-        }).catch(userError => {
-            console.log(userError);
-            this.errors = userError.status;
-            if(this.errors == '401'){
-                this.isEmailValid();
-                console.log('Hibás login.')
-            }
-          });
+          console.log(response);
+        }).catch(() => {
+            this.emailNotRegisteredOrIncorrectPassword = true;
+        });
     }
-
   }
 
   isEmailValid(): boolean {
