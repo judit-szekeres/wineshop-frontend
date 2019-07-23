@@ -17,7 +17,8 @@ export class CartService {
         price: 2000,
         salePrice: 2000,
         rating: 666,
-        numberOfRating: 1
+        numberOfRating: 1,
+        quantity: 2
       },
       {
         image: "",
@@ -26,7 +27,8 @@ export class CartService {
         price: 1000,
         salePrice: 2000,
         rating: 666,
-        numberOfRating: 1
+        numberOfRating: 1,
+        quantity: 4
       },
       {
         image: "",
@@ -35,7 +37,8 @@ export class CartService {
         price: 1500,
         salePrice: 2000,
         rating: 666,
-        numberOfRating: 1
+        numberOfRating: 1,
+        quantity: 3
       }
     ];
     this.newProductArray = [];
@@ -81,5 +84,7 @@ export class CartService {
 
 
   }
+
+
 
 }
