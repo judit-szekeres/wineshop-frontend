@@ -21,4 +21,9 @@ export class UserHttpService {
     return this.http.post(this.URL + '/login', user , { withCredentials: true })
       .toPromise() as Promise<null>;
   }
+
+    validateUser(token: string): Promise<null> {
+      return this.http.get(this.URL + '/validation?token=' + token, { withCredentials: true })
+        .toPromise() as Promise<null>;
+    }
 }
