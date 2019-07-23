@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserHttpService } from 'src/app/services/user-http.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -8,8 +10,11 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router: Router) { }
+    currentUserLoggedIn$: Observable<boolean>;
+
+  constructor(private router: Router, public userService: UserHttpService) { }
 
   ngOnInit() {
+      this.currentUserLoggedIn$ = this.userService.isUserLoggedIn();
   }
 }
