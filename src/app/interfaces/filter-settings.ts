@@ -3,24 +3,15 @@ export enum Category {
   RED='RED'
 }
 
-export interface PriceInterval {
-  minPrice: number;
-  maxPrice: number;
-}
-
-export interface YearInterval {
-  yearFrom: number;
-  yearTo: number;
-}
-
 export interface FilterSettings {
-  name: string;
-  category: Category;
-  priceInterval: PriceInterval;
-  onSale: boolean;
-  grapeType: string;
-  winery: string;
-  region: string;
-  country: string;
-  year: YearInterval;
+  name?: string;
+  category?: Category;
+  minPrice?: number;
+  maxPrice?: number;
+  onSale?: boolean;
+  winery?: string;
+  region?: string;
+  country?: string;
+  yearFrom?: number;
+  yearTo?: number;
 }

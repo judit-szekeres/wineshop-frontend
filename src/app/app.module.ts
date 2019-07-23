@@ -27,7 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegConfirmationPageComponent } from './components/login-registration-modal/reg-confirmation-page/reg-confirmation-page.component';
 import { FilterSettingsComponent } from './components/products/filter-settings/filter-settings.component';
 import { CategoryPipe } from './pipes/category.pipe';
-
+import { ValidateTokenComponent } from './components/login-registration-modal/validate-token/validate-token.component';
 
 @NgModule({
   declarations: [
@@ -53,8 +53,9 @@ import { CategoryPipe } from './pipes/category.pipe';
     ProductDetailsComponent,
     RegConfirmationPageComponent,
     FilterSettingsComponent,
-    CategoryPipe
-  ],
+    CategoryPipe,
+    ValidateTokenComponent,
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,

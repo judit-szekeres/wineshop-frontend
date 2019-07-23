@@ -17,13 +17,14 @@ export class FilterSettingsComponent implements OnInit {
     this.filterSettings={
       name: '',
       category: null,
-      priceInterval: null,
+      minPrice: null,
+      maxPrice: null,
       onSale: null,
-      grapeType:  '',
       winery:  '',
       region:  '',
       country:  '',
-      year: null
+      yearFrom: null,
+      yearTo: null
     }
     this.categories=this.categoryService.getCategoryArray();
   }
