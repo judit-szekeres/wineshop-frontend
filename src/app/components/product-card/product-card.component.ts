@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { WineCard } from 'src/app/interfaces/wine';
+import { WineDataModalComponent } from '../wine-data-modal/wine-data-modal.component';
 
 @Component({
   selector: 'app-product-card',
@@ -8,15 +9,27 @@ import { WineCard } from 'src/app/interfaces/wine';
 })
 export class ProductCardComponent implements OnInit {
 
-    @Input()
-    wineCard: WineCard;
+  @Input()
+  wineCard: WineCard;
 
-    @Input()
-    fullWidth: boolean;
+  @Input()
+  fullWidth: boolean;
 
-  constructor() { }
+  private wineModalNeeded: boolean;
+
+  constructor() {
+    this.wineModalNeeded = false;
+  }
 
   ngOnInit() {
+  }
+
+  openLoginModal(): void {
+    this.wineModalNeeded = true;
+  }
+
+  closeLoginModal(): void {
+    this.wineModalNeeded = false;
   }
 
 }

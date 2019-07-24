@@ -11,6 +11,7 @@ import { LoginRegistrationModalComponent } from './components/login-registration
 import {CartComponent} from './components/cart/cart.component';
 import { RegConfirmationPageComponent } from './components/login-registration-modal/reg-confirmation-page/reg-confirmation-page.component';
 
+
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: LandingPageComponent },
   { path: 'landing-special-offers', component: SpecialOffersComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'products', component: ProductsComponent },
   { path: 'cart', component: CartComponent },
   { path: 'reg-conf-page', component: RegConfirmationPageComponent },
+
 
 ]
 
