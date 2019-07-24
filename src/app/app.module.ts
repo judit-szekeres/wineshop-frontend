@@ -30,6 +30,7 @@ import { CategoryPipe } from './pipes/category.pipe';
 import { ValidateTokenComponent } from './components/login-registration-modal/validate-token/validate-token.component';
 import { SuccessfulRegistrationPageComponent } from './components/login-registration-modal/successful-registration-page/successful-registration-page.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { PreviousOrderComponent } from './components/header/previous-order/previous-order.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     ValidateTokenComponent,
     CheckoutComponent,
     SuccessfulRegistrationPageComponent,
+    PreviousOrderComponent,
     ],
   imports: [
     BrowserModule,
