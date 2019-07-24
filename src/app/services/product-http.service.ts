@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { WineCardResults } from '../interfaces/wine-dto';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { FilterSettings } from '../interfaces/filter-settings';
+import { FilterSettings, Category } from '../interfaces/filter-settings';
 
 @Injectable({
   providedIn: 'root'
@@ -19,19 +19,14 @@ export class ProductHttpService {
 
   getWines(filterSettings?: FilterSettings): Promise<WineCardResults> {
 
-    //let data: TestInterface;
-    let data = {
-      f1: 'a',
-      f2: 'b'
-    };
-
-    if (filterSettings) {
-      //var params = new HttpParams({fromObject: filterSettings});
-      var params = new HttpParams({ fromObject: data });
-      //params = params.append('category', 'RED');
+    filterSettings = {
+      category: Category.RED,
+      name: 'do',
+      minPrice: 1000
     }
+
+    let params = JSON.parse(JSON.stringify(filterSettings));
     return this.http.get(this.URL, { params: params, withCredentials: true })
-      //return this.http.post(this.URL,params, { withCredentials: true })
       .toPromise()
       .then(this.transformWineCardResultsDTO);
   }
