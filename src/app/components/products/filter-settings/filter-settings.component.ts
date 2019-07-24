@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FilterSettings } from 'src/app/interfaces/filter-settings';
 import { KeyValue } from '@angular/common';
 import { CategoryService } from 'src/app/services/category.service';
@@ -9,6 +9,9 @@ import { CategoryService } from 'src/app/services/category.service';
   styleUrls: ['./filter-settings.component.css']
 })
 export class FilterSettingsComponent implements OnInit {
+
+  @Output()
+  refresh: EventEmitter<FilterSettings> = new EventEmitter();
 
   filterSettings: FilterSettings;
   categories: KeyValue<string,string>[];
@@ -30,6 +33,10 @@ export class FilterSettingsComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  updateFilter(){
+    this.refresh.emit(this.filterSettings);
   }
 
 }

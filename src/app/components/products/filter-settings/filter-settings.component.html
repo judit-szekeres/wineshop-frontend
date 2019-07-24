@@ -7,5 +7,5 @@
   <select id="category" class="form-item">
     <option *ngFor="let c of categories" value="{{c.key}}">{{c.value|category}}</option>
   </select>
-  <a href="product_1.html#" class="ht-btn bg-dc4c46">Search</a>
+  <button class="ht-btn bg-dc4c46" (click)="updateFilter()">Search</button>
 </div>
