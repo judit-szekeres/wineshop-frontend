@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,9 +29,14 @@ import { RegConfirmationPageComponent } from './components/login-registration-mo
 import { FilterSettingsComponent } from './components/products/filter-settings/filter-settings.component';
 import { CategoryPipe } from './pipes/category.pipe';
 import { ValidateTokenComponent } from './components/login-registration-modal/validate-token/validate-token.component';
+import { WineDataModalComponent } from './components/wine-data-modal/wine-data-modal.component';
 import { SuccessfulRegistrationPageComponent } from './components/login-registration-modal/successful-registration-page/successful-registration-page.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { PaymentMethodComponent } from './components/checkout/payment-method/payment-method.component';
+import { OrderSummaryComponent } from './components/checkout/order-summary/order-summary.component';
+import { PreviousOrderComponent } from './components/header/previous-order/previous-order.component';
 import { PersonalDetailsComponent } from './components/header/personal-details/personal-details.component';
+
 
 @NgModule({
   declarations: [
@@ -58,16 +64,21 @@ import { PersonalDetailsComponent } from './components/header/personal-details/p
     FilterSettingsComponent,
     CategoryPipe,
     ValidateTokenComponent,
+    WineDataModalComponent,
     CheckoutComponent,
     SuccessfulRegistrationPageComponent,
     PersonalDetailsComponent,
+    PreviousOrderComponent,
+    PaymentMethodComponent,
+    OrderSummaryComponent
     ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CarouselModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

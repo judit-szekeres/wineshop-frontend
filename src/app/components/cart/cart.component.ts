@@ -17,11 +17,15 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.choosenProducts = this.service.addedProduct;
+    this.refreshCartFromService();
   }
 
   refreshCartTable(refreshedProducts: WineCard[]): void {
     this.choosenProducts = refreshedProducts;
+  }
+
+  refreshCartFromService(): void {
+    this.choosenProducts = this.service.addedProduct;
   }
 
   udpateQuantity(c: WineCard) {
