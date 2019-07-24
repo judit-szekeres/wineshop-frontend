@@ -58,8 +58,14 @@ export class UserHttpService {
     }
   }
 
-  logoutUser() {
-      return this.http.post(this.URL + '/logout','', { withCredentials: true });
+  logoutUser(): Promise<null> {
+      return this.http.post(this.URL + '/logout','', { withCredentials: true }).toPromise().then( () => {
+          this.currentUser = {
+            id: 0,
+            email: '',
+            isValidated: null,
+        };
+      }) as Promise<null>;
   }
 
   validateUser(token: string): Promise<null> {
