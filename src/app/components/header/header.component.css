@@ -8,6 +8,7 @@
 }
 .dropdown:hover .dropdown-menu {
     display: block;
+    width: 200px;
 }
 .dropdown .dropdown-menu li:hover a {
     background-color: #eee;
@@ -22,4 +23,8 @@
 
 .user-dropdown-menu li {
     padding: 0;
+}
+
+.user-details {
+    padding-left: 10px;
 }

@@ -25,12 +25,14 @@
         <div class="col-xs-6 col-sm-4 text-right">
           <ul class="list list-inline pull-right m-t-5">
               <li class="dropdown" *ngIf="(currentUserLoggedIn$ | async) as something">
-                <a>{{ (currentUserDetails$ | async)?.email }}</a>
-                <i class="fa fa-user f-18 icon-50"  aria-hidden="true"></i>
+                <a>{{ (currentUserDetails$ | async)?.email }}<i class="user-details fa fa-bars f-18" aria-hidden="true"></i></a>
+                <i class="icon-list"></i>
+                <!--<i class="fa fa-user f-18 icon-50"  aria-hidden="true"></i>
+                -->
                 <ul class="dropdown-menu user-dropdown-menu">
                   <li><a routerLink="/products/white">Personal details</a></li>
                   <li><a routerLink="/previous-orders">Previous orders</a></li>
-                  <li><a routerLink="/" (click)="logoutUser()">Logout</a></li>
+                  <li><a (click)="logoutUser()">Logout</a></li>
                 </ul>
             </li>
             <li>
