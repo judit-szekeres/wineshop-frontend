@@ -1,0 +1,143 @@
+<app-header></app-header>
+<section class="bg-fbf9f2">
+  <div class="container">
+    <div class="content">
+      <div class="title-group underline-double">
+        <h5 class="sub-title">Wine shop</h5>
+        <h2 class="selected">Personal Details</h2>
+        <p class="line-mix star-group">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="box-item text-left p-50">
+            <h3 class="f-25 p-t-0 line-default m-b-30">Edit profile</h3>
+            <form class="m-t-20">
+              <div id="collapse2" class="panel-collapse collapse in" role="tabpanel" aria-expanded="true">
+                <div class="panel-body">
+                  <form class="form-horizontal">
+                    <div class="form-group required">
+                      <label class="col-sm-2 control-label" for="input-shipping-firstname">First Name</label>
+                      <div class="col-sm-10"><input type="text" name="firstname" value="" placeholder="First Name"
+                          id="input-shipping-firstname" class="form-control form-item"></div>
+                    </div>
+                    <div class="form-group required">
+                      <label class="col-sm-2 control-label" for="input-shipping-lastname">Last Name</label>
+                      <div class="col-sm-10"><input type="text" name="lastname" value="" placeholder="Last Name"
+                          id="input-shipping-lastname" class="form-control form-item"></div>
+                    </div>
+                    <div class="form-group required">
+                      <label class="col-sm-2 control-label" for="input-shipping-email">Email</label>
+                      <div class="col-sm-10"><input type="text" name="email" value="" placeholder="Cannot be modified"
+                        id="input-shipping-email" class="form-control form-item"></div>
+                      </div>
+                      <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="input-shipping-current-password">Current Password</label>
+                        <div class="col-sm-10"><input type="text" name="current-password" value="" placeholder="Current Password"
+                          id="input-shipping-current-password" class="form-control form-item"></div>
+                        </div>
+                      <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="input-shipping-new-password">New Password</label>
+                        <div class="col-sm-10"><input type="text" name="new-password" value="" placeholder="New Password"
+                          id="input-shipping-new-password" class="form-control form-item"></div>
+                        </div>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label" for="input-shipping-confirm-new-password">Confirm New Password</label>
+                      <div class="col-sm-10"><input type="text" name="confirm-new-password" value="" placeholder="Confirm New Password"
+                          id="input-shipping-confirm-new-password" class="form-control form-item"></div>
+                    </div>
+                    <div class="form-group required">
+                      <h3 class="f-25 p-t-0 line-default m-b-30">Billing address</h3>
+                      <label class="col-sm-2 control-label" for="input-shipping-address-1">Billing Address</label>
+                      <div class="col-sm-10"><input type="text" name="address_1" value="" placeholder="Address 1"
+                          id="input-shipping-address-1" class="form-control form-item"></div>
+                    </div>
+                    <div class="form-group required">
+                      <label class="col-sm-2 control-label" for="input-shipping-city">City</label>
+                      <div class="col-sm-10"><input type="text" name="city" value="" placeholder="City"
+                          id="input-shipping-city" class="form-control form-item"></div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label" for="input-shipping-postcode">Post Code</label>
+                      <div class="col-sm-10"><input type="text" name="postcode" value="810000" placeholder="Post Code"
+                          id="input-shipping-postcode" class="form-control form-item"></div>
+                    </div>
+                    <div class="form-group required">
+                      <label class="col-sm-2 control-label" for="input-shipping-country">Country</label>
+                      <div class="col-sm-10">
+                        <select name="country_id" id="input-shipping-country" class="form-control form-item">
+                          <option value="">Please Select</option>
+                          <option value="0">Name 1</option>
+                          <option value="1">Name 2</option>
+                          <option value="2">Name 3</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group required">
+                      <label class="col-sm-2 control-label" for="input-shipping-zone">Region / State</label>
+                      <div class="col-sm-10">
+                        <select name="zone_id" id="input-shipping-zone" class="form-control form-item">
+                          <option value="">Please Select</option>
+                          <option value="0">Name 1</option>
+                          <option value="1">Name 2</option>
+                          <option value="2">Name 3</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="checkbox">
+                      <label><input type="checkbox" name="shipping_address" value="existing" checked="checked">Billing address same as shipping address</label>
+                    </div>
+                    <div class="form-group required">
+                      <h3 class="f-25 p-t-0 line-default m-b-30">Shipping address</h3>
+                      <label class="col-sm-2 control-label" for="input-shipping-address-2">Shipping Address</label>
+                      <div class="col-sm-10"><input type="text" name="address_2" value="" placeholder="Address 2"
+                          id="input-shipping-address-2" class="form-control form-item"></div>
+                    </div>
+                    <div class="form-group required">
+                      <label class="col-sm-2 control-label" for="input-shipping-city">City</label>
+                      <div class="col-sm-10"><input type="text" name="city" value="" placeholder="City"
+                          id="input-shipping-city" class="form-control form-item"></div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label" for="input-shipping-postcode">Post Code</label>
+                      <div class="col-sm-10"><input type="text" name="postcode" value="810000" placeholder="Post Code"
+                          id="input-shipping-postcode" class="form-control form-item"></div>
+                    </div>
+                    <div class="form-group required">
+                      <label class="col-sm-2 control-label" for="input-shipping-country">Country</label>
+                      <div class="col-sm-10">
+                        <select name="country_id" id="input-shipping-country" class="form-control form-item">
+                          <option value="">Please Select</option>
+                          <option value="0">Name 1</option>
+                          <option value="1">Name 2</option>
+                          <option value="2">Name 3</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group required">
+                      <label class="col-sm-2 control-label" for="input-shipping-zone">Region / State</label>
+                      <div class="col-sm-10">
+                        <select name="zone_id" id="input-shipping-zone" class="form-control form-item">
+                          <option value="">Please Select</option>
+                          <option value="0">Name 1</option>
+                          <option value="1">Name 2</option>
+                          <option value="2">Name 3</option>
+                        </select>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <button class="ht-btn ht-btn-2x bg-dc4c46" type="submit">Modify</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

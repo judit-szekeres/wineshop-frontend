@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  contacts: any[] = ["name", "email", "phone", "message"];
+  mailText: string = "";
 
-  ngOnInit() {
+  constructor() {}
+
+  ngOnInit() {}
+
+  submit() {
+    this.mailText = "mailto:winewebshopprogmatic@gmail.com=" + this.contacts.join(",");
   }
 
 }

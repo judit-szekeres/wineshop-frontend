@@ -6,6 +6,6 @@ section {
   padding: 0px 15px 15px 15px;
 }
 
-.checkbox label {
-  margin-top: 10px;
+.checkbox {
+  padding-bottom: 8px;
 }

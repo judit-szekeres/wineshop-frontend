@@ -38,7 +38,6 @@ export class LoginModalComponent implements OnInit {
     }else{
         this.userService.loginUser(this.user).then( response => {
           this.router.navigate(['']);
-          console.log(response);
         }).catch(() => {
             this.emailNotRegisteredOrIncorrectPassword = true;
         });
