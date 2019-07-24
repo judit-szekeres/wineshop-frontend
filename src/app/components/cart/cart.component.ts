@@ -9,20 +9,28 @@ import { WineCard } from "../../interfaces/wine";
   styleUrls: ["./cart.component.css"]
 })
 export class CartComponent implements OnInit {
+  choosenProducts: WineCard[];
+  refreshedProducts: WineCard[];
 
-  choosenProducts:WineCard[];
-  refreshedProducts:WineCard[];
-
-  constructor(public service:CartService) {
-    this.choosenProducts=[];
+  constructor(public service: CartService) {
+    this.choosenProducts = [];
   }
-
 
   ngOnInit() {
-    this.choosenProducts=this.service.addedProduct;
+    this.refreshCartFromService();
   }
 
-  refreshCartTable(refreshedProducts:WineCard[]):void{
-    this.choosenProducts=refreshedProducts;
+  refreshCartTable(refreshedProducts: WineCard[]): void {
+    this.choosenProducts = refreshedProducts;
+  }
+
+  refreshCartFromService(): void {
+    this.choosenProducts = this.service.addedProduct;
+  }
+
+  udpateQuantity(c: WineCard) {
+    // TODO: input mezők letiltása
+    // szerver POST
+    // input mezők engedélyezése
   }
 }

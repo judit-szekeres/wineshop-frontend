@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserHttpService } from 'src/app/services/user-http.service';
 
 @Component({
   selector: 'app-validate-token',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ValidateTokenComponent implements OnInit {
 
-  constructor() { }
+  token: string;
+
+  constructor(private route: ActivatedRoute, private router: Router, private userHttpService: UserHttpService) { }
 
   ngOnInit() {
+    this.token = this.route.snapshot.paramMap.get('token');
+    this.userHttpService.validateUser(this.token).then(() => {
+      this.router.navigate(['/successful-registration-page']);
+    }).catch(() => {
+      this.router.navigate(['/full']);
+    });
   }
 
 }

@@ -1,0 +1,114 @@
+<app-header></app-header>
+<!--<div class="preloader"><i class="fa fa-spinner"></i></div>-->
+<section class="bg-fbf9f2">
+  <div class="container">
+    <div class="content">
+      <div class="title-group underline-double">
+        <h5 class="sub-title">Royal wine</h5>
+        <h2 class="selected">Check out</h2>
+        <p class="line-mix star-group">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="panel-group">
+            <!--panel-->
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <!--<a href="checkout.html#collapse2.html" data-toggle="collapse"
+                    data-parent="#accordion" class="accordion-toggle" aria-expanded="true">Account &amp; Billing
+                    details</a>-->
+                <div id="collapse2" class="panel-collapse collapse in" role="tabpanel" aria-expanded="true">
+                  <div class="panel-body">
+                    <h4 class="title line-default">Shipping details</h4>
+                    <form class="form-horizontal">
+                      <div class="radio">
+                        <label><input type="radio" name="shipping_address" value="existing" checked="checked">I want to
+                          use an existing address</label>
+                      </div>
+                      <div id="shipping-existing">
+                        <select name="address_id" class="form-control form-item m-t-15">
+                          <option value="1" selected="selected">Address 1</option>
+                        </select>
+                      </div>
+                      <div class="radio">
+                        <label><input type="radio" name="shipping_address" value="new">I want to use a new
+                          address</label>
+                      </div>
+                      <br>
+                      <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="input-shipping-firstname">First Name</label>
+                        <div class="col-sm-10"><input type="text" name="firstname" value="" placeholder="First Name"
+                            id="input-shipping-firstname" class="form-control form-item"></div>
+                      </div>
+                      <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="input-shipping-lastname">Last Name</label>
+                        <div class="col-sm-10"><input type="text" name="lastname" value="" placeholder="Last Name"
+                            id="input-shipping-lastname" class="form-control form-item"></div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label" for="input-shipping-company">Company</label>
+                        <div class="col-sm-10"><input type="text" name="company" value="" placeholder="Company"
+                            id="input-shipping-company" class="form-control form-item"></div>
+                      </div>
+                      <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="input-shipping-address-1">Address</label>
+                        <div class="col-sm-10"><input type="text" name="address_1" value="" placeholder="Address"
+                            id="input-shipping-address-1" class="form-control form-item"></div>
+                      </div>
+                      <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="input-shipping-city">City</label>
+                        <div class="col-sm-10"><input type="text" name="city" value="" placeholder="City"
+                            id="input-shipping-city" class="form-control form-item"></div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label" for="input-shipping-postcode">Postal Code</label>
+                        <div class="col-sm-10"><input type="text" name="postcode" value=""
+                            placeholder="Postal Code" id="input-shipping-postcode" class="form-control form-item"></div>
+                      </div>
+                      <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="input-shipping-country">Country</label>
+                        <div class="col-sm-10">
+                          <select name="country_id" id="input-shipping-country" class="form-control form-item">
+                            <option value="">Please Select</option>
+                            <option value="0">Name 1</option>
+                            <option value="1">Name 2</option>
+                            <option value="2">Name 3</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="input-shipping-zone">Region / State</label>
+                        <div class="col-sm-10">
+                          <select name="zone_id" id="input-shipping-zone" class="form-control form-item">
+                            <option value="">Please Select</option>
+                            <option value="0">Name 1</option>
+                            <option value="1">Name 2</option>
+                            <option value="2">Name 3</option>
+                          </select>
+                        </div>
+                      </div>
+                    </form>
+                    <div class="checkbox">
+                      <label><input type="checkbox" value="existing" checked="checked">
+                        Billing address same as shipping</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--panel-->
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <app-payment-method></app-payment-method>
+          <app-order-summary></app-order-summary>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

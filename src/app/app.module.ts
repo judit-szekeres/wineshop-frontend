@@ -30,6 +30,10 @@ import { FilterSettingsComponent } from './components/products/filter-settings/f
 import { CategoryPipe } from './pipes/category.pipe';
 import { ValidateTokenComponent } from './components/login-registration-modal/validate-token/validate-token.component';
 import { WineDataModalComponent } from './components/wine-data-modal/wine-data-modal.component';
+import { SuccessfulRegistrationPageComponent } from './components/login-registration-modal/successful-registration-page/successful-registration-page.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { PaymentMethodComponent } from './components/checkout/payment-method/payment-method.component';
+import { OrderSummaryComponent } from './components/checkout/order-summary/order-summary.component';
 
 
 @NgModule({
@@ -59,6 +63,10 @@ import { WineDataModalComponent } from './components/wine-data-modal/wine-data-m
     CategoryPipe,
     ValidateTokenComponent,
     WineDataModalComponent,
+    CheckoutComponent,
+    SuccessfulRegistrationPageComponent,
+    PaymentMethodComponent,
+    OrderSummaryComponent
     ],
   imports: [
     BrowserModule,

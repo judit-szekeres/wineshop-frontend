@@ -6,7 +6,7 @@ import { WineCard } from "../interfaces/wine";
 })
 export class CartService {
   public addedProduct: WineCard[];
-  public newProductArray: WineCard[];
+
 
   constructor() {
     this.addedProduct = [
@@ -17,7 +17,8 @@ export class CartService {
         price: 2000,
         salePrice: 2000,
         rating: 666,
-        numberOfRating: 1
+        numberOfRating: 1,
+        quantity: 2
       },
       {
         image: "",
@@ -26,7 +27,8 @@ export class CartService {
         price: 1000,
         salePrice: 2000,
         rating: 666,
-        numberOfRating: 1
+        numberOfRating: 1,
+        quantity: 4
       },
       {
         image: "",
@@ -35,13 +37,17 @@ export class CartService {
         price: 1500,
         salePrice: 2000,
         rating: 666,
-        numberOfRating: 1
+        numberOfRating: 1,
+        quantity: 3
       }
     ];
-    this.newProductArray = [];
   }
 
-  deleteProductFromCart(productId: number): WineCard[] {
+  deleteProductFromCart(productId: number): void {
+
+    this.addedProduct = this.addedProduct.filter( cartItem => cartItem.id != productId );
+
+    /*
     this.newProductArray=[];
     var index: number;
 
@@ -78,8 +84,10 @@ export class CartService {
     //visszaadja az új (törölt elem nélküli) tömböt
     return this.newProductArray;
 
-
+    */
 
   }
+
+
 
 }
