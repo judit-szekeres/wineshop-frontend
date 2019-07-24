@@ -13,6 +13,7 @@ import { RegConfirmationPageComponent } from './components/login-registration-mo
 import { ValidateTokenComponent } from './components/login-registration-modal/validate-token/validate-token.component';
 import { SuccessfulRegistrationPageComponent } from './components/login-registration-modal/successful-registration-page/successful-registration-page.component';
 import { CheckoutComponent } from "./components/checkout/checkout.component";
+import { PersonalDetailsComponent } from './components/header/personal-details/personal-details.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: LandingPageComponent },
@@ -28,7 +29,9 @@ const routes: Routes = [
   { path: 'reg-conf-page', component: RegConfirmationPageComponent },
   { path: 'validate/:token', component: ValidateTokenComponent },
   { path: 'checkout', component: CheckoutComponent },
-  { path: 'successful-registration-page', component: SuccessfulRegistrationPageComponent }
+  { path: 'successful-registration-page', component: SuccessfulRegistrationPageComponent },
+  { path: 'personal-details', component: PersonalDetailsComponent },
+
 ]
 
 
