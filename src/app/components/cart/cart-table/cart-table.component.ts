@@ -23,14 +23,19 @@ export class CartTableComponent implements OnInit {
 
   ngOnInit() { }
 
+
   changeQuantity(): void {
-    this.updateQuantity.emit();
+    this.cartConnectionService.changeCartElementsQuantityOnServer(this.choosenProduct.id,this.choosenProduct.quantity)
+    .then(() => {
+      this.updateQuantity.emit();
+    });
   }
+
 
   //delete without server connection
   /*
   delete(): void {
-    this.refresh.emit(
+    this.deleted.emit(
       this.selectedProducts.deleteProductFromCart(this.choosenProduct.id)
     );
   }

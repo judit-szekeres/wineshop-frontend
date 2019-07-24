@@ -28,9 +28,11 @@ export class CartComponent implements OnInit {
     this.choosenProducts = this.service.addedProduct;
   }
 
+  /*
   udpateQuantity(c: WineCard) {
     // TODO: input mezők letiltása
     // szerver POST
     // input mezők engedélyezése
   }
+  */
 }
