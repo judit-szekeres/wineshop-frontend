@@ -1,12 +1,25 @@
+
 .dropdown .dropdown-menu {
     margin-top: 0;
     padding-top: 10px;
     box-shadow: none;
-    background: #000;
+    background: #255255255;
+    color: #000;
 }
 .dropdown:hover .dropdown-menu {
     display: block;
 }
 .dropdown .dropdown-menu li:hover a {
     background-color: #eee;
+}
+.cart .cart-item{
+    width: 0;
+}
+.icon-50{
+    height: 0;
+	line-height:0;
+}
+
+.user-dropdown-menu li {
+    padding: 0;
 }

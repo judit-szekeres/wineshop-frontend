@@ -10,7 +10,7 @@ Email: template3x@gmail.com
 ------------------------
 NOTE:
 PLEASE DO NOT EDIT THIS CSS, IF YOU NEED USE "CUSTOM.CSS" FILE FOR WRITING YOUR CUSTOM CSS.
-I WILL RELEASE FUTURE UPDATES SO IT WILL OVERWRITE THIS FILE IT'S BETTER USE "CUSTOM.CSS".	
+I WILL RELEASE FUTURE UPDATES SO IT WILL OVERWRITE THIS FILE IT'S BETTER USE "CUSTOM.CSS".
 
 Content of tables
 	01. Reset
@@ -32,7 +32,7 @@ Content of tables
 	17. Display
 	18. Background
 	19. Color
-	20. Border 
+	20. Border
 	22. Max-width
 	23. Margin
 	24. Padding
@@ -705,8 +705,8 @@ Content of tables
 }
 .icon-50{
 	width:50px!important;
-	height:50px!important;
-	line-height:50px!important;
+	height:50px;
+	line-height:50px;
 }
 .icon-60{
 	width:60px!important;
@@ -950,7 +950,7 @@ Content of tables
 /*14. Text-align*/
 .text-align-center{
 	text-align:center!important;
-}	
+}
 .text-align-left{
 	text-align:left!important;
 }
@@ -1103,7 +1103,7 @@ Content of tables
 	color:#fff!important;
 }
 .bg-fff03f{
-	background-color:#fff03f!important; 
+	background-color:#fff03f!important;
 	color:#fff!important;
 }
 .bg-31cede{
@@ -1175,19 +1175,19 @@ Content of tables
  	color:#fff!important;
 }
 .bg-5f5c3b {
-	background-color:#5f5c3b!important; 
+	background-color:#5f5c3b!important;
 	color:#fff!important;
 }
 .bg-e75fab{
-	background-color:#e75fab!important; 
+	background-color:#e75fab!important;
  	color:#fff!important;
 }
 .bg-cd5497{
-	background-color:#cd5497!important; 
+	background-color:#cd5497!important;
 	color:#fff!important;
 }
 .bg-b34a83 {
-	background-color:#b34a83!important; 
+	background-color:#b34a83!important;
 	color:#fff!important;
 }
 .bg-994070{
@@ -1221,17 +1221,17 @@ Content of tables
 .bg-95dee3{
 	background-color:#95dee3!important;
 	color:#fff!important;
-} 
+}
 .bg-f2552c{
 	background-color:#f2552c!important;
  	color:#fff!important;
 }
 .bg-004b8d {
-	background-color:#004b8d!important; 
+	background-color:#004b8d!important;
  	color:#fff!important;
 }
 .bg-f6d155 {
-	background-color:#f6d155!important; 
+	background-color:#f6d155!important;
  	color:#fff!important;
 }
 .bg-578ca9{
@@ -1243,11 +1243,11 @@ Content of tables
  	color:#fff!important;
 }
 .bg-4f84c4 {
-	background-color:#4f84c4!important; 
+	background-color:#4f84c4!important;
  	color:#fff!important;
 }
 .bg-9c9a40 {
-	background-color:#9c9a40!important; 
+	background-color:#9c9a40!important;
  	color:#fff!important;
 }
 .bg-005960{
@@ -1255,7 +1255,7 @@ Content of tables
  	color:#fff!important;
 }
 .bg-898e8c {
-	background-color:#898e8c!important; 
+	background-color:#898e8c!important;
  	color:#fff!important;
 }
 .bg-00828f{
@@ -1267,7 +1267,7 @@ Content of tables
  	color:#fff!important;
 }
 .bg-f3d6e4{
-	background-color:#f3d6e4!important; 
+	background-color:#f3d6e4!important;
  	color:#fff!important;
 }
 .bg-672e3b{
@@ -1275,7 +1275,7 @@ Content of tables
  	color:#fff!important;
 }
 .bg-dc4c46{
-	background-color:#dc4c46!important; 
+	background-color:#dc4c46!important;
  	color:#fff!important;
 }
 .bg-b0aac2{
@@ -1283,11 +1283,11 @@ Content of tables
  	color:#fff!important;
 }
 .bg-f2efe8{
-	background-color:#f2efe8!important; 
+	background-color:#f2efe8!important;
  	color:#fff!important;
 }
 .bg-c2d4d8 {
-	background-color:#c2d4d8!important; 
+	background-color:#c2d4d8!important;
  	color:#fff!important;
 }
 .bg-dbe9d8{
@@ -1362,7 +1362,7 @@ Content of tables
 	color:#ff3f3f!important;
 }
 .color-fff03f{
-	color:#fff03f!important; 
+	color:#fff03f!important;
 }
 .color-31cede{
 	color:#31cede!important;
@@ -1416,16 +1416,16 @@ Content of tables
 	color:#feda00!important;
 }
 .color-5f5c3b {
-	color:#5f5c3b!important; 
+	color:#5f5c3b!important;
 }
 .color-e75fab{
-	color:#e75fab!important; 
+	color:#e75fab!important;
 }
 .color-cd5497{
-	color:#cd5497!important; 
+	color:#cd5497!important;
 }
 .color-b34a83 {
-	color:#b34a83!important; 
+	color:#b34a83!important;
 }
 .color-994070{
 	color:#994070!important;
@@ -1449,19 +1449,19 @@ Content of tables
 	color:#ce3175!important;
 }
 .color-edcdc2{
-	color:#edcdc2!important; 
+	color:#edcdc2!important;
 }
 .color-95dee3{
 	color:#95dee3!important;
-} 
+}
 .color-f2552c{
 	color:#f2552c!important;
 }
 .color-004b8d {
-	color:#004b8d!important; 
+	color:#004b8d!important;
 }
 .color-f6d155 {
-	color:#f6d155!important; 
+	color:#f6d155!important;
 }
 .color-578ca9{
 	color:#578ca9!important;
@@ -1470,16 +1470,16 @@ Content of tables
 	color:#d2691e!important;
 }
 .color-4f84c4 {
-	color:#4f84c4!important; 
+	color:#4f84c4!important;
 }
 .color-9c9a40 {
-	color:#9c9a40!important; 
+	color:#9c9a40!important;
 }
 .color-005960{
 	color:#005960!important;
 }
 .color-898e8c {
-	color:#898e8c!important; 
+	color:#898e8c!important;
 }
 .color-00828f{
 	color:#00828f!important;
@@ -1488,22 +1488,22 @@ Content of tables
 	color:#c48f65!important;
 }
 .color-f3d6e4{
-	color:#f3d6e4!important; 
+	color:#f3d6e4!important;
 }
 .color-672e3b{
 	color:#672e3b!important;
 }
 .color-dc4c46{
-	color:#dc4c46!important; 
+	color:#dc4c46!important;
 }
 .color-b0aac2{
 	color:#b0aac2!important;
 }
 .color-f2efe8{
-	color:#f2efe8!important; 
+	color:#f2efe8!important;
 }
 .color-c2d4d8 {
-	color:#c2d4d8!important; 
+	color:#c2d4d8!important;
 }
 .color-dbe9d8{
 	color:#dbe9d8!important;
@@ -3068,7 +3068,7 @@ Content of tables
 /*--- Text-align ---*/
 .text-align-md-center{
 	text-align:center!important;
-}	
+}
 .text-align-md-left{
 	text-align:left!important;
 }
@@ -3622,7 +3622,7 @@ Content of tables
 /*--- Text-align ---*/
 .text-align-sm-center{
 	text-align:center!important;
-}	
+}
 .text-align-sm-left{
 	text-align:left!important;
 }
@@ -4155,7 +4155,7 @@ Content of tables
 /*--- Text-align ---*/
 .text-align-xs-center{
 	text-align:center!important;
-}	
+}
 .text-align-xs-left{
 	text-align:left!important;
 }
@@ -4183,4 +4183,3 @@ Content of tables
 }
 
 }
-
