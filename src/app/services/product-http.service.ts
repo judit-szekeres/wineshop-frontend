@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { WineCardResults, WineCardResultsDTO } from '../interfaces/wine-dto';
-import { HttpClient } from '@angular/common/http';
+import { WineCardResults } from '../interfaces/wine-dto';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { FilterSettings } from '../interfaces/filter-settings';
 
 @Injectable({
   providedIn: 'root'
@@ -16,51 +17,23 @@ export class ProductHttpService {
     return serverData;
   }
 
-  getWines(): Promise<WineCardResults> {
-    return this.http.get(this.URL, { withCredentials: true })
+  getWines(filterSettings?: FilterSettings): Promise<WineCardResults> {
+
+    //let data: TestInterface;
+    let data = {
+      f1: 'a',
+      f2: 'b'
+    };
+
+    if (filterSettings) {
+      //var params = new HttpParams({fromObject: filterSettings});
+      var params = new HttpParams({ fromObject: data });
+      //params = params.append('category', 'RED');
+    }
+    return this.http.get(this.URL, { params: params, withCredentials: true })
+      //return this.http.post(this.URL,params, { withCredentials: true })
       .toPromise()
       .then(this.transformWineCardResultsDTO);
-  }
-
-  getWines2(): Promise<WineCardResults> {   //for testing
-    this.wineCardResults = {wines:[
-
-      {
-        image: "https://cdn.pixabay.com/photo/2013/07/12/16/28/bordeaux-150955_960_720.png",
-        id: 1,
-        name: "Nagyon Finomm",
-        price: 15000,
-        salePrice: 13000,
-        rating: -1,
-        numberOfRating: 0,
-      },
-      {
-        image: "https://cdn.pixabay.com/photo/2013/07/12/16/28/bordeaux-150955_960_720.png",
-        id: 2,
-        name: "Koccintós",
-        price: 500,
-        salePrice: 400,
-        rating: -1,
-        numberOfRating: 0,
-      },
-      {
-        image: "https://cdn.pixabay.com/photo/2013/07/12/16/28/bordeaux-150955_960_720.png",
-        id: 3,
-        name: "Teszt Bor",
-        price: 20000,
-        salePrice: 19000,
-        rating: -1,
-        numberOfRating: 0,
-      },
-
-    ],
-    numberOfPage: 84
-  };
-    let p = new Promise<WineCardResults>((resolve) => {
-      resolve(this.wineCardResults);
-    });
-
-    return p;
   }
 
 }
