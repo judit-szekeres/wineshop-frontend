@@ -19,8 +19,6 @@ export class ProductHttpService {
 
   getWines(filterSettings?: FilterSettings): Promise<WineCardResults> {
 
-    console.log(filterSettings);
-
     let params: HttpParams | { [param: string]: string | string[]; };
     if(filterSettings){
       params = JSON.parse(JSON.stringify(filterSettings));
