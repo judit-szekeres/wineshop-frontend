@@ -22,7 +22,7 @@
               </div>
               <div *ngIf="this.choosenProducts.length == 0" class="alert">Your cart is empty.</div>
               <app-cart-table *ngFor="let c of choosenProducts"
-                [choosenProduct]="c" (refresh)="refreshCartTable($event)" (updateQuantity)="udpateQuantity(c)"></app-cart-table>
+                [choosenProduct]="c" (refresh)="refreshCartTable($event)" (updateQuantity)="udpateQuantity(c)" (deleted)="refreshCartFromService()"></app-cart-table>
             </div>
             <div class="col-sm-4">
               <div *ngIf="this.choosenProducts.length == 0" class="box">
