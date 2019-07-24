@@ -14,6 +14,7 @@ import { ValidateTokenComponent } from './components/login-registration-modal/va
 import { SuccessfulRegistrationPageComponent } from './components/login-registration-modal/successful-registration-page/successful-registration-page.component';
 import { CheckoutComponent } from "./components/checkout/checkout.component";
 
+
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: LandingPageComponent },
   { path: 'landing-special-offers', component: SpecialOffersComponent },
