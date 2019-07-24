@@ -15,6 +15,7 @@ import { SuccessfulRegistrationPageComponent } from './components/login-registra
 import { CheckoutComponent } from "./components/checkout/checkout.component";
 import { PreviousOrderComponent } from './components/header/previous-order/previous-order.component';
 
+
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: LandingPageComponent },
   { path: 'landing-special-offers', component: SpecialOffersComponent },
