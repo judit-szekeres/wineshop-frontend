@@ -7,6 +7,8 @@ import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { AppModule } from "../../../../app/app.module";
 import { environment } from "../../../../environments/environment";
 import { CarouselComponent } from 'ngx-carousel-lib/public_api';
+import { ProductHttpService } from 'src/app/services/product-http.service';
+import { FilterSettings } from 'src/app/interfaces/filter-settings';
 
 
 @Component({
@@ -20,15 +22,17 @@ export class SpecialOffersComponent implements OnInit {
   public moreSlides = 4;
   @ViewChild('topCarousel', { static: true })
   topCarousel: CarouselComponent;
+  filterSettings: FilterSettings;
 
-  constructor(private specialOfferService: SpecialOfferService) {
+  constructor(private productHttpService: ProductHttpService) {
 
     this.wineCards = [];
+    this.filterSettings = {onSale: true};
 
   }
   ngOnInit() {
-    this.specialOfferService.getWines().then(wineCards => {
-      this.wineCards = wineCards;
+    this.productHttpService.getWines(this.filterSettings).then(wineCardResults => {
+      this.wineCards = wineCardResults.wines;
     });
   }
 
