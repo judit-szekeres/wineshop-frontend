@@ -19,13 +19,13 @@ export class ProductHttpService {
 
   getWines(filterSettings?: FilterSettings): Promise<WineCardResults> {
 
-    filterSettings = {
-      category: Category.RED,
-      name: 'do',
-      minPrice: 1000
+    console.log(filterSettings);
+
+    let params: HttpParams | { [param: string]: string | string[]; };
+    if(filterSettings){
+      params = JSON.parse(JSON.stringify(filterSettings));
     }
 
-    let params = JSON.parse(JSON.stringify(filterSettings));
     return this.http.get(this.URL, { params: params, withCredentials: true })
       .toPromise()
       .then(this.transformWineCardResultsDTO);
