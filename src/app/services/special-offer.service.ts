@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { WineCard } from '../interfaces/wine';
-import { WineCardDTO } from '../interfaces/wine-dto';
-import { WineCardError } from '../errors/wine-card-error';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +10,6 @@ export class SpecialOfferService {
 
   constructor() { }
 
-  private transformWineCardDTO(serverData: WineCardDTO): WineCard[] {
-    if (!serverData.success) {
-      throw new WineCardError(serverData['error-infos']);
-    }
-    return serverData.wineCards;
-  }
 
   getWines(): Promise<WineCard[]> {   //for testing
     this.wineCards = [
@@ -46,7 +38,7 @@ export class SpecialOfferService {
         name: "Teszt Bor",
         price: 20000,
         salePrice: 19000,
-        rating: -1, 
+        rating: -1,
         numberOfRating: 0,
       },
 

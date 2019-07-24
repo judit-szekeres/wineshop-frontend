@@ -27,8 +27,8 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'reg-conf-page', component: RegConfirmationPageComponent },
   { path: 'validate/:token', component: ValidateTokenComponent },
-  { path: 'checkout', component: CheckoutComponent }
-  { path: 'successful-registration-page', component: SuccessfulRegistrationPageComponent },
+  { path: 'checkout', component: CheckoutComponent },
+  { path: 'successful-registration-page', component: SuccessfulRegistrationPageComponent }
 ]
 
 
