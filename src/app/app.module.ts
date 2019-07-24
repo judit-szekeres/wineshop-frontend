@@ -35,6 +35,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { PaymentMethodComponent } from './components/checkout/payment-method/payment-method.component';
 import { OrderSummaryComponent } from './components/checkout/order-summary/order-summary.component';
 import { PreviousOrderComponent } from './components/header/previous-order/previous-order.component';
+import { PersonalDetailsComponent } from './components/header/personal-details/personal-details.component';
 
 
 @NgModule({
@@ -66,6 +67,7 @@ import { PreviousOrderComponent } from './components/header/previous-order/previ
     WineDataModalComponent,
     CheckoutComponent,
     SuccessfulRegistrationPageComponent,
+    PersonalDetailsComponent,
     PreviousOrderComponent,
     PaymentMethodComponent,
     OrderSummaryComponent
