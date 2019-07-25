@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Contact } from 'src/app/interfaces/contact';
+import { HttpClient } from '@angular/common/http';
+import { ContactService } from 'src/app/services/contact.service';
+
 
 @Component({
   selector: 'app-contact',
@@ -7,15 +11,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  contacts: any[] = ["name", "email", "phone", "message"];
-  mailText: string = "";
+  contact: Contact;
 
-  constructor() {}
+  constructor(private contactService: ContactService) {
+    this.contact = {
+      name: '',
+      email: '',
+      phone: '',
+      message: ''
+    };
+  }
 
-  ngOnInit() {}
+    /*this.http.post(this.URL, this.contact).toPromise().then(this.mail: any => {
+      this.json = JSON.stringify(mail.json); mail az ami a szerverről jön?*});*/
+
+
+  ngOnInit() {
+  }
 
   submit() {
-    this.mailText = "mailto:winewebshopprogmatic@gmail.com=" + this.contacts.join(",");
+    this.contactService.send(this.contact).then(() => {
+      // köszönjük!
+      // contact adatok kirítése
+    }).catch(() => {
+      // próbálja később
+    });
   }
 
 }
