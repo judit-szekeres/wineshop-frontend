@@ -24,6 +24,10 @@ export class ProductHttpService {
       params = JSON.parse(JSON.stringify(filterSettings));
     }
 
+    console.log("http request");
+    console.log(params);
+
+    //return null;
     return this.http.get(this.URL, { params: params, withCredentials: true })
       .toPromise()
       .then(this.transformWineCardResultsDTO);
