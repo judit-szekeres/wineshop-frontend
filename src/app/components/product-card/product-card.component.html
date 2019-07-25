@@ -3,7 +3,7 @@
 
     <!-- teszthez-->
     <button type="button" class="btn btn-primary" name="button" (click)="openLoginModal()" ></button>
-    <wine-data-modal *ngIf="wineModalNeeded" (closeThis)="closeLoginModal()">wine data</wine-data-modal>
+    <wine-data-modal *ngIf="wineModalNeeded" (closeThis)="closeLoginModal()" [wineId]="wineCard.id">wine data</wine-data-modal>
 
 
     <div class="row">
