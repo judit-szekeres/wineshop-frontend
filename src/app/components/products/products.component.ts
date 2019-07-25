@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WineCard } from 'src/app/interfaces/wine';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ProductHttpService } from 'src/app/services/product-http.service';
-import { WineCardResults } from 'src/app/interfaces/wine-dto';
 import { FilterSettings, Category } from 'src/app/interfaces/filter-settings';
 
 
@@ -13,9 +12,9 @@ import { FilterSettings, Category } from 'src/app/interfaces/filter-settings';
 })
 export class ProductsComponent implements OnInit {
 
-  wineCardResults: WineCardResults;
   wineCards: WineCard[];
   filterSettings: FilterSettings;
+  currentPage: number;
 
   constructor(private productHttpService: ProductHttpService, private route: ActivatedRoute) {
     this.wineCards = [];
@@ -35,14 +34,37 @@ export class ProductsComponent implements OnInit {
     this.refresh();
   }
 
-  refresh(filterSettings?: FilterSettings) {
-    console.log("refresh");
+  refresh(filterSettings?: FilterSettings, pageNumber?: number) {
+    this.filterSettings = filterSettings;
     console.log(filterSettings);
-    this.productHttpService.getWines(this.filterSettings).then(wineCardResults => {
-      console.log(wineCardResults);
-      this.wineCardResults = wineCardResults;
+    this.productHttpService.getWines(this.cleanedFilter(this.filterSettings)).then(wineCardResults => {
       this.wineCards = wineCardResults.wines;
+      console.log(this.wineCards);
+
+      if (!pageNumber && this.wineCards.length > 0) {
+        this.currentPage = 1;
+      } else if (pageNumber) {
+        this.currentPage = pageNumber;
+      } else {
+        this.currentPage = null;
+      }
     });
   };
+
+  cleanedFilter(filterSettings?: FilterSettings) {
+    if (filterSettings) {
+      for (let key of Object.keys(filterSettings)) {
+        if (!filterSettings[key]) {
+          filterSettings[key]=undefined;
+        }
+      }
+    }
+    return filterSettings;
+  }
+
+  refreshPage(page: number) {
+    console.log(page);
+    this.refresh(this.filterSettings, page);
+  }
 
 }
