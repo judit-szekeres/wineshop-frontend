@@ -24,6 +24,14 @@ private readonly URL='http://192.168.1.171:8080/cart';
     .toPromise() as Promise<null>;
   }
 
+  //puts the chosen product to the cart on the server and sets the default quantity (1)
+  putProductToServerCart(productId:number):Promise<null>{
+    return this.http.request('post', this.URL, {withCredentials:true, body: { id: productId, quantity: 1 }})
+    .toPromise() as Promise<null>;
+  }
+
+
+
 
 
 }

@@ -4,6 +4,7 @@ import { User } from '../interfaces/user';
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { serverURL } from '../server-url';
+import { UserDetails } from '../interfaces/user-personal-details';
 
 @Injectable({
   providedIn: 'root'
@@ -78,5 +79,9 @@ export class UserHttpService {
   validateUser(token: string): Promise<null> {
     return this.http.get(serverURL + '/validation?token=' + token, { withCredentials: true })
       .toPromise() as Promise<null>;
+  }
+
+  getUserPersonalDetails(): UserDetails {
+      return;
   }
 }
