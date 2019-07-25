@@ -15,6 +15,7 @@ import { SuccessfulRegistrationPageComponent } from './components/login-registra
 import { CheckoutComponent } from "./components/checkout/checkout.component";
 import { PreviousOrderComponent } from './components/header/previous-order/previous-order.component';
 import { PersonalDetailsComponent } from './components/header/personal-details/personal-details.component';
+import { AuthGuard } from './auth.guard';
 
 
 const routes: Routes = [
@@ -33,7 +34,7 @@ const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent },
   { path: 'previous-orders', component: PreviousOrderComponent },
   { path: 'successful-registration-page', component: SuccessfulRegistrationPageComponent },
-  { path: 'personal-details', component: PersonalDetailsComponent },
+  { path: 'personal-details', component: PersonalDetailsComponent, canActivate: [AuthGuard] },
 ]
 
 

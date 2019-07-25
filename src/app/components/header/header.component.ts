@@ -24,7 +24,10 @@ export class HeaderComponent implements OnInit {
 
   logoutUser():void {
       this.userService.logoutUser().then(() => {
-          this.router.navigate(['/']);
-      });
+          this.router.navigate(['/log-reg']);
+          setTimeout(() => {
+              this.router.navigate(['/']);
+          }, 1);
+      }).catch(() => {});
   }
 }
