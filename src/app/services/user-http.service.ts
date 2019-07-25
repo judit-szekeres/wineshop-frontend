@@ -10,6 +10,8 @@ import { map } from 'rxjs/operators';
 export class UserHttpService {
 
   private readonly URL = 'http://192.168.1.231:8080';
+  //'http://wineshop-server.herokuapp.com'
+  //'http://192.168.1.231:8080'
   currentUser: User;
 
   constructor(private http: HttpClient) {
