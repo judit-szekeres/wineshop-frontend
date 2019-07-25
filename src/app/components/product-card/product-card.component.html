@@ -7,14 +7,10 @@
 
 
     <div class="row">
-      <div [ngClass]="{ 'col-sm-6' : fullWidth,  'col-sm-offset-3' : fullWidth, 'col-sm-12' : ! fullWidth }">
-        <img src={{wineCard.image}} alt="image">
+      <div class="wine-image-holder" [ngClass]="{ 'fullwidth' : fullWidth, 'col-sm-6' : fullWidth,  'col-sm-offset-3' : fullWidth, 'col-sm-12' : ! fullWidth }">
+        <img class="wine-image" src={{wineCard.image}} alt="image">
       </div>
     </div>
-    <div class="hover-caption">
-      <i class="fa fa-search-plus"></i>
-    </div>
-
     <div class="caption">
       <h3 class="heading"><a>{{wineCard.name}}</a></h3>
       <p class="line-mix price">{{wineCard.price}}</p>
