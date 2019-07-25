@@ -47,6 +47,10 @@ export class CartTableComponent implements OnInit {
       this.selectedProducts.deleteProductFromCart(this.choosenProduct.id);
       this.deleted.emit();
     });
-
   }
+
+
+  
+
+
 }
