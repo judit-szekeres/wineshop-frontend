@@ -28,3 +28,7 @@
 .user-details {
     padding-left: 10px;
 }
+
+.menu-nav ul li .user-email {
+    text-transform: lowercase;
+}
