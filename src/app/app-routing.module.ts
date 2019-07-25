@@ -34,6 +34,7 @@ const routes: Routes = [
   { path: 'previous-orders', component: PreviousOrderComponent },
   { path: 'successful-registration-page', component: SuccessfulRegistrationPageComponent },
   { path: 'personal-details', component: PersonalDetailsComponent },
+
 ]
 
 

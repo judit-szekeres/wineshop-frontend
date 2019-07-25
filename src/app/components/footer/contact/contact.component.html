@@ -16,13 +16,14 @@
         <div class="col-sm-6">
           <div class="box-item text-left p-50">
             <h3 class="f-22 p-t-0">If you have any question feel free to write us</h3>
-            <form class="m-t-20">
-              <input type="text" class="form-item" placeholder="Name">
-              <input type="text" class="form-item" placeholder="Email">
-              <input type="text" class="form-item" placeholder="Phone">
-              <textarea class="form-item h-200" placeholder="Message"></textarea>
+            <div class="m-t-20">
+              <input type="text" class="form-item" [(ngModel)]="contact.name" placeholder="Name">
+              <input type="text" class="form-item" [(ngModel)]="contact.email" placeholder="Email">
+              <input type="text" class="form-item" [(ngModel)]="contact.phone" placeholder="Phone">
+              <textarea class="form-item h-200" [(ngModel)]="contact.message" placeholder="Message"></textarea>
               <button type="submit" class="ht-btn bg-6 m-t-10 rad-3" (click)="submit()">Send</button>
-            </form>
+              
+            </div>
           </div>
         </div>
         <div class="col-sm-6">
