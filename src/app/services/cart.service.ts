@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core";
 import { WineCard } from "../interfaces/wine";
+import {CartElement} from "../interfaces/cart-element";
+
 
 @Injectable({
   providedIn: "root"
