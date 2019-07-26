@@ -1,8 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { PageButton } from 'src/app/interfaces/page-button';
 
 @Component({
-  selector: 'app-page-button',
+  selector: '[app-page-button]',
   templateUrl: './page-button.component.html',
   styleUrls: ['./page-button.component.css']
 })
@@ -11,10 +11,15 @@ export class PageButtonComponent implements OnInit {
   @Input()
   pageButton:PageButton;
 
+  @Output()
+  refresh: EventEmitter<number> = new EventEmitter();
+
   constructor() {}
 
-  ngOnInit() {
-    console.log(this.pageButton);
+  ngOnInit() {}
+
+  refreshPage(){
+    this.refresh.emit(this.pageButton.nr);
   }
 
 }

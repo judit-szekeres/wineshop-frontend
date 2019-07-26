@@ -1,4 +1,2 @@
-<li [ngClass]="{ 'active' : pageButton.active }">
-  <!--<a (click)="refresh(pageButton.number)">{{pageButton.number}}</a>-->
-  <a>{{pageButton.nr}}</a>
-</li>
+
+  <a (click)="refreshPage(pageButton.number)">{{pageButton.nr}}</a>
