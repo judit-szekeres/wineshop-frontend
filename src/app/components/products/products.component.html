@@ -39,7 +39,7 @@
             <ul class="pagination ht-pagination">
 
               <li><a  aria-label="Previous"><i class="fa fa-chevron-left"></i></a></li>
-              <app-page-button *ngFor="let b of pageButtons" [pageButton]="b" (refresh)="refreshPage($event)"></app-page-button>
+              <li app-page-button *ngFor="let b of pageButtons" [pageButton]="b" (refresh)="refreshPage($event)" [ngClass]="{ 'active' : b.active }"></li>
               <li><a  aria-label="Next"><i class="fa fa-chevron-right"></i></a></li>
 
             </ul>

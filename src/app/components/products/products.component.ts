@@ -4,9 +4,10 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductHttpService } from 'src/app/services/product-http.service';
 import { FilterSettings, Category } from 'src/app/interfaces/filter-settings';
 import { PageButton } from 'src/app/interfaces/page-button';
+import { EmptyFilterSettingsService } from 'src/app/services/empty-filter-settings.service';
 
 
-const pageButtonsCount:number=5;
+const pageButtonsCount: number = 5;
 
 @Component({
   selector: 'app-products',
@@ -21,17 +22,15 @@ export class ProductsComponent implements OnInit {
   pageButtons: PageButton[];
   currentPage: number;
 
-  constructor(private productHttpService: ProductHttpService, private route: ActivatedRoute) {
-    this.pageButtons=[];
+  constructor(private productHttpService: ProductHttpService, private route: ActivatedRoute,
+    private emptyFilterSettingsService: EmptyFilterSettingsService) {
+    this.pageButtons = [];
     for (let i = 0; i < pageButtonsCount; i++) {
-        this.pageButtons[i]={
-          nr:i+1,
-          active:false
-        }
+      this.pageButtons[i] = {
+        nr: i + 1,
+        active: false
+      }
     }
-    this.pageButtons[3].active=true;
-    console.log("test1");
-    console.log(this.pageButtons);
     this.wineCards = [];
     this.filterSettings = {};
   }
@@ -68,7 +67,7 @@ export class ProductsComponent implements OnInit {
     if (filterSettings) {
       for (let key of Object.keys(filterSettings)) {
         if (!filterSettings[key]) {
-          filterSettings[key]=undefined;
+          filterSettings[key] = undefined;
         }
       }
     }
@@ -76,7 +75,10 @@ export class ProductsComponent implements OnInit {
   }
 
   refreshPage(pageNumber: number) {
-    this.filterSettings.offset=pageNumber;
+    if (!this.filterSettings) {
+      this.filterSettings = this.emptyFilterSettingsService.emptyObject();
+    }
+    this.filterSettings.offset = pageNumber;
     this.refresh(this.filterSettings);
   }
 

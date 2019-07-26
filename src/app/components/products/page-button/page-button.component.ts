@@ -1,8 +1,8 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { PageButton } from 'src/app/interfaces/page-button';
 
 @Component({
-  selector: 'app-page-button',
+  selector: '[app-page-button]',
   templateUrl: './page-button.component.html',
   styleUrls: ['./page-button.component.css']
 })
