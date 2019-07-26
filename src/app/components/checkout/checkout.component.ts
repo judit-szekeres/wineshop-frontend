@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Address } from '../../interfaces/address';
+import { User } from "src/app/interfaces/user";
 
 @Component({
   selector: 'app-checkout',
@@ -7,9 +9,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckoutComponent implements OnInit {
 
-  constructor() { }
+  shippingAddress: Address;
+  billingAddress: Address;
+  checkAddress: boolean;
+
+  
+
+  constructor(  ) {
+    this.shippingAddress = {
+      firstname: '',
+      lastname: '',
+      street: '',
+      city: '',
+      country: ''
+    }
+
+    this.billingAddress = {
+      firstname: '',
+      lastname: '',
+      street: '',
+      city: '',
+      country: ''
+    };
+    console.log("eddig jó");
+  }
 
   ngOnInit() {
+
+  }
+
+  setBilling() {
+    if (this.checkAddress) {
+      
+    }
+
   }
 
 }

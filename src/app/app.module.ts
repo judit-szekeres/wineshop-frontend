@@ -36,6 +36,8 @@ import { PaymentMethodComponent } from './components/checkout/payment-method/pay
 import { OrderSummaryComponent } from './components/checkout/order-summary/order-summary.component';
 import { PreviousOrderComponent } from './components/header/previous-order/previous-order.component';
 import { PersonalDetailsComponent } from './components/header/personal-details/personal-details.component';
+import { CartTextComponent } from './components/cart/cart-total/cart-text/cart-text.component';
+import { OrderSuccessComponent } from './components/checkout/order-success/order-success.component';
 
 
 @NgModule({
@@ -70,7 +72,9 @@ import { PersonalDetailsComponent } from './components/header/personal-details/p
     PersonalDetailsComponent,
     PreviousOrderComponent,
     PaymentMethodComponent,
-    OrderSummaryComponent
+    OrderSummaryComponent,
+    CartTextComponent,
+    OrderSuccessComponent
     ],
   imports: [
     BrowserModule,
