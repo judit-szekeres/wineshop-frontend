@@ -3,7 +3,7 @@
 
 <div class="box modal-front" [@modalSlide]>
   <button type="button" class="btn btn-danger" name="button" (click)="closeMe()" [@backdropFade]>x</button>
-
+  <br>
   <div class="title-group underline-double1">
     <h6 class="sub-title">Royal wine</h6>
     <h3 class="selected">Product Details</h3>
@@ -14,28 +14,28 @@
   </div>
   <div class="row">
     <div class="col-sm-6 text-center">
-      <div>picture</div>
+      <img class="wine-image" src={{wineDetails.img}} alt="image">
     </div>
     <div class="col-sm-6">
       <div class="box p-40">
         <p></p>
         <p></p>
-        <h1 class="f-30 p-t-0">Wine Name</h1>
+        <h1 class="f-30 p-t-0">{{wineDetails.name}}</h1>
         <ul class="list list-border">
           <li class="color-9">
-            <p class="price f-40">$138.00</p>Old price: $275.00 (-72%)
+            <p class="price f-40">New Price: {{wineDetails.salePrice}}</p>Old Price: {{wineDetails.price}}
           </li>
-          <li><b class="d-inline-block w-100">V/v:</b>13%</li>
-          <li><b class="d-inline-block w-100">Size:</b>Big</li>
-          <li><b class="d-inline-block w-100">Color:</b>White</li>
-          <li><b class="d-inline-block w-100">Years:</b>1989</li>
+          <li><b class="d-inline-block w-100">V/v:</b>{{wineDetails.alcoholRating}}</li>
+          <li><b class="d-inline-block w-100">Size:</b>{{wineDetails.volume}}</li>
+          <li><b class="d-inline-block w-100">Winery:</b>{{wineDetails.winery.name}}</li>
+          <li><b class="d-inline-block w-100">Wine type:</b>{{wineDetails.winery.name}}</li>
+          <li><b class="d-inline-block w-100">Color:</b>{{wineDetails.wineType.category}}</li>
+          <li><b class="d-inline-block w-100">Years:</b>{{wineDetails.year}}</li>
+          <li><b class="d-inline-block w-100">Stock:</b>{{wineDetails.stock}}</li>
           <li><b class="d-inline-block w-100">Quantity:</b><input type="number" class="form-item w-120" value="1"></li>
         </ul>
         <a href="" class="btn btn-primary">Add to cart</a>
       </div>
     </div>
   </div>
-
-
-
 </div>

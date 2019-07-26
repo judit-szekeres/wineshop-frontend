@@ -17,14 +17,20 @@
           <div class="box-item text-left p-50">
             <h3 class="f-22 p-t-0">If you have any question feel free to write us</h3>
             <div class="m-t-20">
+
+            <div class="form-group" [ngClass]="{ 'has-error' : notValidName }">
               <input type="text" class="form-item" [(ngModel)]="contact.name" placeholder="Name">
+              <div class="text-danger" *ngIf="notValidName"> {{ notValidNameMessage }} >
+            </div>
+
               <input type="text" class="form-item" [(ngModel)]="contact.email" placeholder="Email">
               <input type="text" class="form-item" [(ngModel)]="contact.phone" placeholder="Phone">
               <textarea class="form-item h-200" [(ngModel)]="contact.message" placeholder="Message"></textarea>
+
               <button type="submit" class="ht-btn bg-6 m-t-10 rad-3" (click)="submit()">Send</button>
-              
+                </div>
+              </div>
             </div>
-          </div>
         </div>
         <div class="col-sm-6">
           <div class="box-item text-left p-50">

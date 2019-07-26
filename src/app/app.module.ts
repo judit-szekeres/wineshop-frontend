@@ -23,7 +23,6 @@ import { QuoteComponent } from './components/footer/quote/quote.component';
 import { CartTableComponent } from './components/cart/cart-table/cart-table.component';
 import { CartTotalComponent } from './components/cart/cart-total/cart-total.component';
 import {CarouselModule} from "ngx-carousel-lib";
-import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegConfirmationPageComponent } from './components/login-registration-modal/reg-confirmation-page/reg-confirmation-page.component';
 import { FilterSettingsComponent } from './components/products/filter-settings/filter-settings.component';
@@ -36,6 +35,8 @@ import { PaymentMethodComponent } from './components/checkout/payment-method/pay
 import { OrderSummaryComponent } from './components/checkout/order-summary/order-summary.component';
 import { PreviousOrderComponent } from './components/header/previous-order/previous-order.component';
 import { PersonalDetailsComponent } from './components/header/personal-details/personal-details.component';
+import { CartTextComponent } from './components/cart/cart-total/cart-text/cart-text.component';
+import { OrderSuccessComponent } from './components/checkout/order-success/order-success.component';
 
 
 @NgModule({
@@ -59,7 +60,6 @@ import { PersonalDetailsComponent } from './components/header/personal-details/p
     QuoteComponent,
     CartTableComponent,
     CartTotalComponent,
-    ProductDetailsComponent,
     RegConfirmationPageComponent,
     FilterSettingsComponent,
     CategoryPipe,
@@ -70,7 +70,9 @@ import { PersonalDetailsComponent } from './components/header/personal-details/p
     PersonalDetailsComponent,
     PreviousOrderComponent,
     PaymentMethodComponent,
-    OrderSummaryComponent
+    OrderSummaryComponent,
+    CartTextComponent,
+    OrderSuccessComponent
     ],
   imports: [
     BrowserModule,

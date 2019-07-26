@@ -4,7 +4,7 @@ import { User } from '../interfaces/user';
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { serverURL } from '../server-url';
-import { UserDetails } from '../interfaces/user-personal-details';
+/*import { UserDetails } from '../interfaces/user-personal-details';*/
 
 @Injectable({
   providedIn: 'root'
@@ -81,7 +81,7 @@ export class UserHttpService {
       .toPromise() as Promise<null>;
   }
 
-  getUserPersonalDetails(): UserDetails {
+  /*getUserPersonalDetails(): UserDetails {
       return;
-  }
+  }*/
 }
