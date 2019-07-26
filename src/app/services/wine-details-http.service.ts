@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { WineDetails } from '../interfaces/wine-details';
+import { serverURL } from '../server-url';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WineDetailsHttpService {
 
-  private readonly URL = 'http://192.168.1.231:8080/wines/';
+  private readonly URL = serverURL + "/wines/";
   wineDetails: WineDetails;
 
   constructor(private http: HttpClient) { }
