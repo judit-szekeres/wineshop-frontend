@@ -7,39 +7,29 @@ import {CartElement} from "../interfaces/cart-element";
   providedIn: "root"
 })
 export class CartService {
-  public addedProduct: WineCard[];
+  public addedProduct: CartElement[];
 
 
   constructor() {
     this.addedProduct = [
       {
-        image: "",
+
         id: 1,
         name: "La Fiesta",
         price: 2000,
-        salePrice: 2000,
-        rating: 666,
-        numberOfRating: 1,
         quantity: 2
       },
       {
-        image: "",
+
         id: 2,
         name: "Dankó",
         price: 1000,
-        salePrice: 2000,
-        rating: 666,
-        numberOfRating: 1,
         quantity: 4
       },
       {
-        image: "",
         id: 3,
         name: "Irsai Olivér",
         price: 1500,
-        salePrice: 2000,
-        rating: 666,
-        numberOfRating: 1,
         quantity: 3
       }
     ];
