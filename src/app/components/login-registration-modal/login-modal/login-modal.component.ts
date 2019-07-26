@@ -11,8 +11,6 @@ import { User } from 'src/app/interfaces/user';
 export class LoginModalComponent implements OnInit {
 
   user: User;
-  errors: string;
-  badData: boolean;
   emailNotValidEmail : boolean;
   emailNotRegisteredOrIncorrectPassword : boolean;
   emailNotValidEmailMessage = 'Invalid email address!';
@@ -23,7 +21,6 @@ export class LoginModalComponent implements OnInit {
       email: '',
       password: ''
     }
-    this.errors = '';
     this.emailNotRegisteredOrIncorrectPassword = false;
     this.emailNotValidEmail = false;
   }
@@ -36,7 +33,7 @@ export class LoginModalComponent implements OnInit {
     if(! this.isEmailValid() ){
         this.emailNotValidEmail = true;
     }else{
-        this.userService.loginUser(this.user).then( response => {
+        this.userService.loginUser(this.user).then( () => {
           this.router.navigate(['']);
         }).catch(() => {
             this.emailNotRegisteredOrIncorrectPassword = true;
