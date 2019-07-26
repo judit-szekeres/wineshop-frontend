@@ -75,9 +75,9 @@ export class ProductsComponent implements OnInit {
     return filterSettings;
   }
 
-  refreshPage(page: number) {
-    console.log(page);
-    this.refresh(this.filterSettings, page);
+  refreshPage(pageNumber: number) {
+    this.filterSettings.offset=pageNumber;
+    this.refresh(this.filterSettings);
   }
 
 }

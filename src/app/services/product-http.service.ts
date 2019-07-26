@@ -28,7 +28,6 @@ export class ProductHttpService {
     console.log("http request");
     console.log(params);
 
-    //return null;
     return this.http.get(serverURL + "/wines", { params: params, withCredentials: true })
       .toPromise()
       .then(this.transformWineCardResultsDTO);
