@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FilterSettings } from 'src/app/interfaces/filter-settings';
 import { KeyValue } from '@angular/common';
 import { CategoryService } from 'src/app/services/category.service';
+import { EmptyFilterSettingsService } from 'src/app/services/empty-filter-settings.service';
 
 @Component({
   selector: 'app-filter-settings',
@@ -16,19 +17,8 @@ export class FilterSettingsComponent implements OnInit {
   filterSettings: FilterSettings;
   categories: KeyValue<string,string>[];
 
-  constructor(private categoryService:CategoryService) {
-    this.filterSettings={
-      name: '',
-      category: null,
-      minPrice: null,
-      maxPrice: null,
-      onSale: null,
-      winery:  '',
-      region:  '',
-      country:  '',
-      yearFrom: null,
-      yearTo: null
-    }
+  constructor(private categoryService:CategoryService, emptyFilterSettingsService:EmptyFilterSettingsService) {
+    this.filterSettings=emptyFilterSettingsService.emptyObject();
     this.categories=this.categoryService.getCategoryArray();
   }
 

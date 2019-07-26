@@ -3,20 +3,34 @@ import { WineCard } from 'src/app/interfaces/wine';
 import { ActivatedRoute } from '@angular/router';
 import { ProductHttpService } from 'src/app/services/product-http.service';
 import { FilterSettings, Category } from 'src/app/interfaces/filter-settings';
+import { PageButton } from 'src/app/interfaces/page-button';
+import { EmptyFilterSettingsService } from 'src/app/services/empty-filter-settings.service';
 
+
+const pageButtonsCount: number = 5;
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
+
 export class ProductsComponent implements OnInit {
 
   wineCards: WineCard[];
   filterSettings: FilterSettings;
+  pageButtons: PageButton[];
   currentPage: number;
 
-  constructor(private productHttpService: ProductHttpService, private route: ActivatedRoute) {
+  constructor(private productHttpService: ProductHttpService, private route: ActivatedRoute,
+    private emptyFilterSettingsService: EmptyFilterSettingsService) {
+    this.pageButtons = [];
+    for (let i = 0; i < pageButtonsCount; i++) {
+      this.pageButtons[i] = {
+        nr: i + 1,
+        active: false
+      }
+    }
     this.wineCards = [];
     this.filterSettings = {};
   }
@@ -36,10 +50,8 @@ export class ProductsComponent implements OnInit {
 
   refresh(filterSettings?: FilterSettings, pageNumber?: number) {
     this.filterSettings = filterSettings;
-    console.log(filterSettings);
     this.productHttpService.getWines(this.cleanedFilter(this.filterSettings)).then(wineCardResults => {
       this.wineCards = wineCardResults.wines;
-      console.log(this.wineCards);
 
       if (!pageNumber && this.wineCards.length > 0) {
         this.currentPage = 1;
@@ -55,16 +67,19 @@ export class ProductsComponent implements OnInit {
     if (filterSettings) {
       for (let key of Object.keys(filterSettings)) {
         if (!filterSettings[key]) {
-          filterSettings[key]=undefined;
+          filterSettings[key] = undefined;
         }
       }
     }
     return filterSettings;
   }
 
-  refreshPage(page: number) {
-    console.log(page);
-    this.refresh(this.filterSettings, page);
+  refreshPage(pageNumber: number) {
+    if (!this.filterSettings) {
+      this.filterSettings = this.emptyFilterSettingsService.emptyObject();
+    }
+    this.filterSettings.offset = pageNumber;
+    this.refresh(this.filterSettings);
   }
 
 }

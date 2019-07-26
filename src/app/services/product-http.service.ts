@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { WineCardResults } from '../interfaces/wine-dto';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { FilterSettings, Category } from '../interfaces/filter-settings';
+import { FilterSettings } from '../interfaces/filter-settings';
 import { serverURL } from '../server-url';
 
 @Injectable({
@@ -28,8 +28,7 @@ export class ProductHttpService {
     console.log("http request");
     console.log(params);
 
-    //return null;
-    return this.http.get(this.URL, { params: params, withCredentials: true })
+    return this.http.get(serverURL + "/wines", { params: params, withCredentials: true })
       .toPromise()
       .then(this.transformWineCardResultsDTO);
   }
