@@ -1,5 +1,7 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
+import { WineDetails } from 'src/app/interfaces/wine-details';
+import { WineDetailsHttpService } from 'src/app/services/wine-details-http.service';
 
 @Component({
   selector: 'wine-data-modal',
@@ -58,15 +60,26 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
 
 export class WineDataModalComponent implements OnInit {
 
-  @Output() closeThis = new EventEmitter();
+  @Input()
+  wineDetails: WineDetails;
 
-  constructor() { }
+  @Input()
+  wineId: number;
 
-  ngOnInit() {
+  @Output()
+  closeThis = new EventEmitter();
+
+  constructor(private wineDetailsHttpService: WineDetailsHttpService) {
+    console.log("teszt");
+    console.log(this.wineId);
   }
 
-
-
+  ngOnInit() {
+    this.wineDetailsHttpService.getWine(this.wineId).then(wineDetails => {
+      console.log(wineDetails);
+      this.wineDetails = wineDetails;
+    })
+  }
   closeMe() {
     this.closeThis.emit();
 

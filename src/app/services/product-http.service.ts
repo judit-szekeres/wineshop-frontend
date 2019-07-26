@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { WineCardResults } from '../interfaces/wine-dto';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { FilterSettings, Category } from '../interfaces/filter-settings';
+import { serverURL } from '../server-url';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductHttpService {
 
-  private readonly URL = 'http://192.168.1.231:8080/wines';
+  private readonly URL = serverURL + "/wines";
   wineCardResults: WineCardResults;
 
   constructor(private http: HttpClient) { }
