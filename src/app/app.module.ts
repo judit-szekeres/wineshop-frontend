@@ -23,7 +23,6 @@ import { QuoteComponent } from './components/footer/quote/quote.component';
 import { CartTableComponent } from './components/cart/cart-table/cart-table.component';
 import { CartTotalComponent } from './components/cart/cart-total/cart-total.component';
 import {CarouselModule} from "ngx-carousel-lib";
-import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegConfirmationPageComponent } from './components/login-registration-modal/reg-confirmation-page/reg-confirmation-page.component';
 import { FilterSettingsComponent } from './components/products/filter-settings/filter-settings.component';
@@ -59,7 +58,6 @@ import { PersonalDetailsComponent } from './components/header/personal-details/p
     QuoteComponent,
     CartTableComponent,
     CartTotalComponent,
-    ProductDetailsComponent,
     RegConfirmationPageComponent,
     FilterSettingsComponent,
     CategoryPipe,
