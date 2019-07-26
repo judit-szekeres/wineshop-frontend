@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {CartServerData} from '../interfaces/cart-serverdata';
+import {CartElement} from '../interfaces/cart-element';
 import {CartServerDataDTO} from '../interfaces/cart-serverdata-dto';
 import {CartError} from '../errors/cart-error';
 
@@ -13,6 +13,13 @@ export class CartHTTPService {
 private readonly URL='http://192.168.1.171:8080/cart';
 
   constructor(private http: HttpClient) { }
+
+  private transformCartElementDTO(serverData: CartServerDataDTO): CartElement[] {
+      if (!serverData.success) {
+          throw new CartError(serverData['error-infos']);
+      }
+      return serverData.productsInCart;
+  }
 
   deleteCartElementFromServer(productId:number):Promise<null>{
     return this.http.request('delete', this.URL, {withCredentials:true, body: { id: productId, quantity: 0 }})
@@ -28,6 +35,12 @@ private readonly URL='http://192.168.1.171:8080/cart';
   putProductToServerCart(productId:number):Promise<null>{
     return this.http.request('post', this.URL, {withCredentials:true, body: { id: productId, quantity: 1 }})
     .toPromise() as Promise<null>;
+  }
+
+
+  getCartElementsFromServer(): Promise<CartElement[]> {
+      return this.http.get(this.URL, { withCredentials: true }).toPromise()
+          .then(this.transformCartElementDTO);
   }
 
 

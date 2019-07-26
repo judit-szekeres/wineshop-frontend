@@ -1,12 +1,6 @@
 <div class="box">
   <h3 class="title line-default">Total: ${{ totalCost() }}</h3>
-  <ul class="list list-border m-b-10">
-    <li><b class="d-inline-block w-120">Subtotal:</b>${{ sum() }}</li>
-    <li><b class="d-inline-block w-120">Shipping cost:</b>${{ shippingPrice }}</li>
-    <li><b class="d-inline-block w-120">Tax:</b>${{ taxPrice }}</li>
-    <!--<li><b class="d-inline-block w-120">Coupon code:</b>HYTGNJ7 (-10%)</li>-->
-  </ul>
-  <p class="cart-total"><b class="color-3 d-inline-block w-120">Total:</b>${{ totalCost() }}</p>
+  <app-cart-text></app-cart-text>
   <a href="" routerLink="/checkout" class="ht-btn bg-dc4c46">Check Out</a>
   <a href="" class="ht-btn bg-2 m-t-20">Continue Shopping</a>
 </div>

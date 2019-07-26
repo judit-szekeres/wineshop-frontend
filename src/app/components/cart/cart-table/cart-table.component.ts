@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Input, Output } from "@angular/core";
 import { WineCard } from "../../../interfaces/wine";
 import { CartService } from "../../../services/cart.service";
 import { CartHTTPService } from "../../../services/cart-http.service";
+import {CartElement}from "../../../interfaces/cart-element";
 
 @Component({
   selector: "app-cart-table",
@@ -10,7 +11,7 @@ import { CartHTTPService } from "../../../services/cart-http.service";
 })
 export class CartTableComponent implements OnInit {
   @Input()
-  choosenProduct: WineCard;
+  choosenProduct: CartElement;
   @Output()
   updateQuantity: EventEmitter<null> = new EventEmitter();
   @Output()
@@ -50,7 +51,7 @@ export class CartTableComponent implements OnInit {
   }
 
 
-  
+
 
 
 }

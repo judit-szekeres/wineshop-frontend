@@ -14,4 +14,5 @@ export interface FilterSettings {
   country?: string;
   yearFrom?: number;
   yearTo?: number;
+  offset?: number;
 }
