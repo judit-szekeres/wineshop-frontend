@@ -4,7 +4,8 @@ import { User } from '../interfaces/user';
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { serverURL } from '../server-url';
-/*import { UserDetails } from '../interfaces/user-personal-details';*/
+import { UserDetails } from '../interfaces/user-details';
+import { Country } from '../interfaces/country';
 
 @Injectable({
   providedIn: 'root'
@@ -81,7 +82,15 @@ export class UserHttpService {
       .toPromise() as Promise<null>;
   }
 
-  /*getUserPersonalDetails(): UserDetails {
-      return;
-  }*/
+  getCurrentUserPersonalDetails(): Promise<UserDetails> {
+      return this.http.get(serverURL + '/user/settings', { withCredentials: true }).toPromise().then( response => response ) as Promise<UserDetails>;
+  }
+
+  getCountriesList(): Promise<Country[]>{
+      return this.http.get(serverURL + '/countries', { withCredentials: true }).toPromise().then( response => response ) as Promise<Country[]>;
+  }
+
+  modifyUserPersonalDetails(modifyDetails: UserDetails): Promise<null> {
+      return this.http.post(serverURL + '/user/settings', modifyDetails, { withCredentials: true }).toPromise().then( () => {}) as Promise<null>;
+  }
 }

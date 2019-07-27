@@ -4,7 +4,7 @@ export interface UserDetails {
     email: '',
     currentPassword?: '',
     newPassword?: '',
-    confirmNewPassword?:'',
+    confirmNewPassword?: '',
     shippingAddress: {
         street: "",
         city: "",
