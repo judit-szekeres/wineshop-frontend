@@ -69,15 +69,21 @@ export class WineDataModalComponent implements OnInit {
   @Output()
   closeThis = new EventEmitter();
 
+  private haveSpecialPrice: boolean;
+
   constructor(private wineDetailsHttpService: WineDetailsHttpService) {
     console.log("teszt");
     console.log(this.wineId);
+    this.haveSpecialPrice = true;
   }
 
   ngOnInit() {
     this.wineDetailsHttpService.getWine(this.wineId).then(wineDetails => {
       console.log(wineDetails);
       this.wineDetails = wineDetails;
+      if(this.wineDetails.salePrice === -1){
+          this.haveSpecialPrice = false;
+      }
     })
   }
   closeMe() {

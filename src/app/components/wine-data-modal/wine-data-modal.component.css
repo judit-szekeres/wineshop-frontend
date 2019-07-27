@@ -24,6 +24,7 @@
   transition: all 0.3s ease-out;
   overflow: hidden;
 }
+
 @media (min-width: 600px) {
   .modal-front {
     width: 550px;
@@ -33,13 +34,17 @@
   }
 }
 
-.btn-danger{
-    float: right;
+.btn-danger {
+  float: right;
 }
 
 .underline-double {
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 30px;
+}
 
-    padding-bottom: 0px;
-    margin-top: 0px;
-    margin-bottom: 30px;
+.specialPrice {
+  font-style: italic;
+  color: red;
 }

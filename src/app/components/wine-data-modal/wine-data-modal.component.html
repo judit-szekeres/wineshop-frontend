@@ -24,21 +24,21 @@
           <td>Name</td>
           <td>{{wineDetails.name}}</td>
         </tr>
-        <tr>
-          <td>New Price</td>
-          <td>{{wineDetails.salePrice}}</td>
+        <tr class="specialPrice" *ngIf="haveSpecialPrice">
+          <td>Special Price</td>
+          <td>{{wineDetails.salePrice}}$</td>
         </tr>
         <tr>
-          <td>Old Price</td>
-          <td>{{wineDetails.price}}</td>
+          <td>Price</td>
+          <td>{{wineDetails.price}}$</td>
         </tr>
         <tr>
           <td>V/v</td>
-          <td>{{wineDetails.alcoholRating}}</td>
+          <td>{{wineDetails.alcoholRating}}%</td>
         </tr>
         <tr>
           <td>Size</td>
-          <td>{{wineDetails.volume}}</td>
+          <td>{{wineDetails.volume}}l</td>
         </tr>
         <tr>
           <td>Winery</td>
