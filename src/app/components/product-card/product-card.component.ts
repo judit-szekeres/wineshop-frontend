@@ -15,17 +15,25 @@ export class ProductCardComponent implements OnInit {
   @Input()
   fullWidth: boolean;
 
+  @Input()
+  carousel: boolean;
+  
+
   private wineModalNeeded: boolean;
 
   constructor() {
     this.wineModalNeeded = false;
+    this.carousel = false;
   }
 
   ngOnInit() {
   }
 
   openLoginModal(): void {
-    this.wineModalNeeded = true;
+    if (!this.carousel) {
+      this.wineModalNeeded = true;
+    }
+
   }
 
   closeLoginModal(): void {
