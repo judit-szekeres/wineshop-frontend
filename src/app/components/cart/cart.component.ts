@@ -22,11 +22,12 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.refreshCartFromService();
+    //this.refreshCartFromService();
 
 
     this.cartConnectionService.getCartElementsFromServer().then(cartElements=>{
       this.choosenProducts=cartElements;
+      this.service.addedProduct=cartElements;
     });
 
   }

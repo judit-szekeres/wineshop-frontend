@@ -20,7 +20,7 @@ export class CartTotalComponent implements OnInit {
     this.totalSubprice = 0;
     for (let index = 0; index < length; index++) {
       this.totalSubprice +=
-        (this.cartService.addedProduct[index].price) *
+        (this.cartService.addedProduct[index].salePrice) *
         (this.cartService.addedProduct[index].quantity);
     }
     return this.totalSubprice;

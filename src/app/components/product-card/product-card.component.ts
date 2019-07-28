@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { WineCard } from 'src/app/interfaces/wine';
 import { WineDataModalComponent } from '../wine-data-modal/wine-data-modal.component';
+import {CartHTTPService} from '../../services/cart-http.service';
 
 @Component({
   selector: 'app-product-card',
@@ -17,7 +18,7 @@ export class ProductCardComponent implements OnInit {
 
   private wineModalNeeded: boolean;
 
-  constructor() {
+  constructor(public cartConnectionService:CartHTTPService) {
     this.wineModalNeeded = false;
   }
 
@@ -30,6 +31,13 @@ export class ProductCardComponent implements OnInit {
 
   closeLoginModal(): void {
     this.wineModalNeeded = false;
+  }
+
+  addToCart():void{
+    this.cartConnectionService.putProductToServerCart(this.wineCard.id).then(() => {
+      console.log("succeeded");
+
+    });
   }
 
 }
