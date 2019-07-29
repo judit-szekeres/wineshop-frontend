@@ -35,7 +35,6 @@ import { PaymentMethodComponent } from './components/checkout/payment-method/pay
 import { OrderSummaryComponent } from './components/checkout/order-summary/order-summary.component';
 import { PreviousOrderComponent } from './components/header/previous-order/previous-order.component';
 import { PersonalDetailsComponent } from './components/header/personal-details/personal-details.component';
-import { PageButtonComponent } from './components/products/page-button/page-button.component';
 import { CartTextComponent } from './components/cart/cart-total/cart-text/cart-text.component';
 import { OrderSuccessComponent } from './components/checkout/order-success/order-success.component';
 import { LoadingBottleComponent } from './components/loading-bottle/loading-bottle.component';
@@ -77,7 +76,6 @@ import { PaginationComponent } from './components/products/pagination/pagination
     OrderSummaryComponent,
     CartTextComponent,
     OrderSuccessComponent,
-    PageButtonComponent,
     LoadingBottleComponent,
     SubscribeComponent,
     PaginationComponent
