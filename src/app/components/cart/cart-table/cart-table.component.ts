@@ -17,6 +17,7 @@ export class CartTableComponent implements OnInit {
   @Output()
   deleted: EventEmitter<null> = new EventEmitter();
 
+  public flag=0;
   constructor(
     public selectedProducts: CartService,
     private cartConnectionService: CartHTTPService
@@ -26,10 +27,15 @@ export class CartTableComponent implements OnInit {
 
 
   changeQuantity(): void {
+
     this.cartConnectionService.changeCartElementsQuantityOnServer(this.choosenProduct.id,this.choosenProduct.quantity)
     .then(() => {
-      this.updateQuantity.emit();
-    });
+      this.flag=0;
+    })
+    .catch(()=>{
+      this.flag=1 ;
+    })
+
   }
 
 

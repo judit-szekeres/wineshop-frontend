@@ -4,8 +4,11 @@
   <div class="col-xs-5 grid-item">
     <h3>{{ choosenProduct.name }}</h3>
   </div>
-  <div class="col-xs-2 grid-item">
+  <div *ngIf="flag==0" class="col-xs-2 grid-item">
     <input type="number" min="1"[(ngModel)]="choosenProduct.quantity" class="form-item" (input)="changeQuantity()">
+  </div>
+  <div *ngIf="flag==1" class="col-xs-2 grid-item">
+    <h1>Nincs több készleten</h1>
   </div>
   <div class="col-xs-2 grid-item"><b>${{ choosenProduct.salePrice }}</b></div>
   <div class="col-sm-1 grid-item text-center"><i class="fa fa-remove" (click)="delete()"></i></div>
