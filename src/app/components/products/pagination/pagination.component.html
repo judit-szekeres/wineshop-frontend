@@ -1,11 +1,17 @@
 <nav aria-label="Page navigation">
   <ul class="pagination ht-pagination">
 
-    <li><a aria-label="Previous" (click)="previous()"><i class="fa fa-chevron-left"></i></a></li>
-    <li app-page-button *ngFor="let b of pageButtons" [pageButton]="b" (refresh)="refreshPage($event)" [ngClass]="{'d-none':b.disabled, 'active' : b.active }">
-
+    <li [ngClass]="{'d-none' : firstPageInBlock == 1}">
+      <a aria-label="Previous" (click)="previous()"><i class="fa fa-chevron-left"></i></a>
     </li>
-    <li><a aria-label="Next" (click)="next()"><i class="fa fa-chevron-right"></i></a></li>
+
+    <li *ngFor="let b of pageButtons" (refresh)="refreshPage($event)" [ngClass]="{'d-none' : firstPageInBlock+b>pageCount,'active' : b==selectedIndex }">
+      <a (click)="select(b)">{{firstPageInBlock+b}}</a>
+    </li>
+
+    <li [ngClass]="{'d-none' : firstPageInBlock+BLOCK_LENGTH -1 == pageCount}">
+      <a aria-label="Next" (click)="next()"><i class="fa fa-chevron-right"></i>
+    </a></li>
 
   </ul>
 </nav>

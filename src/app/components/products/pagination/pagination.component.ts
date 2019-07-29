@@ -1,13 +1,4 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { Pagination, PageButton } from 'src/app/interfaces/page-button';
-import { WineCardResults } from 'src/app/interfaces/wine-dto';
-
-
-//const INITIAL_FIRST_PAGE_IN_BLOCK:number=1;
-//Temp
-const INITIAL_FIRST_PAGE_IN_BLOCK: number = 83;
-const BLOCK_LENGTH = 5;
-const INITIAL_SELECTED_INDEX = 0;
 
 
 @Component({
@@ -19,104 +10,73 @@ const INITIAL_SELECTED_INDEX = 0;
 
 export class PaginationComponent implements OnInit {
 
+
+  readonly INITIAL_FIRST_PAGE_IN_BLOCK: number = 1;
+  //Temp
+  //readonly INITIAL_FIRST_PAGE_IN_BLOCK: number = 74;
+  readonly BLOCK_LENGTH = 5;
+  readonly INITIAL_SELECTED_INDEX = 0;
+
   @Input()
-  promiseForPageCount: Promise<WineCardResults>;
+  pageCount: number;
 
   @Output()
   refresh: EventEmitter<number> = new EventEmitter();
 
-  pageButtons: PageButton[];
+  pageButtons: number[] = [];
 
-  pagination: Pagination = {
-    pageCount: null,
-    selectedIndex: INITIAL_SELECTED_INDEX,
-    firstPageInBlock: INITIAL_FIRST_PAGE_IN_BLOCK,
-    blockLength: BLOCK_LENGTH,
-    pageButtons: this.pageButtons,
-    currentPage: function(): number {
-      return this.firstPageInBlock + this.selectedIndex;
-    },
-    isExistingPage: function(index: number): boolean {
-      return this.firstPageInBlock + index <= this.pageCount && this.firstPageInBlock + index > 0;
-    },
-    select: function(index: number) {
-      this.selectedIndex = index;
-      this.refresh();
-    },
-    refresh: function() {
-      for (let i = 0; i < this.pageButtons.length; i++) {
-        if (i === this.selectedIndex) {
-          this.pageButtons[i].active = true;
-        } else {
-          this.pageButtons[i].active = false;
-        }
-        if (this.isExistingPage(i)) {
-          this.pageButtons[i].disabled = false;
-          this.pageButtons[i].index = i;
-          this.pageButtons[i].pageNumber = this.firstPageInBlock + i;
-        } else {
-          this.pageButtons[i].disabled = true;
-        }
-      }
-    },
-    next: function() {
-      if (this.isExistingPage(this.selectedIndex + 1)) {
-        if (this.selectedIndex === this.blockLength - 1) {
-          ++this.firstPageInBlock;
-        } else {
-          this.selectedIndex++;
-        }
-      }
-      this.refresh();
-    },
-    previous: function() {
-      if (this.isExistingPage(this.selectedIndex - 1)) {
-        if (this.selectedIndex === 0) {
-          --this.firstPageInBlock;
-        } else {
-          this.selectedIndex--;
-        }
-      }
-      this.refresh();
-    }
-  };
+  selectedIndex: number = this.INITIAL_SELECTED_INDEX;
+  firstPageInBlock: number = this.INITIAL_FIRST_PAGE_IN_BLOCK;
+
 
   constructor() {
-    this.pageButtons = [];
-    for (let i = 0; i < this.pagination.blockLength; i++) {
-      this.pageButtons[i] = {
-        index: null,
-        pageNumber: null,
-        active: false,
-        disabled: false
-      };
+    for (let i = 0; i < this.BLOCK_LENGTH; i++) {
+      this.pageButtons[i] = i
     }
   }
 
-  ngOnInit() {
-    this.pagination.pageButtons = this.pageButtons;
+  ngOnInit() { }
 
-    this.promiseForPageCount.then(wineCardResults => {
-      this.pagination.pageCount = wineCardResults.numberOfPage;
-      this.pagination.refresh();
-    });
-  }
-
-  refreshPage(index?: number) {
-    if (index!=null) {
-      this.pagination.select(index);
-    }
-    this.refresh.emit(this.pagination.currentPage());
+  refreshPage() {
+    this.refresh.emit(this.currentPage());
   }
 
   next() {
-    this.pagination.next();
+    if (this.selectedIndex + 1 < this.BLOCK_LENGTH / 2) {
+      this.selectedIndex++;
+    } else {
+      this.firstPageInBlock++;
+    }
     this.refreshPage();
   }
 
   previous() {
-    this.pagination.previous();
+    if (this.selectedIndex > this.BLOCK_LENGTH / 2) {
+      this.selectedIndex--;
+    } else {
+      this.firstPageInBlock--;
+    }
     this.refreshPage();
+  }
+
+  isExistingPage(index: number): boolean {
+    return this.firstPageInBlock + index <= this.pageCount && this.firstPageInBlock + index > 0;
+  };
+
+  select(index: number): void {
+    this.selectedIndex = index;
+    this.reorganiseButtons();
+    this.refreshPage();
+  };
+
+  currentPage() {
+    return this.firstPageInBlock + this.selectedIndex;
+  }
+
+  reorganiseButtons() {
+    let selectedPage = this.currentPage();
+    this.firstPageInBlock = Math.max(Math.min(this.currentPage() - Math.floor(this.BLOCK_LENGTH / 2), this.pageCount - this.BLOCK_LENGTH + 1), 1);
+    this.selectedIndex = selectedPage - this.firstPageInBlock;
   }
 
 }

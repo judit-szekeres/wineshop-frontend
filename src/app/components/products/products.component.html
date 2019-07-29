@@ -36,7 +36,7 @@
             <app-product-card class="" *ngFor="let w of wineCards" [wineCard]="w" ></app-product-card>
           </div>
           <!--pagination-->
-          <app-pagination [promiseForPageCount]="promiseForPageCount" (refresh)="refreshPage($event)"></app-pagination>
+          <app-pagination [pageCount]="pageCount" (refresh)="refreshPage($event)"></app-pagination>
         </div>
       </div>
     </div>

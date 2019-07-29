@@ -1,10 +1,9 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { WineCard } from 'src/app/interfaces/wine';
 import { ActivatedRoute } from '@angular/router';
 import { ProductHttpService } from 'src/app/services/product-http.service';
 import { FilterSettings, Category } from 'src/app/interfaces/filter-settings';
 import { EmptyFilterSettingsService } from 'src/app/services/empty-filter-settings.service';
-import { WineCardResults } from 'src/app/interfaces/wine-dto';
 
 
 @Component({
@@ -15,7 +14,7 @@ import { WineCardResults } from 'src/app/interfaces/wine-dto';
 
 export class ProductsComponent implements OnInit {
 
-  promiseForPageCount:Promise<WineCardResults>;
+  pageCount:number;
 
   wineCards: WineCard[];
   filterSettings: FilterSettings;
@@ -44,8 +43,11 @@ export class ProductsComponent implements OnInit {
   refresh(filterSettings?: FilterSettings) {
     this.filterSettings = filterSettings;
     let p = this.productHttpService.getWines(this.cleanedFilter(this.filterSettings));
-    this.promiseForPageCount = p;
-    p.then(wineCardResults => {this.wineCards = wineCardResults.wines;});
+    //this.promiseForPageCount = p;
+    p.then(wineCardResults => {
+      this.wineCards = wineCardResults.wines;
+      this.pageCount=wineCardResults.numberOfPage;
+    });
   };
 
   cleanedFilter(filterSettings?: FilterSettings) {
