@@ -79,6 +79,8 @@ export class ContactComponent implements OnInit {
     this.notValidPhone = !this.isValidPhone();
     this.notValidMessage = !this.isValidMessage();
 
+
+
     this.contactService.send(this.contact).then(() => {
       this.contact = {
           name: '',
@@ -87,6 +89,8 @@ export class ContactComponent implements OnInit {
           message: ''
         };
     }).catch(() => {
+        alert('Server is not responding, please try again later');
+
       /*this.resetBooleanFields();*/
       /*this.alerts.setMessage('Something went wrong, please try again','warn');*/
       });
