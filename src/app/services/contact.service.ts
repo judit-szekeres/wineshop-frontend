@@ -8,8 +8,6 @@ import { serverURL } from '../server-url';
 })
 export class ContactService {
 
-  /*private readonly URL = 'http://192.168.1.171:8080/mail';*/
-
   constructor(private http: HttpClient) { }
 
   send(data: Contact): Promise<null> {
