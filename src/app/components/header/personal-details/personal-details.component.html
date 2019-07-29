@@ -33,15 +33,15 @@
                                         </div>
                                         <div class="form-group required">
                                             <label class="col-sm-3 control-label text-left" for="input-shipping-current-password">Current Password</label>
-                                            <div class="col-sm-9"><input type="text" name="current-password" value="" placeholder="Current Password" id="input-shipping-current-password" class="form-control form-item"></div>
+                                            <div class="col-sm-9"><input type="password" name="current-password" [(ngModel)]="this.currentPasswordToChange" placeholder="Current Password" id="input-shipping-current-password" class="form-control form-item"></div>
                                         </div>
                                         <div class="form-group required">
                                             <label class="col-sm-3 control-label text-left" for="input-shipping-new-password">New Password</label>
-                                            <div class="col-sm-9"><input type="text" name="new-password" value="" placeholder="New Password" id="input-shipping-new-password" class="form-control form-item"></div>
+                                            <div class="col-sm-9"><input type="password" name="new-password" [(ngModel)]="this.newPasswordToChange" placeholder="New Password" id="input-shipping-new-password" class="form-control form-item"></div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label text-left" for="input-shipping-confirm-new-password">Confirm New Password</label>
-                                            <div class="col-sm-9"><input type="text" name="confirm-new-password" value="" placeholder="Confirm New Password" id="input-shipping-confirm-new-password" class="form-control form-item"></div>
+                                            <div class="col-sm-9"><input type="password" name="confirm-new-password" [(ngModel)]="this.confirmNewPasswordToChange" placeholder="Confirm New Password" id="input-shipping-confirm-new-password" class="form-control form-item"></div>
                                         </div>
                                         <div class="form-group required">
                                             <h3 class="f-25 p-t-0 line-default m-b-30 title">Billing address</h3>
