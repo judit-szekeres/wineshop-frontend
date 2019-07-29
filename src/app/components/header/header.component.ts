@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { UserHttpService } from 'src/app/services/user-http.service';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/interfaces/user';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +15,7 @@ export class HeaderComponent implements OnInit {
     currentUserLoggedIn$: Observable<boolean>;
     currentUserDetails$: Observable<User>;
 
-  constructor(private router: Router, public userService: UserHttpService) {
+  constructor(private router: Router, public userService: UserHttpService, public cartService:CartService) {
   }
 
   ngOnInit() {

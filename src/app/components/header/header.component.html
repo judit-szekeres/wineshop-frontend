@@ -31,7 +31,7 @@
                 <li>
                   <div class="cart dropdown" *ngIf="(currentUserLoggedIn$ | async) as something">
                     <a href="" routerLink="/cart" class="cart-item dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <span>2</span>
+                      <span>{{cartService.addedProduct.length}}</span>
                       <i class="fa fa-shopping-bag"></i>
                     </a>
                   </div>
