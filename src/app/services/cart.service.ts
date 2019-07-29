@@ -7,42 +7,38 @@ import {CartElement} from "../interfaces/cart-element";
   providedIn: "root"
 })
 export class CartService {
-  public addedProduct: WineCard[];
+  public addedProduct: CartElement[];
 
 
   constructor() {
     this.addedProduct = [
+      /*
       {
-        image: "",
+
         id: 1,
         name: "La Fiesta",
-        price: 2000,
         salePrice: 2000,
-        rating: 666,
-        numberOfRating: 1,
-        quantity: 2
+        quantity: 2,
+        image:"https://secure.ce-tescoassets.com/assets/HU/584/5998693565584/ShotType1_540x540.jpg",
       },
       {
-        image: "",
+
         id: 2,
         name: "Dankó",
-        price: 1000,
-        salePrice: 2000,
-        rating: 666,
-        numberOfRating: 1,
-        quantity: 4
+        salePrice: 1000,
+        quantity: 4,
+        image:"https://ecommercewebblob0.blob.core.windows.net/auchan/cache/product_large/product/607889/2.jpg",
       },
       {
-        image: "",
         id: 3,
         name: "Irsai Olivér",
-        price: 1500,
-        salePrice: 2000,
-        rating: 666,
-        numberOfRating: 1,
-        quantity: 3
+        salePrice: 1500,
+        quantity: 3,
+        image:"https://drinksmarket.cdn.shoprenter.hu/custom/drinksmarket/image/data/product/B4007056.jpg?lastmod=1549982218.1488357855",
       }
+      */
     ];
+
   }
 
   deleteProductFromCart(productId: number): void {
