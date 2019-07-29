@@ -3,6 +3,7 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
 import { WineDetails } from 'src/app/interfaces/wine-details';
 import { WineDetailsHttpService } from 'src/app/services/wine-details-http.service';
 import { CartHTTPService } from 'src/app/services/cart-http.service';
+import {CartService} from '../../services/cart.service';
 
 @Component({
     selector: 'wine-data-modal',
@@ -73,7 +74,7 @@ export class WineDataModalComponent implements OnInit {
     private haveSpecialPrice: boolean;
     showLoading: boolean;
 
-  constructor(private wineDetailsHttpService: WineDetailsHttpService,public cartConnectionService:CartHTTPService) {
+  constructor(private wineDetailsHttpService: WineDetailsHttpService,public cartConnectionService:CartHTTPService, public service:CartService) {
     console.log("teszt");
     console.log(this.wineId);
     this.haveSpecialPrice = true;
@@ -95,12 +96,13 @@ export class WineDataModalComponent implements OnInit {
 
     }
 
-  addToCart():void{
-    this.cartConnectionService.putProductToServerCart(this.wineId).then(() => {
-      console.log("succeeded");
-
-    });
-  }
+    addToCart(): void {
+        this.cartConnectionService.putProductToServerCart(this.wineId).then(() => {
+            this.cartConnectionService.getCartElementsFromServer().then(cartElements=>{
+              this.service.addedProduct=cartElements;
+            });
+        });
+    }
 
 
 }
