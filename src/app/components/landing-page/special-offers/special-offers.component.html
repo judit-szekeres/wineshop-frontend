@@ -19,7 +19,7 @@
           <br>
         <carousel-component class="carousel-component" [autoPlay]="false" [morePairSlides]="moreSlides" [initialSlide]="1" #topCarousel>
           <!-- Product Card -->
-          <app-product-card class="item-carousel" *ngFor="let w of wineCards" [wineCard]="w" [fullWidth]="true"></app-product-card>
+          <app-product-card class="item-carousel" *ngFor="let w of wineCards" [wineCard]="w" [fullWidth]="true" [carousel]="true"></app-product-card>
           <div class="item-carousel"></div>
         </carousel-component>
       </div>

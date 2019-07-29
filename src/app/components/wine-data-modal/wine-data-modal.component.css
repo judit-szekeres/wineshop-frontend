@@ -15,27 +15,36 @@
   padding: 20px 15px;
   z-index: 1001;
   left: 5%;
-  top: 10%;
+  top: 3%;
   background-color: white;
   width: 90%;
-  height: 120%;
+  height: 96%;
   border: 1px solid #ccc;
   box-shadow: 1px 1px 1px black;
   transition: all 0.3s ease-out;
-  overflow: scroll;
+  overflow: hidden;
 }
+
 @media (min-width: 600px) {
   .modal-front {
-    width: 500px;
-    left: calc(50% - 250px);
-    padding: 40px 30px;
+    width: 550px;
+    left: calc(50% - 275px);
+    /*padding: 40px 30px; */
+    padding-top: 10px;
   }
 }
 
-.btn-danger{
-    float: right;
+.btn-danger {
+  float: right;
 }
 
-.title-group{
+.underline-double {
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 30px;
+}
 
+.specialPrice {
+  font-style: italic;
+  color: red;
 }

@@ -9,9 +9,9 @@
       </div>
       <div class="caption">
         <h3 class="heading"><a>{{wineCard.name}}</a></h3>
-        <p class="line-mix price">{{wineCard.price}}</p>
-        <br>
-      </div>
+        <p class="line-mix price" *ngIf="!showSalePrice">{{wineCard.price}}$</p>
+        <p class="line-mix price" *ngIf="showSalePrice">{{wineCard.salePrice}}$</p>
+        </div>
     </a>
     <button type="button" name="button" class="ht-btn" (click)="addToCart()">Add to cart</button>
     <br>
