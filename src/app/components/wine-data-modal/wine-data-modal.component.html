@@ -15,46 +15,50 @@
             <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
     </div>
-    <div class="col-sm-6">
+    <div class="row" *ngIf="!showLoading">
+        <div class="col-sm-6 text-center">
+            <img class="wine-image" src={{wineDetails.img}} alt="image">
+        </div>
+        <div class="col-sm-6">
 
-      <table class="table">
-        <tr>
-          <td>Name</td>
-          <td>{{wineDetails.name}}</td>
-        </tr>
-        <tr class="specialPrice" *ngIf="haveSpecialPrice">
-          <td>Special Price</td>
-          <td>{{wineDetails.salePrice}}$</td>
-        </tr>
-        <tr>
-          <td>Price</td>
-          <td>{{wineDetails.price}}$</td>
-        </tr>
-        <tr>
-          <td>V/v</td>
-          <td>{{wineDetails.alcoholRating}}%</td>
-        </tr>
-        <tr>
-          <td>Size</td>
-          <td>{{wineDetails.volume}}l</td>
-        </tr>
-        <tr>
-          <td>Winery</td>
-          <td>{{wineDetails.winery.name}}</td>
-        </tr>
-        <tr>
-          <td>Color</td>
-          <td>{{wineDetails.wineType.category}}</td>
-        </tr>
-        <tr>
-          <td>Year</td>
-          <td>{{wineDetails.year}}</td>
-        </tr>
-        <tr>
-          <td>Stock</td>
-          <td>{{wineDetails.stock}}</td>
-        </tr>
-      </table>
-      <a href="http://localhost:4200/cart#" class="btn btn-primary" (click)="addToCart()">Add to cart</a>
+            <table class="table">
+                <tr>
+                    <td>Name</td>
+                    <td>{{wineDetails.name}}</td>
+                </tr>
+                <tr class="specialPrice" *ngIf="haveSpecialPrice">
+                    <td>Special Price</td>
+                    <td>{{wineDetails.salePrice}}$</td>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    <td>{{wineDetails.price}}$</td>
+                </tr>
+                <tr>
+                    <td>V/v</td>
+                    <td>{{wineDetails.alcoholRating}}%</td>
+                </tr>
+                <tr>
+                    <td>Size</td>
+                    <td>{{wineDetails.volume}}l</td>
+                </tr>
+                <tr>
+                    <td>Winery</td>
+                    <td>{{wineDetails.winery.name}}</td>
+                </tr>
+                <tr>
+                    <td>Color</td>
+                    <td>{{wineDetails.wineType.category}}</td>
+                </tr>
+                <tr>
+                    <td>Year</td>
+                    <td>{{wineDetails.year}}</td>
+                </tr>
+                <tr>
+                    <td>Stock</td>
+                    <td>{{wineDetails.stock}}</td>
+                </tr>
+            </table>
+            <a href="http://localhost:4200/cart#" class="btn btn-primary" (click)="addToCart()">Add to cart</a>
+        </div>
     </div>
-</div>
