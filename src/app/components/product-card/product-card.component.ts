@@ -1,35 +1,57 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { WineCard } from 'src/app/interfaces/wine';
 import { WineDataModalComponent } from '../wine-data-modal/wine-data-modal.component';
+import { CartHTTPService } from '../../services/cart-http.service';
 
 @Component({
-  selector: 'app-product-card',
-  templateUrl: './product-card.component.html',
-  styleUrls: ['./product-card.component.css']
+    selector: 'app-product-card',
+    templateUrl: './product-card.component.html',
+    styleUrls: ['./product-card.component.css']
 })
 export class ProductCardComponent implements OnInit {
 
-  @Input()
-  wineCard: WineCard;
+    @Input()
+    wineCard: WineCard;
 
-  @Input()
-  fullWidth: boolean;
+    @Input()
+    fullWidth: boolean;
 
-  private wineModalNeeded: boolean;
+    @Input()
+    carousel: boolean;
 
-  constructor() {
-    this.wineModalNeeded = false;
-  }
+    showSalePrice: boolean;
+    private wineModalNeeded: boolean;
 
-  ngOnInit() {
-  }
+    constructor(public cartConnectionService: CartHTTPService) {
+        this.wineModalNeeded = false;
+        this.carousel = false;
 
-  openLoginModal(): void {
-    this.wineModalNeeded = true;
-  }
+    }
 
-  closeLoginModal(): void {
-    this.wineModalNeeded = false;
-  }
+    ngOnInit() {
+        if (this.wineCard.salePrice == -1) {
+            this.showSalePrice = false;
+        } else {
+            this.showSalePrice = true;
+        }
+    }
+
+    openLoginModal(): void {
+        if (!this.carousel) {
+            this.wineModalNeeded = true;
+        }
+
+    }
+
+    closeLoginModal(): void {
+        this.wineModalNeeded = false;
+    }
+
+    addToCart(): void {
+        this.cartConnectionService.putProductToServerCart(this.wineCard.id).then(() => {
+            console.log("succeeded");
+
+        });
+    }
 
 }

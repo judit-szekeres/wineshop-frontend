@@ -2,6 +2,27 @@ import { Component, OnInit } from '@angular/core';
 import { Contact } from 'src/app/interfaces/contact';
 import { ContactService } from 'src/app/services/contact.service';
 import { Router } from '@angular/router';
+/*
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AlertsModule } from 'angular-alert-module';
+import { AppComponent } from 'src/app/app.component';
+import { AlertsService } from 'angular-alert-module';
+
+@NgModule({
+  declarations: [
+  AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    AlertsModule.forRoot()
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+*/
+
 
 @Component({
   selector: 'app-contact',
@@ -21,7 +42,8 @@ export class ContactComponent implements OnInit {
   notValidMessage: boolean;
   notValidMessageText = 'Invalid message, please try again';
 
-  constructor(private contactService: ContactService, private router: Router) {
+  constructor(private contactService: ContactService, private router: Router,
+  /*private alerts: AlertsService*/) {
     this.contact = {
       name: '',
       email: '',
@@ -30,7 +52,12 @@ export class ContactComponent implements OnInit {
     };
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    /*this.alerts.setMessage('Something went wrong, please try again','warn');*/
+    /*this.alerts.setDefaults('timeout',3);*/
+    /*this.alerts.setConfig('warn','icon','warning');*/
+  }
+
 
   resetBooleanFields(): void {
     this.clickSubmit = true;
@@ -60,7 +87,8 @@ export class ContactComponent implements OnInit {
           message: ''
         };
     }).catch(() => {
-
+      /*this.resetBooleanFields();*/
+      /*this.alerts.setMessage('Something went wrong, please try again','warn');*/
       });
 
 }

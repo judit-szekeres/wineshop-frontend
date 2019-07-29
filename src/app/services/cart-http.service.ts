@@ -3,14 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import {CartElement} from '../interfaces/cart-element';
 import {CartServerDataDTO} from '../interfaces/cart-serverdata-dto';
 import {CartError} from '../errors/cart-error';
-
+import { serverURL } from '../server-url';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartHTTPService {
 
-private readonly URL='http://192.168.1.171:8080/cart';
+private readonly URL=serverURL+"/cart";
 
   constructor(private http: HttpClient) { }
 
@@ -39,8 +39,7 @@ private readonly URL='http://192.168.1.171:8080/cart';
 
 
   getCartElementsFromServer(): Promise<CartElement[]> {
-      return this.http.get(this.URL, { withCredentials: true }).toPromise()
-          .then(this.transformCartElementDTO);
+      return this.http.get(this.URL, { withCredentials: true }).toPromise() as Promise<CartElement[]>;
   }
 
 

@@ -1,3 +1,8 @@
 section {
     margin-top: 80px;
 }
+
+/*.alertsContainer .alertsRow.<error> .messagepanel {
+    color: #000;
+    background: #fff;
+}*/
