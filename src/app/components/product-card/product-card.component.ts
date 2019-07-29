@@ -16,17 +16,31 @@ export class ProductCardComponent implements OnInit {
   @Input()
   fullWidth: boolean;
 
+  @Input()
+  carousel: boolean;
+
+  showSalePrice: boolean;
   private wineModalNeeded: boolean;
 
   constructor(public cartConnectionService:CartHTTPService) {
     this.wineModalNeeded = false;
+    this.carousel = false;
+
   }
 
   ngOnInit() {
+      if (this.wineCard.salePrice == -1) {
+        this.showSalePrice = false;
+      } else {
+        this.showSalePrice = true;
+      }
   }
 
   openLoginModal(): void {
-    this.wineModalNeeded = true;
+    if (!this.carousel) {
+      this.wineModalNeeded = true;
+    }
+
   }
 
   closeLoginModal(): void {
