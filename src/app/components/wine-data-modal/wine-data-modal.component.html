@@ -5,19 +5,15 @@
     <loading-bottle *ngIf="showLoading"></loading-bottle>
 
     <button type="button" class="btn btn-danger" name="button" (click)="closeMe()" *ngIf="!showLoading" [@backdropFade]>x</button>
-<br>
-  <div class="title-group underline-double" *ngIf="!showLoading">
     <br>
-    <h6 class="sub-title">Royal wine</h6>
-    <h3 class="selected">Product Details</h3>
-    <p class="line-mix star-group">
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star"></i>
-  </div>
-  <div class="row" *ngIf="!showLoading">
-    <div class="col-sm-6 text-center">
-      <img class="wine-image" src={{wineDetails.img}} alt="image">
+    <div class="title-group underline-double" *ngIf="!showLoading">
+        <br>
+        <h6 class="sub-title">Royal wine</h6>
+        <h3 class="selected">Product Details</h3>
+        <p class="line-mix star-group">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
     </div>
     <div class="col-sm-6">
 
@@ -61,5 +57,4 @@
       </table>
       <a href="http://localhost:4200/cart#" class="btn btn-primary (click)="addToCart()"">Add to cart</a>
     </div>
-  </div>
 </div>
