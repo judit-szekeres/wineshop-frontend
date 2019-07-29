@@ -1,57 +1,57 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { WineCard } from 'src/app/interfaces/wine';
 import { WineDataModalComponent } from '../wine-data-modal/wine-data-modal.component';
-import {CartHTTPService} from '../../services/cart-http.service';
+import { CartHTTPService } from '../../services/cart-http.service';
 
 @Component({
-  selector: 'app-product-card',
-  templateUrl: './product-card.component.html',
-  styleUrls: ['./product-card.component.css']
+    selector: 'app-product-card',
+    templateUrl: './product-card.component.html',
+    styleUrls: ['./product-card.component.css']
 })
 export class ProductCardComponent implements OnInit {
 
-  @Input()
-  wineCard: WineCard;
+    @Input()
+    wineCard: WineCard;
 
-  @Input()
-  fullWidth: boolean;
+    @Input()
+    fullWidth: boolean;
 
-  @Input()
-  carousel: boolean;
+    @Input()
+    carousel: boolean;
 
-  showSalePrice: boolean;
-  private wineModalNeeded: boolean;
+    showSalePrice: boolean;
+    private wineModalNeeded: boolean;
 
-  constructor(public cartConnectionService:CartHTTPService) {
-    this.wineModalNeeded = false;
-    this.carousel = false;
+    constructor(public cartConnectionService: CartHTTPService) {
+        this.wineModalNeeded = false;
+        this.carousel = false;
 
-  }
-
-  ngOnInit() {
-      if (this.wineCard.salePrice == -1) {
-        this.showSalePrice = false;
-      } else {
-        this.showSalePrice = true;
-      }
-  }
-
-  openLoginModal(): void {
-    if (!this.carousel) {
-      this.wineModalNeeded = true;
     }
 
-  }
+    ngOnInit() {
+        if (this.wineCard.salePrice == -1) {
+            this.showSalePrice = false;
+        } else {
+            this.showSalePrice = true;
+        }
+    }
 
-  closeLoginModal(): void {
-    this.wineModalNeeded = false;
-  }
+    openLoginModal(): void {
+        if (!this.carousel) {
+            this.wineModalNeeded = true;
+        }
 
-  addToCart():void{
-    this.cartConnectionService.putProductToServerCart(this.wineCard.id).then(() => {
-      console.log("succeeded");
+    }
 
-    });
-  }
+    closeLoginModal(): void {
+        this.wineModalNeeded = false;
+    }
+
+    addToCart(): void {
+        this.cartConnectionService.putProductToServerCart(this.wineCard.id).then(() => {
+            console.log("succeeded");
+
+        });
+    }
 
 }
