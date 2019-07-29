@@ -14,6 +14,9 @@ export class PersonalDetailsComponent implements OnInit {
     countries: Country[];
     currentUserDetails: UserDetails;
     checkboxValue: boolean;
+    currentPasswordToChange: string;
+    newPasswordToChange: string;
+    confirmNewPasswordToChange: string;
 
     constructor(private userRequest: UserHttpService, private router: Router) {
         this.currentUserDetails = {
@@ -36,12 +39,14 @@ export class PersonalDetailsComponent implements OnInit {
         }
         this.countries = [];
         this.checkboxValue = false;
+        this.currentPasswordToChange = "";
+        this.newPasswordToChange = "";
+        this.confirmNewPasswordToChange = "";
     }
 
     ngOnInit() {
         this.userRequest.getCurrentUserPersonalDetails().then(uD => {
             this.currentUserDetails = uD;
-            console.log(this.currentUserDetails);
         });
         this.userRequest.getCountriesList().then(c => {
             this.countries = c;
@@ -51,15 +56,16 @@ export class PersonalDetailsComponent implements OnInit {
     modifyCurrentUserPersonalDetails() {
         this.userRequest.modifyUserPersonalDetails(this.currentUserDetails).then(() => {
             this.router.navigate(['/']);
+            console.log(this.currentPasswordToChange);
+            console.log(this.newPasswordToChange);
+            console.log(this.confirmNewPasswordToChange);
         }).catch(() => { });
     }
 
     billingEqualsShipping() {
         if (this.checkboxValue == false) {
-            console.log(this.checkboxValue);
             this.currentUserDetails.shippingAddress = this.currentUserDetails.billingAddress;
         } else {
-            console.log(this.checkboxValue);
             this.currentUserDetails.shippingAddress = {
                 street: "",
                 city: "",
@@ -67,4 +73,14 @@ export class PersonalDetailsComponent implements OnInit {
             }
         }
     }
+
+    /*
+    validatePassword(): boolean {
+        if(this.newPasswordToChange === this.confirmNewPasswordToChange){
+            this.currentUserDetails.newPassword = this.newPasswordToChange;
+            this.currentUserDetails.confirmNewPassword = this.confirmNewPasswordToChange;
+            return true;
+        }
+    }
+    */
 }
