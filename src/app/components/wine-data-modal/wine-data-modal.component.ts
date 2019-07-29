@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 import { WineDetails } from 'src/app/interfaces/wine-details';
 import { WineDetailsHttpService } from 'src/app/services/wine-details-http.service';
+import { CartHTTPService } from 'src/app/services/cart-http.service';
 
 @Component({
   selector: 'wine-data-modal',
@@ -72,7 +73,7 @@ export class WineDataModalComponent implements OnInit {
   private haveSpecialPrice : boolean;
   showLoading : boolean;
 
-  constructor(private wineDetailsHttpService: WineDetailsHttpService) {
+  constructor(private wineDetailsHttpService: WineDetailsHttpService,public cartConnectionService:CartHTTPService) {
     console.log("teszt");
     console.log(this.wineId);
     this.haveSpecialPrice = true;
@@ -93,5 +94,13 @@ export class WineDataModalComponent implements OnInit {
     this.closeThis.emit();
 
   }
+
+  addToCart():void{
+    this.cartConnectionService.putProductToServerCart(this.wineId).then(() => {
+      console.log("succeeded");
+
+    });
+  }
+
 
 }
