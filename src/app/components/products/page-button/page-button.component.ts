@@ -19,7 +19,7 @@ export class PageButtonComponent implements OnInit {
   ngOnInit() {}
 
   refreshPage(){
-    this.refresh.emit(this.pageButton.nr);
+    this.refresh.emit(this.pageButton.index);
   }
 
 }

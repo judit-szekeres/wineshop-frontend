@@ -35,15 +35,8 @@
           <div class="row">
             <app-product-card class="" *ngFor="let w of wineCards" [wineCard]="w" ></app-product-card>
           </div>
-          <nav aria-label="Page navigation">
-            <ul class="pagination ht-pagination">
-
-              <li><a  aria-label="Previous"><i class="fa fa-chevron-left"></i></a></li>
-              <li app-page-button *ngFor="let b of pageButtons" [pageButton]="b" (refresh)="refreshPage($event)" [ngClass]="{ 'active' : b.active }"></li>
-              <li><a  aria-label="Next"><i class="fa fa-chevron-right"></i></a></li>
-
-            </ul>
-          </nav>
+          <!--pagination-->
+          <app-pagination [promiseForPageCount]="promiseForPageCount" (refresh)="refreshPage($event)"></app-pagination>
         </div>
       </div>
     </div>
