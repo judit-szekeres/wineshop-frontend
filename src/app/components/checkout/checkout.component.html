@@ -47,84 +47,83 @@
                       <div class="form-group required">
                         <label class="col-sm-2 control-label" for="shipping-firstname">First name</label>
                         <div class="col-sm-10">
-                          <input [(ngModel)]="shippingAddress.firstname" type="text" name="firstname" value="" placeholder="First name"
-                            id="shipping-firstname" class="form-control form-item">
+                          <input [(ngModel)]="this.userShipping.shippingAddress.firstName" type="text" name="firstname" value="" 
+                          placeholder="First name" id="shipping-firstname" class="form-control form-item">
                           </div>
                       </div>
                       <div class="form-group required">
                         <label class="col-sm-2 control-label" for="shipping-lastname">Last name</label>
                         <div class="col-sm-10">
-                          <input [(ngModel)]="shippingAddress.lastname" type="text" name="lastname" value="" placeholder="Last name"
-                            id="shipping-lastname" class="form-control form-item">
+                          <input [(ngModel)]="this.userShipping.shippingAddress.lastName" type="text" name="lastname" value=""
+                              placeholder="Last name" id="shipping-lastname" class="form-control form-item">
                           </div>
                       </div>
                       <div class="form-group required">
                         <label class="col-sm-2 control-label" for="shipping-street">Street</label>
                         <div class="col-sm-10">
-                          <input [(ngModel)]="shippingAddress.street" type="text" name="street" value=""
+                          <input [(ngModel)]="this.userShipping.shippingAddress.street" type="text" name="street" value=""
                             placeholder="Street" id="shipping-street" class="form-control form-item">
                           </div>
                       </div>
                       <div class="form-group required">
                         <label class="col-sm-2 control-label" for="shipping-city">City</label>
                         <div class="col-sm-10">
-                          <input [(ngModel)]="shippingAddress.city" type="text" name="city" value=""
+                          <input [(ngModel)]="this.userShipping.shippingAddress.city" type="text" name="city" value=""
                             placeholder="City" id="shipping-city" class="form-control form-item">
                           </div>
                       </div>
                       <div class="form-group required">
                         <label class="col-sm-2 control-label" for="shipping-country">Country</label>
                         <div class="col-sm-10">
-                          <select [(ngModel)]="shippingAddress.country" name="country_id" id="shipping-country"
-                            class="form-control form-item">
-                            <option value="">Please Select</option>
-                            <option value="0">Name 1</option>
-                          </select>
+                           <select name="country_id" id="shipping_country" class="form-control form-item"
+                               [(ngModel)]="this.userShipping.shippingAddress.id">
+                               <option *ngFor="let c of countries" [value]="c.id">{{ c.name }}</option>
+                           </select>
                         </div>
                       </div>
                     </form>
                     <h4 class="title line-default">Billing address</h4>
                     <div class="checkbox">
                       <label>
-                        <input type="checkbox" [checked]="checkAddress">Billing address same as shipping address</label>
+                        <input type="checkbox" [(ngModel)]="checkboxState" (click)="billingSameAsShipping()">
+                        Billing address same as shipping address
+                      </label>
                     </div>
-                    <form [ngClass]="{checkAddress: 'd-none'}" class="form-horizontal">
+                    <form class="form-horizontal">
                       <div class="form-group required">
                         <label class="col-sm-2 control-label" for="billing-firstname">First name</label>
                         <div class="col-sm-10">
-                          <input [(ngModel)]="billingAddress.firstname" type="text" name="firstname" value="" placeholder="First name"
-                            id="billing-firstname" class="form-control form-item">
+                          <input [(ngModel)]="this.userShipping.billingAddress.firstName" type="text" name="firstname"
+                              value="" placeholder="First name" id="billing-firstname" class="form-control form-item">
                           </div>
                       </div>
                       <div class="form-group required">
                         <label class="col-sm-2 control-label" for="billing-lastname">Last name</label>
                         <div class="col-sm-10">
-                          <input [(ngModel)]="billingAddress.lastname" type="text" name="lastname" value=""
-                            placeholder="Last name"
-                            id="billing-lastname" class="form-control form-item">
+                          <input [(ngModel)]="this.userShipping.billingAddress.lastName" type="text" name="lastname"
+                              value="" placeholder="Last name" id="billing-lastname" class="form-control form-item">
                           </div>
                       </div>
                       <div class="form-group required">
                         <label class="col-sm-2 control-label" for="billing-street">Street</label>
                         <div class="col-sm-10">
-                          <input [(ngModel)]="billingAddress.street" type="text" name="street" value="" placeholder="Street"
-                            id="billing-street" class="form-control form-item">
+                          <input [(ngModel)]="this.userShipping.billingAddress.street" type="text" name="street" value="" 
+                          placeholder="Street" id="billing-street" class="form-control form-item">
                           </div>
                       </div>
                       <div class="form-group required">
                         <label class="col-sm-2 control-label" for="billing-city">City</label>
                         <div class="col-sm-10">
-                          <input [(ngModel)]="billingAddress.city" type="text" name="city" value="" placeholder="City"
-                            id="billing-city" class="form-control form-item">
+                          <input [(ngModel)]="this.userShipping.billingAddress.city" type="text" name="city" value="" 
+                          placeholder="City" id="billing-city" class="form-control form-item">
                           </div>
                       </div>
                       <div class="form-group required">
                         <label class="col-sm-2 control-label" for="billing-country">Country</label>
                         <div class="col-sm-10">
-                          <select [(ngModel)]="billingAddress.country" name="country_id" id="billing-country"
-                            class="form-control form-item">
-                            <option value="">Please Select</option>
-                            <option value="0">Name 1</option>
+                          <select name="country_id" id="billing-country" class="form-control form-item"
+                            [(ngModel)]="this.userShipping.billingAddress.id">
+                            <option *ngFor="let c of countries" [value]="c.id">{{ c.name }}</option>
                           </select>
                         </div>
                       </div>
