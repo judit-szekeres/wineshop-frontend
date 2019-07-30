@@ -41,7 +41,6 @@ import { OrderSuccessComponent } from './components/checkout/order-success/order
 import { LoadingBottleComponent } from './components/loading-bottle/loading-bottle.component';
 import { SubscribeComponent } from './components/footer/subscribe/subscribe.component';
 import { PaginationComponent } from './components/products/pagination/pagination.component';
-import { AdminPageComponent } from './components/admin-page/admin-page.component';
 
 
 @NgModule({
@@ -82,7 +81,6 @@ import { AdminPageComponent } from './components/admin-page/admin-page.component
     LoadingBottleComponent,
     SubscribeComponent,
     PaginationComponent,
-    AdminPageComponent,
     ],
   imports: [
     BrowserModule,

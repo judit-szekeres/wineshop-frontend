@@ -17,7 +17,6 @@ import { PreviousOrderComponent } from './components/header/previous-order/previ
 import { PersonalDetailsComponent } from './components/header/personal-details/personal-details.component';
 import { AuthGuard } from './auth.guard';
 import { OrderSuccessComponent } from './components/checkout/order-success/order-success.component';
-import { AdminPageComponent } from './components/admin-page/admin-page.component';
 
 
 const routes: Routes = [
@@ -39,7 +38,6 @@ const routes: Routes = [
   { path: 'personal-details', component: PersonalDetailsComponent, canActivate: [AuthGuard] },
   { path: 'personal-details', component: PersonalDetailsComponent },
   { path: 'order-success', component: OrderSuccessComponent },
-  { path:'admin-page', component: AdminPageComponent}
 ]
 
 
