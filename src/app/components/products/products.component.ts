@@ -7,7 +7,7 @@ import { EmptyFilterSettingsService } from 'src/app/services/empty-filter-settin
 
 
 @Component({
-  selector: 'app-products',
+  selector: 'products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
