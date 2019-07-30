@@ -16,13 +16,15 @@
             <div class="col-sm-8">
               <div class="row grid-table-heading">
                 <div class="col-xs-2 grid-item"></div>
-                <div class="col-xs-5 grid-item"><b>Product name</b></div>
-                <div class="col-xs-2 grid-item"><b>Quantity</b></div>
-                <div class="col-xs-2 grid-item"><b>Unit price</b></div>
+                <div class="col-xs-2 grid-item text-center"><b>Name</b></div>
+                <div class="col-xs-2 grid-item text-center"><b>Quantity</b></div>
+                <div class="col-xs-2 grid-item text-center"><b>Availability</b></div>
+                <div class="col-xs-2 grid-item text-center"><b>Unit price</b></div>
+                <div class="col-xs-2 grid-item text-center"><b>Remove</b></div>
               </div>
               <div *ngIf="this.choosenProducts.length == 0" class="alert">Your cart is empty.</div>
               <app-cart-table *ngFor="let c of choosenProducts"
-                [choosenProduct]="c" (refresh)="refreshCartTable($event)" (updateQuantity)="udpateQuantity(c)" (deleted)="refreshCartFromService()"></app-cart-table>
+                [choosenProduct]="c" (refresh)="refreshCartTable($event)"  (deleted)="refreshCartFromService()"></app-cart-table>
             </div>
             <div class="col-sm-4">
               <div *ngIf="this.choosenProducts.length == 0" class="box">
