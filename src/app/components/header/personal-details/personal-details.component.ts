@@ -14,9 +14,13 @@ export class PersonalDetailsComponent implements OnInit {
     countries: Country[];
     currentUserDetails: UserDetails;
     checkboxValue: boolean;
-    currentPasswordToChange: string;
-    newPasswordToChange: string;
-    confirmNewPasswordToChange: string;
+    wrongPassword: boolean;
+    wrongPasswordFromServer: boolean;
+    wrongPasswordMessage = 'Password does not match!';
+    wrongPasswordFromServerMessage = 'Incorrect password or are not long enough! The password must be between 5-20 characters!';
+    currentPasswordToChange: any;
+    newPasswordToChange: any;
+    confirmNewPasswordToChange: any;
 
     constructor(private userRequest: UserHttpService, private router: Router) {
         this.currentUserDetails = {
@@ -27,24 +31,27 @@ export class PersonalDetailsComponent implements OnInit {
             newPassword: '',
             confirmNewPassword: '',
             shippingAddress: {
-                street: "",
-                city: "",
+                street: '',
+                city: '',
                 id: -1
             },
             billingAddress: {
-                street: "",
-                city: "",
+                street: '',
+                city: '',
                 id: -1
             }
         }
         this.countries = [];
         this.checkboxValue = false;
+        this.wrongPassword = false;
         this.currentPasswordToChange = "";
         this.newPasswordToChange = "";
         this.confirmNewPasswordToChange = "";
+        this.wrongPasswordFromServer = false;
     }
 
     ngOnInit() {
+
         this.userRequest.getCurrentUserPersonalDetails().then(uD => {
             this.currentUserDetails = uD;
         });
@@ -54,12 +61,11 @@ export class PersonalDetailsComponent implements OnInit {
     }
 
     modifyCurrentUserPersonalDetails() {
-        this.userRequest.modifyUserPersonalDetails(this.currentUserDetails).then(() => {
-            this.router.navigate(['/']);
-            console.log(this.currentPasswordToChange);
-            console.log(this.newPasswordToChange);
-            console.log(this.confirmNewPasswordToChange);
-        }).catch(() => { });
+        if(this.validatePassword()){
+            this.userRequest.modifyUserPersonalDetails(this.currentUserDetails).then(() => {
+                this.router.navigate(['/']);
+            }).catch(() => { this.wrongPasswordFromServer = true });
+        }
     }
 
     billingEqualsShipping() {
@@ -73,14 +79,14 @@ export class PersonalDetailsComponent implements OnInit {
             }
         }
     }
-
-    /*
     validatePassword(): boolean {
-        if(this.newPasswordToChange === this.confirmNewPasswordToChange){
-            this.currentUserDetails.newPassword = this.newPasswordToChange;
-            this.currentUserDetails.confirmNewPassword = this.confirmNewPasswordToChange;
+        if(this.currentUserDetails.newPassword === this.currentUserDetails.confirmNewPassword){
             return true;
+        } else {
+            this.currentUserDetails.newPassword = '';
+            this.currentUserDetails.confirmNewPassword = '';
+            this.currentUserDetails.currentPassword = '';
+            this.wrongPassword = true;
         }
     }
-    */
 }
