@@ -39,6 +39,7 @@ import { PageButtonComponent } from './components/products/page-button/page-butt
 import { CartTextComponent } from './components/cart/cart-total/cart-text/cart-text.component';
 import { OrderSuccessComponent } from './components/checkout/order-success/order-success.component';
 import { LoadingBottleComponent } from './components/loading-bottle/loading-bottle.component';
+import { AdminPageComponent } from './components/admin-page/admin-page.component';
 
 
 @NgModule({
@@ -76,7 +77,8 @@ import { LoadingBottleComponent } from './components/loading-bottle/loading-bott
     CartTextComponent,
     OrderSuccessComponent,
     PageButtonComponent,
-    LoadingBottleComponent
+    LoadingBottleComponent,
+    AdminPageComponent
     ],
   imports: [
     BrowserModule,
