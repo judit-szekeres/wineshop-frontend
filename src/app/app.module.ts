@@ -41,6 +41,13 @@ import { OrderSuccessComponent } from './components/checkout/order-success/order
 import { LoadingBottleComponent } from './components/loading-bottle/loading-bottle.component';
 import { SubscribeComponent } from './components/footer/subscribe/subscribe.component';
 import { PaginationComponent } from './components/products/pagination/pagination.component';
+import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
+import { AdminProductsRowComponent } from './components/admin/admin-products/admin-products-row/admin-products-row.component';
+import { AdminModifyProductComponent } from './components/admin/admin-products/admin-modify-product/admin-modify-product.component';
+import { AdminDeleteProductComponent } from './components/admin/admin-products/admin-delete-product/admin-delete-product.component';
+import { AdminAddProductComponent } from './components/admin/admin-products/admin-add-product/admin-add-product.component';
+import { AdminUsersComponent } from './components/admin/admin-users/admin-users.component';
+import { AdminUserRowComponent } from './components/admin/admin-users/admin-user-row/admin-user-row.component';
 
 
 @NgModule({
@@ -81,6 +88,13 @@ import { PaginationComponent } from './components/products/pagination/pagination
     LoadingBottleComponent,
     SubscribeComponent,
     PaginationComponent,
+    AdminProductsComponent,
+    AdminProductsRowComponent,
+    AdminModifyProductComponent,
+    AdminDeleteProductComponent,
+    AdminAddProductComponent,
+    AdminUsersComponent,
+    AdminUserRowComponent,
     ],
   imports: [
     BrowserModule,
