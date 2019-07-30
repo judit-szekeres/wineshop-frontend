@@ -31,9 +31,15 @@ export class CartTableComponent implements OnInit {
     this.cartConnectionService.changeCartElementsQuantityOnServer(this.choosenProduct.id,this.choosenProduct.quantity)
     .then(() => {
       this.flag=0;
+      this.cartConnectionService.getCartElementsFromServer().then(cartElements=>{
+        this.selectedProducts.addedProduct=cartElements;
+      });
     })
     .catch(()=>{
-      this.flag=1 ;
+      this.flag=1;
+      this.cartConnectionService.getCartElementsFromServer().then(cartElements=>{
+        this.selectedProducts.addedProduct=cartElements;
+      });
     })
 
   }
