@@ -13,6 +13,8 @@ export class AdminProductsComponent implements OnInit {
 
   pageCount: number;
 
+
+  
   wineCards: WineCard[];
   filterSettings: FilterSettings;
   currentPage: number;
