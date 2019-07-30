@@ -7,66 +7,75 @@ import { EmptyFilterSettingsService } from 'src/app/services/empty-filter-settin
 
 
 @Component({
-  selector: 'products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+    selector: 'app-products',
+    templateUrl: './products.component.html',
+    styleUrls: ['./products.component.css']
 })
 
 export class ProductsComponent implements OnInit {
 
-  pageCount:number;
+    pageCount: number;
 
-  wineCards: WineCard[];
-  filterSettings: FilterSettings;
-  currentPage: number;
+    wineCards: WineCard[];
+    filterSettings: FilterSettings;
+    currentPage: number;
+    firstPageInBlock: number;
 
 
-  constructor(private productHttpService: ProductHttpService, private route: ActivatedRoute,
-    private emptyFilterSettingsService: EmptyFilterSettingsService) {
-    this.wineCards = [];
-    this.filterSettings = {};
-  }
-
-  ngOnInit() {
-    let category: string = this.route.snapshot.paramMap.get('category');
-    if (category != null) {
-      let enumCategory: Category;
-      switch (category) {
-        case 'red': enumCategory = Category.RED; break;
-        case 'white': enumCategory = Category.WHITE; break;
-      }
-      this.filterSettings.category = enumCategory;
+    constructor(private productHttpService: ProductHttpService, private route: ActivatedRoute,
+        private emptyFilterSettingsService: EmptyFilterSettingsService) {
+        this.wineCards = [];
+        this.filterSettings = {};
+        this.firstPageInBlock=1;
     }
-    this.refresh();
-  }
 
-  refresh(filterSettings?: FilterSettings) {
-    this.filterSettings = filterSettings;
-    let p = this.productHttpService.getWines(this.cleanedFilter(this.filterSettings));
-    //this.promiseForPageCount = p;
-    p.then(wineCardResults => {
-      this.wineCards = wineCardResults.wines;
-      this.pageCount=wineCardResults.numberOfPage;
-    });
-  };
-
-  cleanedFilter(filterSettings?: FilterSettings) {
-    if (filterSettings) {
-      for (let key of Object.keys(filterSettings)) {
-        if (!filterSettings[key]) {
-          filterSettings[key] = undefined;
+    ngOnInit() {
+        let category: string = this.route.snapshot.paramMap.get('category');
+        if (category != null) {
+            let enumCategory: Category;
+            switch (category) {
+                case 'red': enumCategory = Category.RED; break;
+                case 'white': enumCategory = Category.WHITE; break;
+            }
+            this.filterSettings.category = enumCategory;
         }
-      }
+        this.refresh();
     }
-    return filterSettings;
-  }
 
-  refreshPage(pageNumber: number) {
-    if (!this.filterSettings) {
-      this.filterSettings = this.emptyFilterSettingsService.emptyObject();
+    //Refresh whole list, set current page to 1th page => for filter
+    refreshWholeList(filterSettings?: FilterSettings) {
+        this.firstPageInBlock=1;
+        filterSettings.offset=undefined;
+        this.refresh(filterSettings);
     }
-    this.filterSettings.offset = pageNumber;
-    this.refresh(this.filterSettings);
-  }
+
+    //Refresh only a certain page => for pagination
+    refreshPage(pageNumber: number) {
+        if (!this.filterSettings) {
+            this.filterSettings = this.emptyFilterSettingsService.emptyObject();
+        }
+        this.filterSettings.offset = pageNumber;
+        this.refresh(this.filterSettings);
+    }
+
+    refresh(filterSettings?: FilterSettings) {
+        this.filterSettings = filterSettings;
+        let p = this.productHttpService.getWines(this.cleanedFilter(this.filterSettings));
+        p.then(wineCardResults => {
+            this.wineCards = wineCardResults.wines;
+            this.pageCount = wineCardResults.numberOfPage;
+        });
+    };
+
+    cleanedFilter(filterSettings?: FilterSettings) {
+        if (filterSettings) {
+            for (let key of Object.keys(filterSettings)) {
+                if (!filterSettings[key]) {
+                    filterSettings[key] = undefined;
+                }
+            }
+        }
+        return filterSettings;
+    }
 
 }
