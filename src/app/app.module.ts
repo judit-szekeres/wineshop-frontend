@@ -81,8 +81,8 @@ import { AdminPageComponent } from './components/admin-page/admin-page.component
     PageButtonComponent,
     LoadingBottleComponent,
     SubscribeComponent,
-    PaginationComponent
-    AdminPageComponent
+    PaginationComponent,
+    AdminPageComponent,
     ],
   imports: [
     BrowserModule,
