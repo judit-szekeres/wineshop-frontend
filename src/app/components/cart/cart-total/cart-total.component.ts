@@ -29,4 +29,5 @@ export class CartTotalComponent implements OnInit {
   totalCost(): number {
     return this.sum() + this.shippingPrice + this.taxPrice;
   }
+
 }
