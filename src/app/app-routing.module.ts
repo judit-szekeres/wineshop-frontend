@@ -18,13 +18,15 @@ import { PersonalDetailsComponent } from './components/header/personal-details/p
 import { AuthGuard } from './auth.guard';
 import { OrderSuccessComponent } from './components/checkout/order-success/order-success.component';
 import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
+import { AdminAddProductComponent } from './components/admin/admin-products/admin-add-product/admin-add-product.component';
+import { AdminModifyProductComponent } from './components/admin/admin-products/admin-modify-product/admin-modify-product.component';
 
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: LandingPageComponent },
   { path: 'landing-special-offers', component: SpecialOffersComponent },
   { path: 'category', component: RedWhiteCategoriesComponent },
-  {path: 'products/:category', component: ProductsComponent },
+  { path: 'products/:category', component: ProductsComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'policy', component: PolicyComponent },
   { path: 'term-of-services', component: TermOfServicesComponent },
@@ -40,6 +42,8 @@ const routes: Routes = [
   { path: 'personal-details', component: PersonalDetailsComponent },
   { path: 'order-success', component: OrderSuccessComponent },
   { path: 'admin-products', component: AdminProductsComponent },
+  { path: 'admin-add-product/:id', component: AdminAddProductComponent },
+  { path: 'admin-modify-product/:id', component: AdminModifyProductComponent },
 ]
 
 
