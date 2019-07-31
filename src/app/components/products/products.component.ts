@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductHttpService } from 'src/app/services/product-http.service';
 import { FilterSettings, Category } from 'src/app/interfaces/filter-settings';
 import { EmptyFilterSettingsService } from 'src/app/services/empty-filter-settings.service';
+import { SortingType } from 'src/app/interfaces/sorting-types';
+import { KeyValue } from '@angular/common';
 
 
 @Component({
@@ -20,13 +22,19 @@ export class ProductsComponent implements OnInit {
     filterSettings: FilterSettings;
     currentPage: number;
     firstPageInBlock: number;
+    sortingTypes: KeyValue<string, string>[]=[];
 
 
     constructor(private productHttpService: ProductHttpService, private route: ActivatedRoute,
         private emptyFilterSettingsService: EmptyFilterSettingsService) {
+
         this.wineCards = [];
         this.filterSettings = {};
-        this.firstPageInBlock=1;
+        this.firstPageInBlock = 1;
+
+        for (const key of Object.keys(SortingType)) {
+            this.sortingTypes.push({ key: key, value: SortingType[key] });
+        }
     }
 
     ngOnInit() {
@@ -44,8 +52,8 @@ export class ProductsComponent implements OnInit {
 
     //Refresh whole list, set current page to 1th page => for filter
     refreshWholeList(filterSettings?: FilterSettings) {
-        this.firstPageInBlock=1;
-        filterSettings.offset=undefined;
+        this.firstPageInBlock = 1;
+        filterSettings.offset = undefined;
         this.refresh(filterSettings);
     }
 

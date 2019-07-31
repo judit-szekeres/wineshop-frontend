@@ -25,10 +25,7 @@
                         <div class="col-xs-6 col-sm-4 pull-right">
                             <select class="form-item">
                                 <option>Sort by</option>
-                                <option>Option 1</option>
-                                <option>Option 1</option>
-                                <option>Option 1</option>
-                                <option>Option 1</option>
+                                <option *ngFor="let s of sortingTypes" value="{{ s.key }}">{{ s.value }}</option>
                             </select>
                         </div>
                     </div>
