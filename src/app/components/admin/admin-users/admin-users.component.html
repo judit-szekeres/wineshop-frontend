@@ -11,6 +11,7 @@
                    <i class="fa fa-star"></i>
                </p-->
            </div>
+<<<<<<< Updated upstream
            <div class="row">
                <div class="col-sm-8 col-md-9">
 
@@ -58,6 +59,31 @@
                    <!--<app-pagination [pageCount]="pageCount" (refresh)="refreshPage($event)"></app-pagination>-->
                </div>
            </div>
+=======
+           <!-- Table -->
+               <!--input type="text" class="form-control mb-3" placeholder="Keresés" [(ngModel)]="searchTerm"-->
+               <table class="table table-bordered table-striped">
+                   <thead>
+                       <tr>
+                           <th scope="col">First name</th>
+                           <th scope="col">Last name</th>
+                           <th scope="col">Email</th>
+
+                       </tr>
+                   </thead>
+                   <!--tbody>
+                       <tr *ngIf="! isLoading && students.length == 0 && searchTerm == ''">
+                           <td colspan="6" class="text-center">Nincs hallgató az adatbázisban.</td>
+                       </tr>
+                       <tr *ngIf="! isLoading && (students | studentSearch : searchTerm).length == 0 && searchTerm != ''">
+                           <td colspan="6" class="text-center">Nincs a keresésnek megfelelő hallgató.</td>
+                       </tr>
+                       <tr app-student-row *ngFor="let s of students | studentSearch : searchTerm" [student]="s" (refresh)="refreshStudents($event)">
+                       </tr>
+                   </tbody-->
+               </table>
+               <h2 class="text-center" *ngIf="isLoading">Betöltés...</h2>
+>>>>>>> Stashed changes
        </div>
    </div>
 </section>
