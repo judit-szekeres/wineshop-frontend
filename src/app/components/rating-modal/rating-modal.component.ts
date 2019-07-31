@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
+import {Values} from "../../interfaces/rating-scale";
+import {RatingModalService} from "../../services/rating-modal.service";
+import {WineCard} from "../../interfaces/wine";
+import {CartService} from "../../services/cart.service";
+import {CartElement} from "../../interfaces/cart-element";
+
 @Component({
   selector: 'app-rating-modal',
   templateUrl: './rating-modal.component.html',
@@ -56,11 +62,23 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
 })
 export class RatingModalComponent implements OnInit {
 
-  constructor() {
 
+  public values:Values[];
+  constructor(public modalService:RatingModalService, public cartService:CartService) {
+    this.values=Object.values(Values);
    }
 
   ngOnInit() {
   }
+
+  setFlagToFalse():void{
+    this.modalService.isModalOpen=false;
+  }
+
+  print():void{
+    console.log(this.cartService.addedProduct[0].quantity);
+  }
+
+
 
 }
