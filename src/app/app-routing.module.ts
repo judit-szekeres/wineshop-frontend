@@ -18,7 +18,7 @@ import { PersonalDetailsComponent } from './components/header/personal-details/p
 import { AuthGuard } from './auth.guard';
 import { OrderSuccessComponent } from './components/checkout/order-success/order-success.component';
 import { AdminUsersComponent } from './components/admin/admin-users/admin-users.component';
-
+import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: LandingPageComponent },
@@ -39,8 +39,12 @@ const routes: Routes = [
   { path: 'personal-details', component: PersonalDetailsComponent, canActivate: [AuthGuard] },
   { path: 'personal-details', component: PersonalDetailsComponent },
   { path: 'order-success', component: OrderSuccessComponent },
+<<<<<<< HEAD
   { path: 'app-admin-users', component: AdminUsersComponent },
 
+=======
+  { path: 'admin-products', component: AdminProductsComponent },
+>>>>>>> feature/products/pagination/reset
 ]
 
 
