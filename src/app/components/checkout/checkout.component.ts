@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UserShipping } from "src/app/interfaces/user-shipping";
 import { UserHttpService } from "src/app/services/user-http.service";
 import { Country } from "src/app/interfaces/country";
+import { UserDetails } from "src/app/interfaces/user-details"
 
 @Component({
     selector: "app-checkout",
@@ -9,23 +9,24 @@ import { Country } from "src/app/interfaces/country";
     styleUrls: ["./checkout.component.css"]
 })
 export class CheckoutComponent implements OnInit {
-
     countries: Country[];
     checkboxState: boolean;
-    userShipping: UserShipping;
+    currentUserDetails: UserDetails;
 
-    constructor( private checkoutRequest: UserHttpService ) {
-        this.userShipping = {
+    constructor(private userService: UserHttpService) {
+        this.currentUserDetails = {
+            firstName: "",
+            lastName: "",
+            email: "",
+            currentPassword: "",
+            newPassword: "",
+            confirmNewPassword: "",
             shippingAddress: {
-                firstName: "",
-                lastName: "",
                 street: "",
                 city: "",
                 id: -1
             },
             billingAddress: {
-                firstName: "",
-                lastName: "",
                 street: "",
                 city: "",
                 id: -1
@@ -36,18 +37,16 @@ export class CheckoutComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.checkoutRequest.getCountriesList().then(c => {
+        this.userService.getCountriesList().then(c => {
             this.countries = c;
         });
     }
 
     billingSameAsShipping() {
-        if (this.checkboxState == false) {
-            this.userShipping.billingAddress = this.userShipping.shippingAddress;
+        if (this.checkboxState == false ) {
+            this.currentUserDetails.billingAddress = this.currentUserDetails.shippingAddress;
         } else {
-            this.userShipping.shippingAddress = {
-                firstName: "",
-                lastName: "",
+            this.currentUserDetails.billingAddress = {
                 street: "",
                 city: "",
                 id: -1
