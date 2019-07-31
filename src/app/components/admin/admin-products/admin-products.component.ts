@@ -14,7 +14,7 @@ export class AdminProductsComponent implements OnInit {
   pageCount: number;
 
 
-  
+
   wineCards: WineCard[];
   filterSettings: FilterSettings;
   currentPage: number;
@@ -27,7 +27,9 @@ export class AdminProductsComponent implements OnInit {
       this.firstPageInBlock=1;
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.refresh();
+  }
 
   //Refresh whole list, set current page to 1th page => for filter
   refreshWholeList(filterSettings?: FilterSettings) {
