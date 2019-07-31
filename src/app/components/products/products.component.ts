@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductHttpService } from 'src/app/services/product-http.service';
 import { FilterSettings, Category } from 'src/app/interfaces/filter-settings';
 import { EmptyFilterSettingsService } from 'src/app/services/empty-filter-settings.service';
+import { SortingType } from 'src/app/interfaces/sorting-types';
+import { KeyValue } from '@angular/common';
 
 
 @Component({
@@ -20,16 +22,24 @@ export class ProductsComponent implements OnInit {
     filterSettings: FilterSettings;
     currentPage: number;
     firstPageInBlock: number;
+    sortingTypes: KeyValue<string, string>[] = [];
+    selectedSortingType: string = "nameA";
 
 
     constructor(private productHttpService: ProductHttpService, private route: ActivatedRoute,
         private emptyFilterSettingsService: EmptyFilterSettingsService, private appRef: ApplicationRef) {
         this.wineCards = [];
         this.filterSettings = {};
-        this.firstPageInBlock=1;
+        this.firstPageInBlock = 1;
+
+        for (const key of Object.keys(SortingType)) {
+            this.sortingTypes.push({ key: key, value: SortingType[key] });
+        }
     }
 
     ngOnInit() {
+        this.selectedSortingType = this.selectedSortingType;
+        this.filterSettings = this.emptyFilterSettingsService.emptyObject();
         let category: string = this.route.snapshot.paramMap.get('category');
         if (category != null) {
             let enumCategory: Category;
@@ -47,21 +57,23 @@ export class ProductsComponent implements OnInit {
         this.firstPageInBlock = 0;
         this.appRef.tick();
         this.firstPageInBlock = 1;
-        filterSettings.offset = undefined;
+        if (filterSettings) {
+            filterSettings.offset = undefined;
+        }
         this.refresh(filterSettings);
     }
 
     //Refresh only a certain page => for pagination
     refreshPage(pageNumber: number) {
-        if (!this.filterSettings) {
-            this.filterSettings = this.emptyFilterSettingsService.emptyObject();
-        }
         this.filterSettings.offset = pageNumber;
         this.refresh(this.filterSettings);
     }
 
     refresh(filterSettings?: FilterSettings) {
-        this.filterSettings = filterSettings;
+        if (filterSettings) {
+            this.filterSettings = filterSettings;
+        }
+        this.filterSettings.order = this.selectedSortingType;
         let p = this.productHttpService.getWines(this.cleanedFilter(this.filterSettings));
         p.then(wineCardResults => {
             this.wineCards = wineCardResults.wines;
