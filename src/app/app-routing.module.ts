@@ -29,15 +29,14 @@ const routes: Routes = [
   { path: 'term-of-services', component: TermOfServicesComponent },
   { path: 'log-reg', component: LoginRegistrationModalComponent },
   { path: 'products', component: ProductsComponent },
-  { path: 'cart', component: CartComponent },
+  { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
   { path: 'reg-conf-page', component: RegConfirmationPageComponent },
   { path: 'validate/:token', component: ValidateTokenComponent },
-  { path: 'checkout', component: CheckoutComponent },
-  { path: 'previous-orders', component: PreviousOrderComponent },
+  { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard] },
   { path: 'successful-registration-page', component: SuccessfulRegistrationPageComponent },
   { path: 'personal-details', component: PersonalDetailsComponent, canActivate: [AuthGuard] },
-  { path: 'personal-details', component: PersonalDetailsComponent },
-  { path: 'order-success', component: OrderSuccessComponent },
+  { path: 'previous-orders', component: PreviousOrderComponent, canActivate: [AuthGuard] },
+  { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard] },
 ]
 
 
