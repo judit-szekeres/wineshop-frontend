@@ -8,8 +8,8 @@ import { CartService } from "../../../services/cart.service";
 })
 export class CartTotalComponent implements OnInit {
   totalSubprice: number;
-  shippingPrice = 15;
-  taxPrice = 10;
+  shippingPrice = 0;
+  taxPrice = 0;
 
   constructor(private cartService: CartService) {}
 

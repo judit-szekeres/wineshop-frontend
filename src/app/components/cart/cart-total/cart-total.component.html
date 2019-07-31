@@ -1,6 +1,8 @@
 <div class="box">
   <h3 class="title line-default">Total: ${{ totalCost() }}</h3>
   <app-cart-text></app-cart-text>
-  <a href="" routerLink="/checkout" class="ht-btn bg-dc4c46">Check Out</a>
-  <a href="" class="ht-btn bg-2 m-t-20">Continue Shopping</a>
+  <div *ngIf="this.cartService.addedProduct.length!=0" class="">
+    <a href="" routerLink="/checkout" class="ht-btn bg-dc4c46">Check Out</a>
+    <a href="https://wineshop-server.herokuapp.com/products" class="ht-btn bg-2 m-t-20">Continue Shopping</a>
+  </div>
 </div>
