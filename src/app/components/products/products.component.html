@@ -34,7 +34,7 @@
                     </div>
                     <!--pagination-->
                     <div class="text-center">
-                        <app-pagination [firstPageInBlock]="firstPageInBlock" [pageCount]="pageCount" (refresh)="refreshPage($event)"></app-pagination>
+                        <app-pagination [firstPageInBlock]="firstPageInBlock" [selectedIndex]="selectedIndex" [pageCount]="pageCount" (refresh)="refreshPage($event)"></app-pagination>
                     </div>
                 </div>
             </div>

@@ -22,6 +22,7 @@ export class ProductsComponent implements OnInit {
     filterSettings: FilterSettings;
     currentPage: number;
     firstPageInBlock: number;
+    selectedIndex: number;
     sortingTypes: KeyValue<string, string>[] = [];
     selectedSortingType: string = "nameA";
 
@@ -31,6 +32,7 @@ export class ProductsComponent implements OnInit {
         this.wineCards = [];
         this.filterSettings = {};
         this.firstPageInBlock = 1;
+        this.selectedIndex=0;
 
         for (const key of Object.keys(SortingType)) {
             this.sortingTypes.push({ key: key, value: SortingType[key] });
@@ -55,8 +57,10 @@ export class ProductsComponent implements OnInit {
     //Refresh whole list, set current page to 1th page => for filter
     refreshWholeList(filterSettings?: FilterSettings) {
         this.firstPageInBlock = 0;
+        this.selectedIndex=1;
         this.appRef.tick();
         this.firstPageInBlock = 1;
+        this.selectedIndex=0;
         if (filterSettings) {
             filterSettings.offset = undefined;
         }
