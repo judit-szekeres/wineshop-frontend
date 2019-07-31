@@ -27,29 +27,21 @@
                             </select>
                         </div>
                     </div>
-                    <div class="panel panel-default">
-                        <!-- Default panel contents -->
-                        <div class="panel-heading">Products</div>
-                        <div class="panel-body">
-                        </div>
-                        <!-- Table -->
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Picture</th>
-                                    <th>Name</th>
-                                    <th>Price</th>
-                                    <th>Special Price</th>
-                                    <th>Stock</th>
-                                    <th>Buttons</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <admin-products-row *ngFor="let w of wineCards" [wineCard]="w"></admin-products-row>
-                                {{w}}
-                            </tbody>
-                        </table>
-                    </div>
+                    <!-- Table -->
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Picture</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Buttons</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <admin-products-row *ngFor="let w of wineCards" [wineCard]="w"></admin-products-row>
+                        </tbody>
+                    </table>
                     <!--pagination-->
                     <app-pagination [pageCount]="pageCount" (refresh)="refreshPage($event)"></app-pagination>
                 </div>
