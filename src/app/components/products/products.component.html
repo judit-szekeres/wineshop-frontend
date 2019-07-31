@@ -23,8 +23,8 @@
                             <div class="iconc"><i class="fa fa-list"></i></div>
                         </div>
                         <div class="col-xs-6 col-sm-4 pull-right">
-                            <select class="form-item">
-                                <option>Sort by</option>
+                            <select class="form-item" [(ngModel)]="selectedSortingType" value="nameA" (change)="refreshWholeList()">
+                                <!--<option>Sort by</option>-->
                                 <option *ngFor="let s of sortingTypes" value="{{ s.key }}">{{ s.value }}</option>
                             </select>
                         </div>

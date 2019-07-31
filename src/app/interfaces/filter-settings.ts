@@ -15,4 +15,5 @@ export interface FilterSettings {
   yearFrom?: number;
   yearTo?: number;
   offset?: number;
+  order?: string;
 }
