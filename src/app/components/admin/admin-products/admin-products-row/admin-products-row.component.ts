@@ -8,7 +8,7 @@ import { CartService } from 'src/app/services/cart.service';
 import { CartHTTPService } from 'src/app/services/cart-http.service';
 
 @Component({
-    selector: 'admin-products-row',
+    selector: '[admin-products-row]',
     templateUrl: './admin-products-row.component.html',
     styleUrls: ['./admin-products-row.component.css']
 })
