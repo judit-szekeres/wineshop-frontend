@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ApplicationRef } from '@angular/core';
 import { WineCard } from 'src/app/interfaces/wine';
 import { ActivatedRoute } from '@angular/router';
 import { ProductHttpService } from 'src/app/services/product-http.service';
@@ -23,7 +23,7 @@ export class ProductsComponent implements OnInit {
 
 
     constructor(private productHttpService: ProductHttpService, private route: ActivatedRoute,
-        private emptyFilterSettingsService: EmptyFilterSettingsService) {
+        private emptyFilterSettingsService: EmptyFilterSettingsService, private appRef: ApplicationRef) {
         this.wineCards = [];
         this.filterSettings = {};
         this.firstPageInBlock=1;
@@ -44,8 +44,10 @@ export class ProductsComponent implements OnInit {
 
     //Refresh whole list, set current page to 1th page => for filter
     refreshWholeList(filterSettings?: FilterSettings) {
-        this.firstPageInBlock=1;
-        filterSettings.offset=undefined;
+        this.firstPageInBlock = 0;
+        this.appRef.tick();
+        this.firstPageInBlock = 1;
+        filterSettings.offset = undefined;
         this.refresh(filterSettings);
     }
 
