@@ -11,7 +11,7 @@ export class CartTotalComponent implements OnInit {
   shippingPrice = 0;
   taxPrice = 0;
 
-  constructor(private cartService: CartService) {}
+  constructor(public cartService: CartService) {}
 
   ngOnInit() {}
 
