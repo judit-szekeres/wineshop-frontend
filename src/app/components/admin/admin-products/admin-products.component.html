@@ -28,6 +28,7 @@
                         </div>
                     </div>
                     <!-- Table -->
+                    <button type="button" class="btn btn-success" (click)='add()'>Add +</button>
                     <table class="table">
                         <thead>
                             <tr>
@@ -39,7 +40,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr admin-products-row *ngFor="let w of wineCards" [wineCard]="w"></tr>
+                            <!--tr admin-products-row *ngFor="let w of wineCards" [wineCard]="w"></tr>-->
+                            <admin-products-row *ngFor="let w of wineCards" [wineCard]="w"></admin-products-row>
                         </tbody>
                     </table>
                     <!--pagination-->

@@ -11,5 +11,10 @@ th {
 table {
     border: 1px solid black;
     display: table-cell;
-    
+    width: 100%;
+
+}
+
+.btn-success{
+    float: right;
 }
