@@ -39,12 +39,8 @@ const routes: Routes = [
   { path: 'personal-details', component: PersonalDetailsComponent, canActivate: [AuthGuard] },
   { path: 'personal-details', component: PersonalDetailsComponent },
   { path: 'order-success', component: OrderSuccessComponent },
-<<<<<<< HEAD
   { path: 'app-admin-users', component: AdminUsersComponent },
-
-=======
   { path: 'admin-products', component: AdminProductsComponent },
->>>>>>> feature/products/pagination/reset
 ]
 
 
