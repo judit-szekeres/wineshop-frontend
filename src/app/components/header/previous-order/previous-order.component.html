@@ -1,31 +1,54 @@
 <app-header></app-header>
 <section class="bg-fbf9f2">
-  <div class="container">
-    <div class="content">
-      <div class="title-group underline-double">
-        <h5 class="sub-title">Wine shop</h5>
-        <h2 class="selected">Previous order(s)</h2>
-        <p class="line-mix star-group">
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-        </p>
-      </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="box-item text-left p-50">
-            <h3 class="f-22 p-t-0">If you have any question feel free to write us</h3>
-            <form class="m-t-20">
-              <input type="text" class="form-item" placeholder="Name">
-              <input type="text" class="form-item" placeholder="Email">
-              <input type="text" class="form-item" placeholder="Phone">
-              <textarea class="form-item h-200" placeholder="Message"></textarea>
-              <button class="ht-btn bg-6 m-t-10 rad-3" type="submit">Send</button>
-            </form>
-          </div>
+    <div class="container">
+        <div class="content">
+            <div class="title-group underline-double">
+                <h5 class="sub-title">Wine shop</h5>
+                <h2 class="selected">Previous order(s)</h2>
+                <p class="line-mix star-group">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </p>
+            </div>
         </div>
-      </div>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th class="col-sm-2" class="text-center">Date</th>
+                    <th class="col-sm-4" class="text-center">Wine(s)</th>
+                    <th class="col-sm-3" class="text-center">Shipping Address</th>
+                    <th class="col-sm-3" class="text-center">Billing address</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pO of this.previousOrders">
+                    <td class="text-center">{{ pO.orderTime }}</td>
+                    <td class="text-center">
+                        <div *ngFor="let item of pO.items; let l = last">
+                            {{ item.itemName }}
+                            <br>
+                            {{ item.grossItemPrice }} Ft
+                            <br>
+                            {{ item.quantity }} piece
+                            <hr *ngIf="!l">
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        {{ pO.shippingAddress.street }}
+                        <br>
+                        {{ pO.shippingAddress.city }}
+                        <br>
+                        {{ pO.shippingAddress.country }}</td>
+                    <td class="text-center">
+                        {{ pO.billingAddress.street }}
+                        <br>
+                        {{ pO.billingAddress.city }}
+                        <br>
+                        {{ pO.billingAddress.country }}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-  </div>
 </section>
 <app-footer></app-footer>

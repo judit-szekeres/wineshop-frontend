@@ -47,6 +47,7 @@ import { AdminDeleteProductComponent } from './components/admin/admin-products/a
 import { AdminAddProductComponent } from './components/admin/admin-products/admin-add-product/admin-add-product.component';
 import { AdminUsersComponent } from './components/admin/admin-users/admin-users.component';
 import { AdminUserRowComponent } from './components/admin/admin-users/admin-user-row/admin-user-row.component';
+import { RatingModalComponent } from './components/rating-modal/rating-modal.component';
 
 
 @NgModule({
@@ -93,6 +94,7 @@ import { AdminUserRowComponent } from './components/admin/admin-users/admin-user
     AdminAddProductComponent,
     AdminUsersComponent,
     AdminUserRowComponent,
+    RatingModalComponent,
     ],
   imports: [
     BrowserModule,
