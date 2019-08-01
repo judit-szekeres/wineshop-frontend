@@ -1,3 +1,24 @@
 section {
     margin-top: 80px;
 }
+
+
+th {
+    background-color: #f0eae2;
+    font-weight: bold;
+}
+
+.table {
+    border: 1px solid black;
+    width: 100%;
+
+}
+
+.btn-success{
+    float: right;
+}
+
+td{
+    text-align: center;
+    vertical-align: middle;
+}

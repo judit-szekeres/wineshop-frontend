@@ -1,0 +1,9 @@
+/*.ht-pagination li.active a,.ht-pagination li.active a:hover,.ht-pagination li.active a:active,.ht-pagination li.active a:focus,.pagination li a:hover,.pagination li a:focus{
+  background-color: #337ab7;
+  border-color: #337ab7;
+}*/
+
+.ht-pagination li.active a,.ht-pagination li.active a:hover,.ht-pagination li.active a:active,.ht-pagination li.active a:focus{
+  background-color: #337ab7;
+  border-color: #337ab7;
+}

@@ -1,8 +1,11 @@
 <div class="box">
-  <h3 class="title line-default">Total: ${{ totalCost() }}</h3>
-  <app-cart-text></app-cart-text>
-  <div *ngIf="this.cartService.addedProduct.length!=0" class="">
-    <a href="" routerLink="/checkout" class="ht-btn bg-dc4c46">Check Out</a>
-    <a href="https://wineshop-server.herokuapp.com/products" class="ht-btn bg-2 m-t-20">Continue Shopping</a>
-  </div>
+    <h3 class="title line-default">Total: ${{ totalCost() }}</h3>
+    <app-cart-text></app-cart-text>
+    <div *ngIf="this.cartService.addedProduct.length!=0" class="">
+        <a href="" routerLink="/checkout" class="ht-btn bg-dc4c46">Check Out</a>
+        <a href="https://wineshop-server.herokuapp.com/products" class="ht-btn bg-2 m-t-20">Continue Shopping</a>
+    </div>
+    <button type="button" name="button" (click)="setFlag()">modal</button>
+    <app-rating-modal *ngIf="this.modalService.isModalOpen==true">wine data</app-rating-modal>
+
 </div>

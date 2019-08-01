@@ -7,6 +7,7 @@ export interface WineCard {
   rating: number, //null ha nincs
   numberOfRating: number,
   quantity?: number;
+  stock?: number;
 
 }
 
