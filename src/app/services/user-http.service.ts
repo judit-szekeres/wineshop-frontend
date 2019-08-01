@@ -103,4 +103,16 @@ export class UserHttpService {
       return this.http.get(serverURL + '/user/orders', {withCredentials: true})
         .toPromise().then(response => response ) as Promise<Orders[]>;
   }
+
+  getExistingEmail(email: Object): Promise<null> {
+    console.log(email);
+    return this.http.post(serverURL + '/forgot-password', email , { withCredentials: true })
+    .toPromise().then( response => response ) as Promise<null>;
+  }
+
+  getResetPassword(): Promise<null> {
+    return this.http.post(serverURL + '/reset-password', '', { withCredentials: true })
+    .toPromise().then( response => response ) as Promise<null>;
+
+  }
 }
