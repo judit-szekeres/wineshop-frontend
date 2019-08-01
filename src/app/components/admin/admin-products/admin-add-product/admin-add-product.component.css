@@ -1,0 +1,18 @@
+section {
+    margin-top: 80px;
+}
+
+input {
+    width: 98%;
+    margin: 2px;
+    margin-left: 10px;
+
+}
+
+.table {
+    text-align: -webkit-center;
+}
+
+.btn-primary {
+    float: right;
+}

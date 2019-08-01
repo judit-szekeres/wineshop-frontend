@@ -42,7 +42,7 @@ const routes: Routes = [
   { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard] },
   { path: 'app-admin-users', component: AdminUsersComponent },
   { path: 'admin-products', component: AdminProductsComponent },
-  { path: 'admin-add-product/:id', component: AdminAddProductComponent },
+  { path: 'admin-add-product', component: AdminAddProductComponent },
   { path: 'admin-modify-product/:id', component: AdminModifyProductComponent },
 ]
 
