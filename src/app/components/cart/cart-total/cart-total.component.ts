@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { CartService } from "../../../services/cart.service";
+import {RatingModalService} from "../../../services/rating-modal.service";
 
 @Component({
   selector: "app-cart-total",
@@ -8,11 +9,11 @@ import { CartService } from "../../../services/cart.service";
 })
 export class CartTotalComponent implements OnInit {
   totalSubprice: number;
-  shippingPrice = 15;
-  taxPrice = 10;
+  shippingPrice = 0;
+  taxPrice = 0;
 
-  constructor(private cartService: CartService) {}
-
+  constructor(public cartService: CartService, public modalService:RatingModalService) {
+  }
   ngOnInit() {}
 
   sum(): number {
@@ -29,4 +30,12 @@ export class CartTotalComponent implements OnInit {
   totalCost(): number {
     return this.sum() + this.shippingPrice + this.taxPrice;
   }
+
+  setFlag():boolean{
+
+    return this.modalService.isModalOpen=true;
+
+  }
+
+
 }

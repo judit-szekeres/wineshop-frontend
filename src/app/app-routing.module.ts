@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+
 import { Routes, RouterModule } from '@angular/router';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { SpecialOffersComponent } from './components/landing-page/special-offers/special-offers.component';
@@ -18,27 +18,36 @@ import { PersonalDetailsComponent } from './components/header/personal-details/p
 import { AuthGuard } from './auth.guard';
 import { OrderSuccessComponent } from './components/checkout/order-success/order-success.component';
 import { ResetPasswordComponent } from './components/login-registration-modal/reset-password/reset-password.component';
+import { AdminUsersComponent } from './components/admin/admin-users/admin-users.component';
+import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
+import { AdminAddProductComponent } from './components/admin/admin-products/admin-add-product/admin-add-product.component';
+import { AdminModifyProductComponent } from './components/admin/admin-products/admin-modify-product/admin-modify-product.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: LandingPageComponent },
   { path: 'landing-special-offers', component: SpecialOffersComponent },
   { path: 'category', component: RedWhiteCategoriesComponent },
-  {path: 'products/:category', component: ProductsComponent },
+  { path: 'products/:category', component: ProductsComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'policy', component: PolicyComponent },
   { path: 'term-of-services', component: TermOfServicesComponent },
   { path: 'log-reg', component: LoginRegistrationModalComponent },
   { path: 'products', component: ProductsComponent },
-  { path: 'cart', component: CartComponent },
+  { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
   { path: 'reg-conf-page', component: RegConfirmationPageComponent },
   { path: 'validate/:token', component: ValidateTokenComponent },
-  { path: 'checkout', component: CheckoutComponent },
-  { path: 'previous-orders', component: PreviousOrderComponent },
+  { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard] },
   { path: 'successful-registration-page', component: SuccessfulRegistrationPageComponent },
   { path: 'personal-details', component: PersonalDetailsComponent, canActivate: [AuthGuard] },
   { path: 'personal-details', component: PersonalDetailsComponent },
+  { path: 'order-success', component: OrderSuccessComponent }
+  { path: 'previous-orders', component: PreviousOrderComponent, canActivate: [AuthGuard] },
   { path: 'order-success', component: OrderSuccessComponent },
+  { path: 'admin-products', component: AdminProductsComponent },
+  { path: 'admin-add-product/:id', component: AdminAddProductComponent },
+  { path: 'admin-modify-product/:id', component: AdminModifyProductComponent },
   { path: 'reset-password', component: ResetPasswordComponent }
+  { path: 'personal-details', component: PersonalDetailsComponent },
 ]
 
 

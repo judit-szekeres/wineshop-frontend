@@ -1,46 +1,45 @@
 <!--<div class="preloader"><i class="fa fa-spinner"></i></div>-->
 <app-header></app-header>
 <section class="bg-fbf9f2">
-  <div class="container">
-    <div class="content">
-      <div class="title-group underline-double">
-        <h5 class="sub-title">Royal wine</h5>
-        <h2 class="selected">our Products</h2>
-        <p class="line-mix star-group">
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-        </p>
-      </div>
-      <div class="row">
-        <div class="col-sm-4 col-md-3">
-          <app-filter-settings (refresh)="refresh($event)"></app-filter-settings>
-        </div>
-        <div class="col-sm-8 col-md-9">
-          <div class="row">
-            <div class="col-xs-6 col-sm-4">
-              <div class="iconc"><i class="fa fa-th"></i></div>
-              <div class="iconc"><i class="fa fa-list"></i></div>
+    <div class="container">
+        <div class="content">
+            <div class="title-group underline-double">
+                <h5 class="sub-title">Royal wine</h5>
+                <h2 class="selected">our Products</h2>
+                <p class="line-mix star-group">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </p>
             </div>
-            <div class="col-xs-6 col-sm-4 pull-right">
-              <select class="form-item">
-                <option>Sort by</option>
-                <option>Option 1</option>
-                <option>Option 1</option>
-                <option>Option 1</option>
-                <option>Option 1</option>
-              </select>
+            <div class="row">
+                <div class="col-sm-4 col-md-3">
+                    <app-filter-settings (refresh)="refreshWholeList($event)"></app-filter-settings>
+                </div>
+                <div class="col-sm-8 col-md-9">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-4">
+                            <div class="iconc"><i class="fa fa-th"></i></div>
+                            <div class="iconc"><i class="fa fa-list"></i></div>
+                        </div>
+                        <div class="col-xs-6 col-sm-4 pull-right">
+                            <select class="form-item" [(ngModel)]="selectedSortingType" value="nameA" (change)="refreshWholeList()">
+                                <!--<option>Sort by</option>-->
+                                <option *ngFor="let s of sortingTypes" value="{{ s.key }}">{{ s.value }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <app-product-card class="" *ngFor="let w of wineCards" [wineCard]="w"></app-product-card>
+                    </div>
+                    <!--pagination-->
+                    <div class="text-center">
+                        <app-pagination [firstPageInBlock]="firstPageInBlock" [selectedIndex]="selectedIndex" [pageCount]="pageCount" (refresh)="refreshPage($event)"></app-pagination>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="row">
-            <app-product-card class="" *ngFor="let w of wineCards" [wineCard]="w" ></app-product-card>
-          </div>
-          <!--pagination-->
-          <app-pagination [pageCount]="pageCount" (refresh)="refreshPage($event)"></app-pagination>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
 <app-footer></app-footer>

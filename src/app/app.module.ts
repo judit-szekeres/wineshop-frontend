@@ -35,13 +35,20 @@ import { PaymentMethodComponent } from './components/checkout/payment-method/pay
 import { OrderSummaryComponent } from './components/checkout/order-summary/order-summary.component';
 import { PreviousOrderComponent } from './components/header/previous-order/previous-order.component';
 import { PersonalDetailsComponent } from './components/header/personal-details/personal-details.component';
-import { PageButtonComponent } from './components/products/page-button/page-button.component';
 import { CartTextComponent } from './components/cart/cart-total/cart-text/cart-text.component';
 import { OrderSuccessComponent } from './components/checkout/order-success/order-success.component';
 import { LoadingBottleComponent } from './components/loading-bottle/loading-bottle.component';
 import { SubscribeComponent } from './components/footer/subscribe/subscribe.component';
 import { PaginationComponent } from './components/products/pagination/pagination.component';
 import { ResetPasswordComponent } from './components/login-registration-modal/reset-password/reset-password.component';
+import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
+import { AdminProductsRowComponent } from './components/admin/admin-products/admin-products-row/admin-products-row.component';
+import { AdminModifyProductComponent } from './components/admin/admin-products/admin-modify-product/admin-modify-product.component';
+import { AdminDeleteProductComponent } from './components/admin/admin-products/admin-delete-product/admin-delete-product.component';
+import { AdminAddProductComponent } from './components/admin/admin-products/admin-add-product/admin-add-product.component';
+import { AdminUsersComponent } from './components/admin/admin-users/admin-users.component';
+import { AdminUserRowComponent } from './components/admin/admin-users/admin-user-row/admin-user-row.component';
+import { RatingModalComponent } from './components/rating-modal/rating-modal.component';
 
 
 @NgModule({
@@ -78,7 +85,6 @@ import { ResetPasswordComponent } from './components/login-registration-modal/re
     OrderSummaryComponent,
     CartTextComponent,
     OrderSuccessComponent,
-    PageButtonComponent,
     LoadingBottleComponent,
     SubscribeComponent,
     PaginationComponent,

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PageButtonComponent } from './page-button.component';
+import { AdminModifyProductComponent } from './admin-modify-product.component';
 
-describe('PageButtonComponent', () => {
-  let component: PageButtonComponent;
-  let fixture: ComponentFixture<PageButtonComponent>;
+describe('AdminModifyProductComponent', () => {
+  let component: AdminModifyProductComponent;
+  let fixture: ComponentFixture<AdminModifyProductComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PageButtonComponent ]
+      declarations: [ AdminModifyProductComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PageButtonComponent);
+    fixture = TestBed.createComponent(AdminModifyProductComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

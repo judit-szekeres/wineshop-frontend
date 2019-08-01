@@ -29,34 +29,38 @@
                                         </div>
                                         <div class="form-group required">
                                             <label class="col-sm-3 control-label text-left" for="input-shipping-email">Email</label>
-                                            <div class="col-sm-9"><input type="text" name="email" [(ngModel)]="this.currentUserDetails.email" placeholder="Cannot be modified" id="input-shipping-email" class="form-control form-item"></div>
+                                            <div class="col-sm-9"><input [readonly]="this.currentUserDetails.email" type="text" name="email" value="{{ this.currentUserDetails.email }}" placeholder="Cannot be modified" id="input-shipping-email" class="form-control form-item"></div>
                                         </div>
                                         <div class="form-group required">
                                             <label class="col-sm-3 control-label text-left" for="input-shipping-current-password">Current Password</label>
-                                            <div class="col-sm-9"><input type="password" name="current-password" [(ngModel)]="this.currentPasswordToChange" placeholder="Current Password" id="input-shipping-current-password" class="form-control form-item"></div>
+                                            <div class="col-sm-9" [ngClass]="{ 'has-error' :  this.wrongPasswordFromServer }">
+                                                <input type="password" autocomplete="new-password" name="current-password-to-change" [(ngModel)]="this.currentUserDetails.currentPassword" placeholder="Current Password" id="input-billing-current-password" class="form-control form-item">
+                                            </div>
+                                            <div class="col-sm-9 col-sm-offset-3 text-danger" *ngIf="wrongPasswordFromServer"> {{ this.wrongPasswordFromServerMessage }} </div>
                                         </div>
                                         <div class="form-group required">
                                             <label class="col-sm-3 control-label text-left" for="input-shipping-new-password">New Password</label>
-                                            <div class="col-sm-9"><input type="password" name="new-password" [(ngModel)]="this.newPasswordToChange" placeholder="New Password" id="input-shipping-new-password" class="form-control form-item"></div>
+                                            <div class="col-sm-9"  [ngClass]="{ 'has-error' :  this.wrongPassword }"><input type="password" autocomplete="new-password" name="new-password" [(ngModel)]="this.currentUserDetails.newPassword" placeholder="New Password" id="input-billing-new-password" class="form-control form-item" [ngClass]="{ 'has-error' :  this.wrongPassword }"></div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label text-left" for="input-shipping-confirm-new-password">Confirm New Password</label>
-                                            <div class="col-sm-9"><input type="password" name="confirm-new-password" [(ngModel)]="this.confirmNewPasswordToChange" placeholder="Confirm New Password" id="input-shipping-confirm-new-password" class="form-control form-item"></div>
+                                            <div class="col-sm-9"  [ngClass]="{ 'has-error' :  this.wrongPassword }"><input type="password" autocomplete="new-password" name="confirm-new-password" [(ngModel)]="this.currentUserDetails.confirmNewPassword" placeholder="Confirm New Password" id="input-billing-confirm-new-password" class="form-control form-item"></div>
+                                            <div class="col-sm-9 col-sm-offset-3 text-danger" *ngIf="wrongPassword"> {{ this.wrongPasswordMessage }} </div>
                                         </div>
                                         <div class="form-group required">
                                             <h3 class="f-25 p-t-0 line-default m-b-30 title">Billing address</h3>
-                                            <label class="col-sm-3 control-label text-left" for="input-shipping-address-1">Billing Address</label>
-                                            <div class="col-sm-9"><input type="text" name="address_1" [(ngModel)]="this.currentUserDetails.billingAddress.street" placeholder="Address 1" id="input-shipping-address-1" class="form-control form-item">
+                                            <label class="col-sm-3 control-label text-left" for="input-billing-address">Billing Address</label>
+                                            <div class="col-sm-9"><input type="text" name="address_1" [(ngModel)]="this.currentUserDetails.billingAddress.street" placeholder="Address 1" id="input-billing-address" class="form-control form-item">
                                             </div>
                                         </div>
                                         <div class="form-group required">
-                                            <label class="col-sm-3 control-label text-left" for="input-shipping-city">City</label>
-                                            <div class="col-sm-9"><input type="text" name="city_1" [(ngModel)]="this.currentUserDetails.billingAddress.city" placeholder="City" id="input-shipping-city" class="form-control form-item"></div>
+                                            <label class="col-sm-3 control-label text-left" for="input-billing-city">City</label>
+                                            <div class="col-sm-9"><input type="text" name="city_1" [(ngModel)]="this.currentUserDetails.billingAddress.city" placeholder="City" id="input-billing-city" class="form-control form-item"></div>
                                         </div>
                                         <div class="form-group required">
-                                            <label class="col-sm-3 control-label text-left" for="input-shipping-country">Country</label>
+                                            <label class="col-sm-3 control-label text-left" for="input-billing-country">Country</label>
                                             <div class="col-sm-9">
-                                                <select name="country_id" id="input-shipping-country_1" class="form-control form-item" [(ngModel)]="this.currentUserDetails.billingAddress.id">
+                                                <select name="country_id" id="input-billing-country" class="form-control form-item" [(ngModel)]="this.currentUserDetails.billingAddress.id">
                                                     <option *ngFor="let c of countries" [value]="c.id"> {{ c.name }}</option>
                                                 </select>
                                             </div>
@@ -66,7 +70,7 @@
                                         </div>
                                         <div class="form-group required">
                                             <h3 class="f-25 p-t-0 line-default m-b-30 title">Shipping address</h3>
-                                            <label class="col-sm-3 control-label text-left" for="input-shipping-address-2">Shipping Address</label>
+                                            <label class="col-sm-3 control-label text-left" for="input-shipping-address">Shipping Address</label>
                                             <div class="col-sm-9"><input type="text" name="address_2" [(ngModel)]="this.currentUserDetails.shippingAddress.street" placeholder="Address 2" id="input-shipping-address-2" class="form-control form-item">
                                             </div>
                                         </div>
