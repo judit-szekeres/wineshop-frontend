@@ -40,6 +40,7 @@ import { OrderSuccessComponent } from './components/checkout/order-success/order
 import { LoadingBottleComponent } from './components/loading-bottle/loading-bottle.component';
 import { SubscribeComponent } from './components/footer/subscribe/subscribe.component';
 import { PaginationComponent } from './components/products/pagination/pagination.component';
+import { ResetPasswordComponent } from './components/login-registration-modal/reset-password/reset-password.component';
 import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
 import { AdminProductsRowComponent } from './components/admin/admin-products/admin-products-row/admin-products-row.component';
 import { AdminModifyProductComponent } from './components/admin/admin-products/admin-modify-product/admin-modify-product.component';
@@ -87,12 +88,13 @@ import { RatingModalComponent } from './components/rating-modal/rating-modal.com
     LoadingBottleComponent,
     SubscribeComponent,
     PaginationComponent,
-    AdminProductsComponent,
-    AdminProductsRowComponent,
-    AdminModifyProductComponent,
-    AdminDeleteProductComponent,
-    AdminAddProductComponent,
+    ResetPasswordComponent,
     AdminUsersComponent,
+    AdminProductsComponent,
+    AdminAddProductComponent,
+    AdminModifyProductComponent,
+    AdminProductsRowComponent,
+    AdminDeleteProductComponent,
     AdminUserRowComponent,
     RatingModalComponent,
     ],
