@@ -5,14 +5,12 @@
             <a aria-label="Previous" (click)="previous()"><i class="fa fa-chevron-left"></i></a>
         </li>
 
-        <li *ngFor="let b of pageButtons" (refresh)="refreshPage($event)" [ngClass]="{'d-none' : firstPageInBlock+b>pageCount,'active' : b==selectedIndex }">
+        <li *ngFor="let b of pageButtons" (refresh)="refreshPage()" [ngClass]="{'d-none' : firstPageInBlock+b>pageCount,'active' : b==selectedIndex }">
             <a (click)="select(b)">{{firstPageInBlock+b}}</a>
         </li>
 
         <li [ngClass]="{'d-none' : firstPageInBlock+BLOCK_LENGTH -1 === pageCount}">
             <a aria-label="Next" (click)="next()"><i class="fa fa-chevron-right"></i>
             </a></li>
-        {{pageCount}}
-        {{firstPageInBlock}}
     </ul>
 </nav>

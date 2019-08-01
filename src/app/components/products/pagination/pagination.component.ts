@@ -15,20 +15,18 @@ export class PaginationComponent implements OnInit {
     //Temp
     //readonly INITIAL_FIRST_PAGE_IN_BLOCK: number = 74;
     readonly BLOCK_LENGTH = 5;
-    readonly INITIAL_SELECTED_INDEX = 0;
 
     @Input()
     pageCount: number;
     @Input()
     firstPageInBlock: number;
+    @Input()
+    selectedIndex: number;
 
     @Output()
     refresh: EventEmitter<number> = new EventEmitter();
 
-
     pageButtons: number[] = [];
-
-    selectedIndex: number = this.INITIAL_SELECTED_INDEX;
 
 
     constructor() {
