@@ -16,3 +16,7 @@ input {
 .btn-primary {
     float: right;
 }
+
+.wine-image {
+    max-width: 100%;
+}
