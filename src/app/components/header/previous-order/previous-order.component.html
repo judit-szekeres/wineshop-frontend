@@ -21,9 +21,11 @@
                     <th class="col-sm-3" class="text-center">Billing address</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody *ngIf="this.previousOrders.length">
                 <tr *ngFor="let pO of this.previousOrders">
-                    <td class="text-center">{{ pO.orderTime }}</td>
+                    <td class="text-center">
+                        {{ pO.orderTime }}
+                    </td>
                     <td class="text-center">
                         <div *ngFor="let item of pO.items; let l = last">
                             {{ item.itemName }}
@@ -39,16 +41,23 @@
                         <br>
                         {{ pO.shippingAddress.city }}
                         <br>
-                        {{ pO.shippingAddress.country }}</td>
+                        {{ pO.shippingAddress.country }}
+                    </td>
                     <td class="text-center">
                         {{ pO.billingAddress.street }}
                         <br>
                         {{ pO.billingAddress.city }}
                         <br>
-                        {{ pO.billingAddress.country }}</td>
+                        {{ pO.billingAddress.country }}
+                    </td>
                 </tr>
             </tbody>
         </table>
+        <div *ngIf="! this.previousOrders.length">
+            <div class="text-center">
+                You have not previous order!
+            </div>
+        </div>
     </div>
 </section>
 <app-footer></app-footer>
