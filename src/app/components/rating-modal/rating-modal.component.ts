@@ -5,6 +5,7 @@ import {RatingModalService} from "../../services/rating-modal.service";
 import {WineCard} from "../../interfaces/wine";
 import {CartService} from "../../services/cart.service";
 import {CartElement} from "../../interfaces/cart-element";
+import {RatingHttpService} from "../../services/rating-http.service";
 
 @Component({
   selector: 'app-rating-modal',
@@ -64,7 +65,10 @@ export class RatingModalComponent implements OnInit {
 
 
   public values:Values[];
-  constructor(public modalService:RatingModalService, public cartService:CartService) {
+  constructor(public modalService:RatingModalService,
+    public cartService:CartService,
+    public ratingConnectionService:RatingHttpService,
+  ) {
     this.values=Object.values(Values);
    }
 
@@ -77,6 +81,13 @@ export class RatingModalComponent implements OnInit {
 
   print():void{
     console.log(this.cartService.addedProduct[0].quantity);
+  }
+
+  sendResponse(){
+    this.ratingConnectionService.sendProductRating(this.cartService.addedProduct[0].quantity, this.cartService.addedProduct[0].id).then(() => {
+      this.setFlagToFalse();
+    });
+
   }
 
 
