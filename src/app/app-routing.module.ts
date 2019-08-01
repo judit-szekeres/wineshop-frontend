@@ -1,4 +1,4 @@
-
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { SpecialOffersComponent } from './components/landing-page/special-offers/special-offers.component';
@@ -40,15 +40,15 @@ const routes: Routes = [
   { path: 'successful-registration-page', component: SuccessfulRegistrationPageComponent },
   { path: 'personal-details', component: PersonalDetailsComponent, canActivate: [AuthGuard] },
   { path: 'personal-details', component: PersonalDetailsComponent },
-  { path: 'order-success', component: OrderSuccessComponent }
+  { path: 'order-success', component: OrderSuccessComponent },
   { path: 'previous-orders', component: PreviousOrderComponent, canActivate: [AuthGuard] },
   { path: 'order-success', component: OrderSuccessComponent },
   { path: 'admin-products', component: AdminProductsComponent },
   { path: 'admin-add-product/:id', component: AdminAddProductComponent },
   { path: 'admin-modify-product/:id', component: AdminModifyProductComponent },
-  { path: 'reset-password', component: ResetPasswordComponent }
+  { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'personal-details', component: PersonalDetailsComponent },
-]
+];
 
 
 @NgModule({
