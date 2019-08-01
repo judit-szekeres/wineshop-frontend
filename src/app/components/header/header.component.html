@@ -5,9 +5,9 @@
         <div class="col-xs-6 col-sm-2">
           <a routerLink="/" class="logo"><img src="../../assets/images/logo-res.jpg" alt="image"></a>
         </div>
-        <div class="col-xs-4 col-sm-6 hidden-xs pull-right">
+        <div class="col-xs-4 col-sm-10 hidden-xs pull-right">
           <nav id="holder_mn" class="menu-nav">
-            <ul>
+            <ul class="pull-right">
               <li><a routerLink="/">home</a></li>
               <li class="dropdown">
                 <a routerLink="/products" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">product</a>
@@ -21,12 +21,12 @@
               <li><a routerLink="/log-reg" *ngIf="! (currentUserLoggedIn$ | async) as something">login/registration</a></li>
               <li class="dropdown" *ngIf="(currentUserLoggedIn$ | async) as something">
                 <a class="user-email">{{ (currentUserDetails$ | async)?.email }}<i class="user-details fa fa-bars f-18" aria-hidden="true"></i></a>
-                <i class="icon-list"></i>
                 <ul class="dropdown-menu user-dropdown-menu">
                   <li><a routerLink="/personal-details">Personal details</a></li>
                   <li><a routerLink="/previous-orders">Previous orders</a></li>
                   <li><a (click)="logoutUser()">Logout</a></li>
                 </ul>
+                <i class="icon-list"></i>
                 </li>
                 <li>
                   <div class="cart dropdown" *ngIf="(currentUserLoggedIn$ | async) as something">
