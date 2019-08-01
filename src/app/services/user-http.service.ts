@@ -93,4 +93,16 @@ export class UserHttpService {
   modifyUserPersonalDetails(modifyDetails: UserDetails): Promise<null> {
       return this.http.post(serverURL + '/user/settings', modifyDetails, { withCredentials: true }).toPromise().then( () => {}) as Promise<null>;
   }
+
+  getExistingEmail(email: Object): Promise<null> {
+    console.log(email);
+    return this.http.post(serverURL + '/forgot-password', email , { withCredentials: true })
+    .toPromise().then( response => response ) as Promise<null>;
+  }
+
+  getResetPassword(): Promise<null> {
+    return this.http.post(serverURL + '/reset-password', '', { withCredentials: true })
+    .toPromise().then( response => response ) as Promise<null>;
+
+  }
 }

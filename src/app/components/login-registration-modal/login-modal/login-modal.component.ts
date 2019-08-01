@@ -15,6 +15,7 @@ export class LoginModalComponent implements OnInit {
   emailNotRegisteredOrIncorrectPassword : boolean;
   emailNotValidEmailMessage = 'Invalid email address!';
   emailNotRegisteredOrIncorrectPasswordMessage = 'Not registered email address or incorrect password!';
+  emailNotValidEmailOrNotRegisteredMessage = 'Not valid or not registered email address';
 
   constructor(private userService: UserHttpService, private router: Router) {
     this.user = {
@@ -45,4 +46,16 @@ export class LoginModalComponent implements OnInit {
         const emailRegexp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return this.user.email !== '' && emailRegexp.test(this.user.email);
     }
+
+  resetPassword():void{
+    if(this.user.email == '') {
+      this.emailNotValidEmail = true;
+    }else{
+      this.userService.getExistingEmail({email: this.user.email}).then(() => {
+          this.router.navigate(['/reset-password']);
+        }).catch(() => {
+        this.emailNotRegisteredOrIncorrectPassword = true;
+      })
+    }
+  }
 }

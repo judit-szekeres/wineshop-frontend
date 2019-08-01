@@ -41,6 +41,7 @@ import { OrderSuccessComponent } from './components/checkout/order-success/order
 import { LoadingBottleComponent } from './components/loading-bottle/loading-bottle.component';
 import { SubscribeComponent } from './components/footer/subscribe/subscribe.component';
 import { PaginationComponent } from './components/products/pagination/pagination.component';
+import { ResetPasswordComponent } from './components/login-registration-modal/reset-password/reset-password.component';
 
 
 @NgModule({
@@ -80,7 +81,8 @@ import { PaginationComponent } from './components/products/pagination/pagination
     PageButtonComponent,
     LoadingBottleComponent,
     SubscribeComponent,
-    PaginationComponent
+    PaginationComponent,
+    ResetPasswordComponent
     ],
   imports: [
     BrowserModule,

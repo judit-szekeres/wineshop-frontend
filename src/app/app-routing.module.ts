@@ -17,7 +17,7 @@ import { PreviousOrderComponent } from './components/header/previous-order/previ
 import { PersonalDetailsComponent } from './components/header/personal-details/personal-details.component';
 import { AuthGuard } from './auth.guard';
 import { OrderSuccessComponent } from './components/checkout/order-success/order-success.component';
-
+import { ResetPasswordComponent } from './components/login-registration-modal/reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: LandingPageComponent },
@@ -37,7 +37,8 @@ const routes: Routes = [
   { path: 'successful-registration-page', component: SuccessfulRegistrationPageComponent },
   { path: 'personal-details', component: PersonalDetailsComponent, canActivate: [AuthGuard] },
   { path: 'personal-details', component: PersonalDetailsComponent },
-  { path: 'order-success', component: OrderSuccessComponent }
+  { path: 'order-success', component: OrderSuccessComponent },
+  { path: 'reset-password', component: ResetPasswordComponent }
 ]
 
 
