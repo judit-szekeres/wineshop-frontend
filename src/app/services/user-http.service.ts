@@ -152,9 +152,11 @@ export class UserHttpService {
             .then(response => response) as Promise<CheckoutDetails>;
     }
 
-    modifyCheckoutDetails(): Promise<CheckoutDetails> {
+    modifyCheckoutDetails(CheckoutDetails: CheckoutDetails): Promise<CheckoutDetails> {
+        console.log(CheckoutDetails)
+        let c = JSON.parse(JSON.stringify(CheckoutDetails));
         return this.http
-            .post(serverURL + "/cart/confirm", { withCredentials: true })
+            .post(serverURL + "/cart/confirm", c, { withCredentials: true })
             .toPromise()
             .then(response => response) as Promise<CheckoutDetails>;
     }
