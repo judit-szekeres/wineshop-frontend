@@ -21,3 +21,9 @@ h3 {
     justify-content: center;
     margin-bottom: 14px;
 }
+
+.btn-primary {
+    background-color: #787878;
+    color: white;
+    border-color: #787878;
+}
