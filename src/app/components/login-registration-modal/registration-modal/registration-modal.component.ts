@@ -16,7 +16,7 @@ export class RegistrationModalComponent implements OnInit {
     emailAlreadyExistMessage = 'Email already exists!';
     emailNotValidEmailMessage = 'Invalid email address!';
     passwordNotInRangeMessage = 'The password must be between 5-20 characters!';
-    passwordDoesNotMatchMessage = 'Password does not match!'
+    passwordDoesNotMatchMessage = 'Password does not match!';
     checkboxValueMessage = 'Please accept the Terms of services!';
     emailAlreadyExist: boolean;
     emailNotValidEmail: boolean;

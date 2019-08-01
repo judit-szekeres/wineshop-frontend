@@ -17,10 +17,10 @@ import { PreviousOrderComponent } from './components/header/previous-order/previ
 import { PersonalDetailsComponent } from './components/header/personal-details/personal-details.component';
 import { AuthGuard } from './auth.guard';
 import { OrderSuccessComponent } from './components/checkout/order-success/order-success.component';
+import { AdminUsersComponent } from './components/admin/admin-users/admin-users.component';
 import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
 import { AdminAddProductComponent } from './components/admin/admin-products/admin-add-product/admin-add-product.component';
 import { AdminModifyProductComponent } from './components/admin/admin-products/admin-modify-product/admin-modify-product.component';
-
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: LandingPageComponent },
@@ -41,6 +41,7 @@ const routes: Routes = [
   { path: 'personal-details', component: PersonalDetailsComponent, canActivate: [AuthGuard] },
   { path: 'personal-details', component: PersonalDetailsComponent },
   { path: 'order-success', component: OrderSuccessComponent },
+  { path: 'app-admin-users', component: AdminUsersComponent },
   { path: 'admin-products', component: AdminProductsComponent },
   { path: 'admin-add-product/:id', component: AdminAddProductComponent },
   { path: 'admin-modify-product/:id', component: AdminModifyProductComponent },

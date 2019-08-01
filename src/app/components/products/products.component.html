@@ -23,12 +23,9 @@
                             <div class="iconc"><i class="fa fa-list"></i></div>
                         </div>
                         <div class="col-xs-6 col-sm-4 pull-right">
-                            <select class="form-item">
-                                <option>Sort by</option>
-                                <option>Option 1</option>
-                                <option>Option 1</option>
-                                <option>Option 1</option>
-                                <option>Option 1</option>
+                            <select class="form-item" [(ngModel)]="selectedSortingType" value="nameA" (change)="refreshWholeList()">
+                                <!--<option>Sort by</option>-->
+                                <option *ngFor="let s of sortingTypes" value="{{ s.key }}">{{ s.value }}</option>
                             </select>
                         </div>
                     </div>
@@ -37,7 +34,7 @@
                     </div>
                     <!--pagination-->
                     <div class="text-center">
-                        <app-pagination [firstPageInBlock]="firstPageInBlock" [pageCount]="pageCount" (refresh)="refreshPage($event)"></app-pagination>
+                        <app-pagination [firstPageInBlock]="firstPageInBlock" [selectedIndex]="selectedIndex" [pageCount]="pageCount" (refresh)="refreshPage($event)"></app-pagination>
                     </div>
                 </div>
             </div>

@@ -22,7 +22,7 @@ export class ProductCardComponent implements OnInit {
     carousel: boolean;
 
     showSalePrice: boolean;
-    private wineModalNeeded: boolean;
+    wineModalNeeded: boolean;
 
     constructor(public service:CartService,public cartConnectionService: CartHTTPService) {
         this.wineModalNeeded = false;
