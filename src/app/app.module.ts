@@ -88,7 +88,15 @@ import { RatingModalComponent } from './components/rating-modal/rating-modal.com
     LoadingBottleComponent,
     SubscribeComponent,
     PaginationComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    AdminUsersComponent,
+    AdminProductsComponent,
+    AdminAddProductComponent,
+    AdminModifyProductComponent,
+    AdminProductsRowComponent,
+    AdminDeleteProductComponent,
+    AdminUserRowComponent,
+    RatingModalComponent,
     ],
   imports: [
     BrowserModule,
