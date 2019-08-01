@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CheckoutDetails } from '../interfaces/checkout-details';
+import { UserHttpService } from 'src/app/services/user-http.service';
+import { CheckoutComponent } from 'src/app/components/checkout/checkout.component'
 
 @Component({
   selector: 'app-order-summary',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderSummaryComponent implements OnInit {
 
-  constructor() { }
+  constructor( private UserHttpService: UserHttpService ) {
 
-  ngOnInit() {
   }
 
+  ngOnInit() {
+    
+  }
+
+  confirmOrder() {
+    this.UserHttpService.modifyCheckoutDetails()
+
+  }
 }
