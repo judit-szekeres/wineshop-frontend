@@ -16,6 +16,8 @@ export class PersonalDetailsComponent implements OnInit {
     checkboxValue: boolean;
     wrongPassword: boolean;
     wrongPasswordFromServer: boolean;
+    serverStatus500: boolean;
+    serverStatusMessage: 'Sorry, the server is not available... Try it later!';
     wrongPasswordMessage = 'Password does not match!';
     wrongPasswordFromServerMessage = 'Incorrect password or are not long enough! The password must be between 5-20 characters!';
     currentPasswordToChange: any;
@@ -48,6 +50,7 @@ export class PersonalDetailsComponent implements OnInit {
         this.newPasswordToChange = "";
         this.confirmNewPasswordToChange = "";
         this.wrongPasswordFromServer = false;
+        this.serverStatus500 = false;
     }
 
     ngOnInit() {
@@ -64,7 +67,13 @@ export class PersonalDetailsComponent implements OnInit {
         if(this.validatePassword()){
             this.userRequest.modifyUserPersonalDetails(this.currentUserDetails).then(() => {
                 this.router.navigate(['/']);
-            }).catch(() => { this.wrongPasswordFromServer = true });
+            }).catch( response => {
+            if(response.status == 500 ){
+                this.serverStatus500 = true;
+            }
+            else{
+                this.wrongPasswordFromServer = true
+            }});
         }
     }
 
@@ -87,6 +96,7 @@ export class PersonalDetailsComponent implements OnInit {
             this.currentUserDetails.confirmNewPassword = '';
             this.currentUserDetails.currentPassword = '';
             this.wrongPassword = true;
+            return false;
         }
     }
 }
