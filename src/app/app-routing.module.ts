@@ -16,6 +16,7 @@ import { CheckoutComponent } from "./components/checkout/checkout.component";
 import { PreviousOrderComponent } from './components/header/previous-order/previous-order.component';
 import { PersonalDetailsComponent } from './components/header/personal-details/personal-details.component';
 import { AuthGuard } from './auth.guard';
+import { AuthAdminGuard } from './auth.admin.guard';
 import { OrderSuccessComponent } from './components/checkout/order-success/order-success.component';
 import { ResetPasswordComponent } from './components/login-registration-modal/reset-password/reset-password.component';
 import { AdminUsersComponent } from './components/admin/admin-users/admin-users.component';
@@ -47,9 +48,9 @@ const routes: Routes = [
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'personal-details', component: PersonalDetailsComponent },
   { path: 'previous-orders', component: PreviousOrderComponent, canActivate: [AuthGuard] },
-  { path: 'admin-products', component: AdminProductsComponent },
-  { path: 'admin-add-product', component: AdminAddProductComponent },
-  { path: 'admin-modify-product/:id', component: AdminModifyProductComponent },
+  { path: 'admin-products', component: AdminProductsComponent, canActivate: [AuthAdminGuard] },
+  { path: 'admin-add-product', component: AdminAddProductComponent, canActivate: [AuthAdminGuard] },
+  { path: 'admin-modify-product/:id', component: AdminModifyProductComponent, canActivate: [AuthAdminGuard] },
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'personal-details', component: PersonalDetailsComponent },
 ];
