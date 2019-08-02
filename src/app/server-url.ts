@@ -1,1 +1,1 @@
-export const serverURL = 'https://wineshop-server.herokuapp.com';
+export const serverURL = 'https://wineshop-project.herokuapp.com';
