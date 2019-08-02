@@ -13,6 +13,7 @@ import { CartService } from 'src/app/services/cart.service';
 export class HeaderComponent implements OnInit {
 
     currentUserLoggedIn$: Observable<boolean>;
+    currentUserAdmin$: Observable<boolean>;
     currentUserDetails$: Observable<User>;
 
   constructor(private router: Router, public userService: UserHttpService, public cartService:CartService) {
@@ -20,6 +21,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
       this.currentUserLoggedIn$ = this.userService.isUserLoggedIn();
+      this.currentUserAdmin$ = this.userService.isUserAdmin();
       this.currentUserDetails$ = this.userService.getCurrentUser();
   }
 
