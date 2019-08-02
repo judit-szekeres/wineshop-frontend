@@ -1,5 +1,7 @@
 <div class="box">
-  <h4 class="title line-default">Order summary</h4>
-  <app-cart-text></app-cart-text>
-  <a href="" [routerLink]="['/order-success']" class="ht-btn bg-dc4c46">Confirm Order</a>
+    <h4 class="title line-default">Order summary</h4>
+    <app-cart-text></app-cart-text>
+    <button type="submit" (click)="confirmOrder()" [routerLink]="['/order-success']" class="ht-btn bg-dc4c46">
+      Confirm Order
+    </button>
 </div>
