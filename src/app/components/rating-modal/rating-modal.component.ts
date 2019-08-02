@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {Values} from "../../interfaces/rating-scale";
 import {RatingModalService} from "../../services/rating-modal.service";
 import {RatingHttpService} from "../../services/rating-http.service";
@@ -13,6 +13,11 @@ export class RatingModalComponent implements OnInit {
 
   @Input()
   productId:number;
+  @Input()
+  productName:string;
+  @Output()
+  closeThis=new EventEmitter();
+
   productRating:number;
   public values:Values[];
   constructor(public modalService:RatingModalService,
@@ -32,9 +37,10 @@ export class RatingModalComponent implements OnInit {
 
 
 
-  sendResponse(){
+  sendResponse():void{
     this.ratingConnectionService.sendProductRating(this.productRating, this.productId).then(() => {
-      this.setFlagToFalse();
+      console.log("teszt");
+      this.closeThis.emit();
     });
 
   }

@@ -25,16 +25,7 @@
                 <tr *ngFor="let pO of this.previousOrders">
                     <td class="text-center">{{ pO.orderTime }}</td>
                     <td class="text-center">
-                        <div *ngFor="let item of pO.items; let l = last">
-                            {{ item.itemName }}
-                            <br>
-                            {{ item.grossItemPrice }} Ft
-                            <br>
-                            {{ item.quantity }} piece
-                            <br>
-                            <button type="button" name="button" (click)="setFlag()">Rate the product!</button>
-                            <app-rating-modal *ngIf="this.modalService.isModalOpen==true"  [productId]="item.wineId"></app-rating-modal>
-                            <hr *ngIf="!l">
+                        <div app-previous-order-item *ngFor="let item of pO.items; let l = last" [item]="item">
                         </div>
                     </td>
                     <td class="text-center">

@@ -96,9 +96,9 @@ export class PreviousOrderComponent implements OnInit {
     }
 
     setFlag():void{
-
+      this.modalFlag==true;
       this.modalService.isModalOpen=true;
-      
+
 
 
     }
