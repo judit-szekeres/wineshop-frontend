@@ -16,7 +16,10 @@ export class AdminProductsRowComponent implements OnInit {
     @Input()
     wineCard: WineCard;
 
+    routerLinkToModify : string;
+
     constructor() {
+        
     }
 
     ngOnInit() {
