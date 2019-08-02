@@ -1,64 +1,29 @@
 <app-header></app-header>
-<section class="bg-fbf9f2">
-   <div class="container">
-       <div class="content">
-           <div class="title-group underline-double">
-               <h5 class="sub-title">Royal wine</h5>
-               <h2 class="selected">User Management</h2>
-               <!--p class="line-mix star-group">
-                   <i class="fa fa-star"></i>
-                   <i class="fa fa-star"></i>
-                   <i class="fa fa-star"></i>
-               </p-->
-           </div>
-           <div class="row">
-               <div class="col-sm-8 col-md-9">
+<div class="container">
+  <div class="title-group underline-double">
+          <h5 class="sub-title">Royal wine</h5>
+          <!--h2 class="selected">User Administration</h2-->
+  </div>
+    <app-header [title]="'User administration ('+ users.length +' db)'" [buttons]="{ add: true }"></app-header>
+    <!-- Table -->
 
-
-                   <div class="row">
-                     <div class="col-xs-6 col-sm-4 pull-left">
-                         <select class="form-item">
-                             <option>Sort by</option>
-                             <option>NAME - ABC</option>
-                             <option>EMAIL - ABC</option>
-                         </select>
-                     </div>
-                       <div class="col-xs-6 col-sm-4">
-                           <!--div class="iconc"><i class="fa fa-th"></i></div>
-                           <div class="iconc"><i class="fa fa-list"></i></div-->
-                       </div>
-                   </div>
-
-
-
-                   <div class="panel panel-default">>
-                       <!-- Default panel contents -->
-                       <div class="panel-heading">Users</div>
-                       <div class="panel-body">
-                       </div>
-                       <!-- Table -->
-                       <table class="table">
-                           <thead>
-                               <tr>
-                                  <th>Name</th>
-                                   <th>Email</th>
-                                   <!--th>Buttons</th-->
-                                </tr>
-                           </thead>
-                           <tbody>
-                                <!--<tr admin-user-row *ngFor="let user of users" []="u"></tr>-->
-                          </tbody>
-                       </table>
-                   </div>
-
-
-
-
-                   <!--pagination-->
-                   <!--<app-pagination [pageCount]="pageCount" (refresh)="refreshPage($event)"></app-pagination>-->
-               </div>
-           </div>
-       </div>
-   </div>
-</section>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th scope="col">First name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf="! isLoading && users.length == 0 && searchTerm == ''">
+                <td colspan="6" class="text-center">There is no user in the database.</td>
+            </tr>
+            <tr *ngIf="! isLoading && (users | userSearch : searchTerm).length == 0 && searchTerm != ''">
+                <td colspan="6" class="text-center">There is no such user.</td>
+            </tr>
+        </tbody>
+    </table>
+    <h2 class="text-center" *ngIf="isLoading">Loading...</h2>
+</div>
 <app-footer></app-footer>

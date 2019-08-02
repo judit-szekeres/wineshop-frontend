@@ -1,15 +1,7 @@
-<!--td>{{ student.name }}</td>
-<td>{{ student.email }}</td>
-<td>{{ student.age }}</td>
-<td>{{ student.gender | gender }}</td>
+<!--td>{{users.firstName}}</td>
+<td>{{users.lastName}}</td>
+<td>{{users.email}}</td-->
 <td>
-    <a [routerLink]="['/student', student.id, 'books']" (click)="store()"
-        class="btn btn-block btn-sm btn-link text-left" *ngIf="student.books.length > 0">
-        {{ student.books.length }}
-    </a>
-    <em *ngIf="student.books.length == 0">Nincs</em>
-</td-->
-<td>
-    <!--<button type="button" class="btn btn-warning btn-sm update-button" (click)="modify()">Add rights</button>
-    <button type="button" class="btn btn-danger btn-sm delete-button" (click)="deny()">Deny user</button>-->
+    <button type="button" class="btn btn-warning btn-sm update-button" (click)="add()">Add rights</button>
+    <button type="button" class="btn btn-danger btn-sm delete-button" (click)="deny()">Deny user</button>
 </td>

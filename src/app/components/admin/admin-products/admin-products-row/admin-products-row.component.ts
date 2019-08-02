@@ -10,9 +10,7 @@ import { WineCard } from 'src/app/interfaces/wine';
 export class AdminProductsRowComponent implements OnInit {
     @Input()
     wineCard: WineCard;
-
-    routerLinkToModify : string;
-
+ 
     constructor() {
 
     }
