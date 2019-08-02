@@ -8,7 +8,7 @@
 }
 .dropdown:hover .dropdown-menu {
     display: block;
-    width: 200px;
+    width: 100%;
 }
 .dropdown .dropdown-menu li:hover a {
     background-color: #eee;

@@ -48,7 +48,7 @@ const routes: Routes = [
   { path: 'personal-details', component: PersonalDetailsComponent },
   { path: 'previous-orders', component: PreviousOrderComponent, canActivate: [AuthGuard] },
   { path: 'admin-products', component: AdminProductsComponent },
-  { path: 'admin-add-product/:id', component: AdminAddProductComponent },
+  { path: 'admin-add-product', component: AdminAddProductComponent },
   { path: 'admin-modify-product/:id', component: AdminModifyProductComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'personal-details', component: PersonalDetailsComponent },

@@ -6,6 +6,7 @@ import { FilterSettings, Category } from 'src/app/interfaces/filter-settings';
 import { EmptyFilterSettingsService } from 'src/app/services/empty-filter-settings.service';
 import { SortingType } from 'src/app/interfaces/sorting-types';
 import { KeyValue } from '@angular/common';
+import { SortingTypePipe } from 'src/app/pipes/sorting-type';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class ProductsComponent implements OnInit {
     firstPageInBlock: number;
     selectedIndex: number;
     sortingTypes: KeyValue<string, string>[] = [];
-    selectedSortingType: string = "nameA";
+    selectedSortingType: string = "NAME_A";
 
 
     constructor(private productHttpService: ProductHttpService, private route: ActivatedRoute,
@@ -77,7 +78,8 @@ export class ProductsComponent implements OnInit {
         if (filterSettings) {
             this.filterSettings = filterSettings;
         }
-        this.filterSettings.order = this.selectedSortingType;
+        let t=new SortingTypePipe;
+        this.filterSettings.order = t.transform(this.selectedSortingType);
         let p = this.productHttpService.getWines(this.cleanedFilter(this.filterSettings));
         p.then(wineCardResults => {
             this.wineCards = wineCardResults.wines;

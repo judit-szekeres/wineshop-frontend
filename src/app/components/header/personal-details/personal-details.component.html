@@ -33,19 +33,20 @@
                                         </div>
                                         <div class="form-group required">
                                             <label class="col-sm-3 control-label text-left" for="input-shipping-current-password">Current Password</label>
-                                            <div class="col-sm-9" [ngClass]="{ 'has-error' :  this.wrongPasswordFromServer }">
+                                            <div class="col-sm-9" [ngClass]="{ 'has-error' :  this.wrongPasswordFromServer || serverStatus500 }">
                                                 <input type="password" autocomplete="new-password" name="current-password-to-change" [(ngModel)]="this.currentUserDetails.currentPassword" placeholder="Current Password" id="input-billing-current-password" class="form-control form-item">
                                             </div>
                                             <div class="col-sm-9 col-sm-offset-3 text-danger" *ngIf="wrongPasswordFromServer"> {{ this.wrongPasswordFromServerMessage }} </div>
                                         </div>
                                         <div class="form-group required">
                                             <label class="col-sm-3 control-label text-left" for="input-shipping-new-password">New Password</label>
-                                            <div class="col-sm-9"  [ngClass]="{ 'has-error' :  this.wrongPassword }"><input type="password" autocomplete="new-password" name="new-password" [(ngModel)]="this.currentUserDetails.newPassword" placeholder="New Password" id="input-billing-new-password" class="form-control form-item" [ngClass]="{ 'has-error' :  this.wrongPassword }"></div>
+                                            <div class="col-sm-9"  [ngClass]="{ 'has-error' :  this.wrongPassword || serverStatus500 }"><input type="password" autocomplete="new-password" name="new-password" [(ngModel)]="this.currentUserDetails.newPassword" placeholder="New Password" id="input-billing-new-password" class="form-control form-item" [ngClass]="{ 'has-error' :  this.wrongPassword }"></div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label text-left" for="input-shipping-confirm-new-password">Confirm New Password</label>
-                                            <div class="col-sm-9"  [ngClass]="{ 'has-error' :  this.wrongPassword }"><input type="password" autocomplete="new-password" name="confirm-new-password" [(ngModel)]="this.currentUserDetails.confirmNewPassword" placeholder="Confirm New Password" id="input-billing-confirm-new-password" class="form-control form-item"></div>
+                                            <div class="col-sm-9"  [ngClass]="{ 'has-error' :  this.wrongPassword || this.serverStatus500 }"><input type="password" autocomplete="new-password" name="confirm-new-password" [(ngModel)]="this.currentUserDetails.confirmNewPassword" placeholder="Confirm New Password" id="input-billing-confirm-new-password" class="form-control form-item"></div>
                                             <div class="col-sm-9 col-sm-offset-3 text-danger" *ngIf="wrongPassword"> {{ this.wrongPasswordMessage }} </div>
+                                            <div class="col-sm-9 col-sm-offset-3 text-danger" *ngIf="this.serverStatus500"> {{ this.serverStatusMessage }} </div>
                                         </div>
                                         <div class="form-group required">
                                             <h3 class="f-25 p-t-0 line-default m-b-30 title">Billing address</h3>

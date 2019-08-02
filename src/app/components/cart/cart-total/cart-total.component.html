@@ -1,5 +1,5 @@
 <div class="box">
-    <h3 class="title line-default">Total: ${{ totalCost() }}</h3>
+    <h3 class="title line-default">Total: {{ totalCost() }} Ft</h3>
     <app-cart-text></app-cart-text>
     <div *ngIf="this.cartService.addedProduct.length!=0" class="">
         <a href="" routerLink="/checkout" class="ht-btn bg-dc4c46">Check Out</a>
