@@ -57,6 +57,7 @@ export class ProductsComponent implements OnInit {
 
     //Refresh whole list, set current page to 1th page => for filter
     refreshWholeList(filterSettings?: FilterSettings) {
+        this.filterSettings = this.emptyFilterSettingsService.emptyObject();
         this.firstPageInBlock = 0;
         this.selectedIndex=1;
         this.appRef.tick();
