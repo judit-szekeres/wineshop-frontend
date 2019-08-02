@@ -50,17 +50,17 @@ export class AdminModifyProductComponent implements OnInit {
             this.wineByAdmin.year = wineDetails.year;
             this.wineImage= wineDetails.img;
             this.wineId = wineDetails.id;
+            if(this.wineByAdmin.salePrice == -1){
+                this.wineByAdmin.salePrice = 0;
+            }
         })
-        if(this.wineByAdmin.salePrice === -1){
-            this.wineByAdmin.salePrice = 0;
-        }
+
     }
 
     modifyWine():void {
         this.request.modifyWine(this.wineByAdmin, this.wineId)
             .then(() => {
-                this.router.navigate(['/']);
-                this.router.navigate(['/admin-modify-product/'+this.wineId]);
+                this.router.navigate(['/admin-products']);
             }).catch(() => {});
     }
 

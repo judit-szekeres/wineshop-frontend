@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { WineByAdmin } from 'src/app/interfaces/admin-wine';
 import { AdminHttpService } from 'src/app/services/admin-http.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'admin-add-product',
@@ -13,7 +14,7 @@ export class AdminAddProductComponent implements OnInit {
     wineByAdmin: WineByAdmin;
     wineId: number;
 
-    constructor(private request: AdminHttpService) {
+    constructor(private request: AdminHttpService, private router: Router) {
         this.wineByAdmin = {
             name: '',
             volume: null,
@@ -31,8 +32,8 @@ export class AdminAddProductComponent implements OnInit {
 
     addNewWine():void {
         this.request.addNewWine(this.wineByAdmin).then( () => {
-            console.log('added new wine.')
-        }).catch(()=>{console.log('nem sikerült')});
+            this.router.navigate(['/admin-products']);
+        }).catch(()=>{});
 
     }
 }
