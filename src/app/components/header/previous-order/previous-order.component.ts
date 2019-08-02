@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Orders } from 'src/app/interfaces/orders';
 import { UserHttpService } from 'src/app/services/user-http.service';
+import {RatingModalService} from "../../../services/rating-modal.service";
 
 @Component({
     selector: 'app-previous-order',
@@ -10,8 +11,10 @@ import { UserHttpService } from 'src/app/services/user-http.service';
 export class PreviousOrderComponent implements OnInit {
 
     previousOrders: Orders[];
-
-    constructor(private userOrders: UserHttpService) {
+    modalFlag:boolean;
+    flagId:number;
+    constructor(private userOrders: UserHttpService, public modalService:RatingModalService) {
+        this.modalFlag=false;
         this.previousOrders = [{
             items: [{
                 itemName: '',
@@ -91,5 +94,15 @@ export class PreviousOrderComponent implements OnInit {
             console.log(this.previousOrders);
         })
     }
+
+    setFlag():void{
+
+      this.modalService.isModalOpen=true;
+      
+
+
+    }
+
+
 
 }

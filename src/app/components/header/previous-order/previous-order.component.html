@@ -31,6 +31,9 @@
                             {{ item.grossItemPrice }} Ft
                             <br>
                             {{ item.quantity }} piece
+                            <br>
+                            <button type="button" name="button" (click)="setFlag()">Rate the product!</button>
+                            <app-rating-modal *ngIf="this.modalService.isModalOpen==true"  [productId]="item.wineId"></app-rating-modal>
                             <hr *ngIf="!l">
                         </div>
                     </td>
