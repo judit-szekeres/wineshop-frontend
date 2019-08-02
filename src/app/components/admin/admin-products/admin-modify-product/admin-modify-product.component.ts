@@ -1,8 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { WineDetailsHttpService } from 'src/app/services/wine-details-http.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { WineByAdmin } from 'src/app/interfaces/admin-wine';
 import { WineCard } from 'src/app/interfaces/wine';
+import { AdminHttpService } from 'src/app/services/admin-http.service';
 
 @Component({
     selector: 'admin-modify-product',
@@ -18,7 +19,7 @@ export class AdminModifyProductComponent implements OnInit {
 
     wineImage : string;
 
-    constructor(private route: ActivatedRoute, private wineDetailsHttpService: WineDetailsHttpService) {
+    constructor(private router: Router, private route: ActivatedRoute, private wineDetailsHttpService: WineDetailsHttpService, private request: AdminHttpService) {
         this.wineId = + this.route.snapshot.paramMap.get("id");
     //    this.wineDetails.img = "";
         this.wineByAdmin = {
@@ -48,7 +49,19 @@ export class AdminModifyProductComponent implements OnInit {
             this.wineByAdmin.alcoholRating = wineDetails.alcoholRating;
             this.wineByAdmin.year = wineDetails.year;
             this.wineImage= wineDetails.img;
+            this.wineId = wineDetails.id;
+            if(this.wineByAdmin.salePrice == -1){
+                this.wineByAdmin.salePrice = 0;
+            }
         })
+
+    }
+
+    modifyWine():void {
+        this.request.modifyWine(this.wineByAdmin, this.wineId)
+            .then(() => {
+                this.router.navigate(['/admin-products']);
+            }).catch(() => {});
     }
 
 }
