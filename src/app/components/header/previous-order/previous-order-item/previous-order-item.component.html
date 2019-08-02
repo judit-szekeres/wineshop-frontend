@@ -1,0 +1,9 @@
+    {{ item.itemName }}
+    <br>
+    {{ item.grossItemPrice }} Ft
+    <br>
+    {{ item.quantity }} piece
+    <br>
+    <button type="button" name="button" (click)="setFlag()">Rate the product!</button>
+    <app-rating-modal *ngIf="this.modalFlag===true"  [productId]="item.wineId" [productName]="item.itemName" (closeThis)="closeModal()"></app-rating-modal>
+    

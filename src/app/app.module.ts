@@ -50,6 +50,7 @@ import { AdminUsersComponent } from './components/admin/admin-users/admin-users.
 import { AdminUserRowComponent } from './components/admin/admin-users/admin-user-row/admin-user-row.component';
 import { RatingModalComponent } from './components/rating-modal/rating-modal.component';
 import { SortingTypePipe } from './pipes/sorting-type';
+import { PreviousOrderItemComponent } from './components/header/previous-order/previous-order-item/previous-order-item.component';
 
 
 
@@ -100,6 +101,7 @@ import { SortingTypePipe } from './pipes/sorting-type';
     AdminUserRowComponent,
     RatingModalComponent,
     SortingTypePipe,
+    PreviousOrderItemComponent
     ],
   imports: [
     BrowserModule,

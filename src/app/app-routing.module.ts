@@ -23,6 +23,8 @@ import { AdminProductsComponent } from './components/admin/admin-products/admin-
 import { AdminAddProductComponent } from './components/admin/admin-products/admin-add-product/admin-add-product.component';
 import { AdminModifyProductComponent } from './components/admin/admin-products/admin-modify-product/admin-modify-product.component';
 
+
+
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: LandingPageComponent },
   { path: 'landing-special-offers', component: SpecialOffersComponent },
