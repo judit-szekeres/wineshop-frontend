@@ -15,7 +15,7 @@ import { CartHTTPService } from 'src/app/services/cart-http.service';
 export class AdminProductsRowComponent implements OnInit {
     @Input()
     wineCard: WineCard;
-
+ 
     constructor() {
     }
 

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Users } from 'src/app/interfaces/users';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-admin-user-row',
@@ -7,9 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminUserRowComponent implements OnInit {
 
-  constructor() { }
+@Input()
+users: Users;
+@Output()
+refresh: EventEmitter<Users> = new EventEmitter();
+
+constructor(
+    private userService: UsersService
+
+) { }
 
   ngOnInit() {
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
