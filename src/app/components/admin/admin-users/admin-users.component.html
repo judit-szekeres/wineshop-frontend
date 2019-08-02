@@ -22,8 +22,6 @@
             <tr *ngIf="! isLoading && (users | userSearch : searchTerm).length == 0 && searchTerm != ''">
                 <td colspan="6" class="text-center">There is no such user.</td>
             </tr>
-            <tr app-users-row *ngFor="let u of users | userSearch : searchTerm" [user]="u" (refresh)="refreshUsers($event)">
-            </tr>
         </tbody>
     </table>
     <h2 class="text-center" *ngIf="isLoading">Loading...</h2>

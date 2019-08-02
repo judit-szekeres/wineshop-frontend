@@ -11,8 +11,8 @@ export class UsersService {
   }
 
   constructor(private http: HttpClient) { }
-
-  send(data: Users): Promise<null> {
+/*
+  send(users: Users): Promise<null> {
     return this.http.get<null>('https://wineshop-server.herokuapp.com/mail', users, { withCredentials: true }).toPromise();
-  }
+  }*/
 }
