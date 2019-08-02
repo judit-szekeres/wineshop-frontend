@@ -17,6 +17,7 @@ export class UserHttpService {
     readonly loggedOutUser: User;
     currentUser: User;
     requestInProcess: Observable<boolean>;
+    serverURL2 = 'https://wineshop-project.herokuapp.com';
 
     constructor(private http: HttpClient) {
         this.unknownUser = {
@@ -110,7 +111,7 @@ export class UserHttpService {
 
     validateUser(token: string): Promise<null> {
         return this.http
-            .post(serverURL + "/validation?token=" + token, {
+            .post(this.serverURL2 + "/validation?token=" + token, {
                 withCredentials: true
             })
             .toPromise() as Promise<null>;
