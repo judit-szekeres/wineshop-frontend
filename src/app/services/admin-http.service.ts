@@ -30,8 +30,13 @@ export class AdminHttpService {
      return this.http
          .post(serverURL + "/admin/wine", wine, { withCredentials: true })
          .toPromise() as Promise<null>;
-         
+
  }
 
+modifyWine(wine: WineByAdmin, wineId: number):Promise<null> {
+    return this.http
+        .put(serverURL + "/admin/wine/"+ wineId, wine, { withCredentials: true })
+        .toPromise() as Promise<null>;
+}
 
 }
