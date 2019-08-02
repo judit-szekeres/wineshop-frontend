@@ -7,53 +7,50 @@
                 <h3 class="selected">Add Product</h3>
             </div>
             <div class="row">
-                <div class="col-sm-4 text-center">
-                    Img
-                </div>
-                <div class="col-sm-8">
+                <div>
                     <table class="table">
                         <tr>
                             <td>Name</td>
-                            <td><input type="text" name="" value="" placeholder="Name"></td>
+                            <td><input type="text" name="" value="" [(ngModel)]="this.wineByAdmin.name" placeholder="Name"></td>
                         </tr>
                         <tr class="specialPrice">
                             <td>Special Price</td>
-                            <td><input type="text" name="" value="" placeholder="Special Price"></td>
+                            <td><input type="text" name="" value="" [(ngModel)]="this.wineByAdmin.salePrice" placeholder="Special Price"></td>
                         </tr>
                         <tr>
                             <td>Price</td>
-                            <td><input type="text" name="" value="" placeholder="Price"></td>
+                            <td><input type="text" name="" value="" [(ngModel)]="this.wineByAdmin.price" placeholder="Price"></td>
                         </tr>
                         <tr>
                             <td>V/v</td>
-                            <td><input type="text" name="" value="" placeholder="V/v"></td>
+                            <td><input type="text" name="" value="" [(ngModel)]="this.wineByAdmin.alcoholRating" placeholder="V/v"></td>
                         </tr>
                         <tr>
                             <td>Size</td>
-                            <td><input type="text" name="" value="" placeholder="Size"></td>
+                            <td><input type="text" name="" value="" [(ngModel)]="this.wineByAdmin.volume" placeholder="Size"></td>
                         </tr>
                         <tr>
                             <td>Winery Id</td>
-                            <td><input type="text" name="" value="" placeholder="Winery Id"></td>
+                            <td><input type="text" name="" value="" [(ngModel)]="this.wineByAdmin.wineryId" placeholder="Winery Id"></td>
                         </tr>
                         <tr>
                             <td>Color</td>
-                            <td><input type="text" name="" value="" placeholder="Color"></td>
+                            <td><input type="text" name="" value="" [(ngModel)]="this.wineByAdmin.wineTypeId" placeholder="Color"></td>
                         </tr>
                         <tr>
                             <td>Year</td>
-                            <td><input type="text" name="" value="" placeholder="Year"></td>
+                            <td><input type="text" name="" value="" [(ngModel)]="this.wineByAdmin.year" placeholder="Year"></td>
                         </tr>
                         <tr>
                             <td>Stock</td>
-                            <td><input type="text" name="" value="" placeholder="Stock"></td>
+                            <td><input type="text" name="" value="" [(ngModel)]="this.wineByAdmin.stock" placeholder="Stock"></td>
                         </tr>
                         <tr>
                             <td>
-                                <button type="button" class=" btn btn-danger" name="button">Discard</button>
+                                <a type="button" class="btn btn-danger" routerLink="/admin-products">Discard</a>
                             </td>
                             <td>
-                                <button type="button" class=" btn btn-primary" name="button">Confirm</button>
+                                <button type="button" class=" btn btn-primary" name="button" (click)="addNewWine()">Confirm</button>
                             </td>
                         </tr>
                     </table>
