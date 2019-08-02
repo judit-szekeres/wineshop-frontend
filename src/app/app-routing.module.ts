@@ -17,6 +17,7 @@ import { PreviousOrderComponent } from './components/header/previous-order/previ
 import { PersonalDetailsComponent } from './components/header/personal-details/personal-details.component';
 import { AuthGuard } from './auth.guard';
 import { OrderSuccessComponent } from './components/checkout/order-success/order-success.component';
+import { ResetPasswordComponent } from './components/login-registration-modal/reset-password/reset-password.component';
 import { AdminUsersComponent } from './components/admin/admin-users/admin-users.component';
 import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
 import { AdminAddProductComponent } from './components/admin/admin-products/admin-add-product/admin-add-product.component';
@@ -32,20 +33,26 @@ const routes: Routes = [
   { path: 'term-of-services', component: TermOfServicesComponent },
   { path: 'log-reg', component: LoginRegistrationModalComponent },
   { path: 'products', component: ProductsComponent },
-  { path: 'cart', component: CartComponent },
+  { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
   { path: 'reg-conf-page', component: RegConfirmationPageComponent },
   { path: 'validate/:token', component: ValidateTokenComponent },
-  { path: 'checkout', component: CheckoutComponent },
-  { path: 'previous-orders', component: PreviousOrderComponent },
+  { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard] },
   { path: 'successful-registration-page', component: SuccessfulRegistrationPageComponent },
   { path: 'personal-details', component: PersonalDetailsComponent, canActivate: [AuthGuard] },
   { path: 'personal-details', component: PersonalDetailsComponent },
   { path: 'order-success', component: OrderSuccessComponent },
-  { path: 'app-admin-users', component: AdminUsersComponent },
+  { path: 'previous-orders', component: PreviousOrderComponent, canActivate: [AuthGuard] },
+  { path: 'order-success', component: OrderSuccessComponent },
+  { path: 'order-success', component: OrderSuccessComponent },
+  { path: 'reset-password', component: ResetPasswordComponent },
+  { path: 'personal-details', component: PersonalDetailsComponent },
+  { path: 'previous-orders', component: PreviousOrderComponent, canActivate: [AuthGuard] },
   { path: 'admin-products', component: AdminProductsComponent },
   { path: 'admin-add-product/:id', component: AdminAddProductComponent },
   { path: 'admin-modify-product/:id', component: AdminModifyProductComponent },
-]
+  { path: 'reset-password', component: ResetPasswordComponent },
+  { path: 'personal-details', component: PersonalDetailsComponent },
+];
 
 
 @NgModule({

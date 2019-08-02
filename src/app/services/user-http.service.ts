@@ -6,6 +6,7 @@ import { map, catchError } from 'rxjs/operators';
 import { serverURL } from '../server-url';
 import { UserDetails } from '../interfaces/user-details';
 import { Country } from '../interfaces/country';
+import { Orders } from '../interfaces/orders';
 
 @Injectable({
   providedIn: 'root'
@@ -72,7 +73,8 @@ export class UserHttpService {
   }
 
   logoutUser(): Promise<null> {
-      return this.http.post(serverURL + '/logout','', { withCredentials: true }).toPromise().then( () => {
+      return this.http.post(serverURL + '/logout','', { withCredentials: true })
+        .toPromise().then( () => {
           this.currentUser = this.loggedOutUser;
       }) as Promise<null>;
   }
@@ -83,14 +85,34 @@ export class UserHttpService {
   }
 
   getCurrentUserPersonalDetails(): Promise<UserDetails> {
-      return this.http.get(serverURL + '/user/settings', { withCredentials: true }).toPromise().then( response => response ) as Promise<UserDetails>;
+      return this.http.get(serverURL + '/user/settings', { withCredentials: true })
+        .toPromise().then( response => response ) as Promise<UserDetails>;
   }
 
   getCountriesList(): Promise<Country[]>{
-      return this.http.get(serverURL + '/countries', { withCredentials: true }).toPromise().then( response => response ) as Promise<Country[]>;
+      return this.http.get(serverURL + '/countries', { withCredentials: true })
+        .toPromise().then( response => response ) as Promise<Country[]>;
   }
 
   modifyUserPersonalDetails(modifyDetails: UserDetails): Promise<null> {
-      return this.http.post(serverURL + '/user/settings', modifyDetails, { withCredentials: true }).toPromise().then( () => {}) as Promise<null>;
+      return this.http.post(serverURL + '/user/settings', modifyDetails, { withCredentials: true })
+        .toPromise().then( () => {}) as Promise<null>;
+  }
+
+  getUserPreviousOrders(): Promise<Orders[]> {
+      return this.http.get(serverURL + '/user/orders', {withCredentials: true})
+        .toPromise().then(response => response ) as Promise<Orders[]>;
+  }
+
+  getExistingEmail(email: Object): Promise<null> {
+    console.log(email);
+    return this.http.post(serverURL + '/forgot-password', email , { withCredentials: true })
+    .toPromise().then( response => response ) as Promise<null>;
+  }
+
+  getResetPassword(): Promise<null> {
+    return this.http.post(serverURL + '/reset-password', '', { withCredentials: true })
+    .toPromise().then( response => response ) as Promise<null>;
+
   }
 }
