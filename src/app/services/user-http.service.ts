@@ -92,7 +92,7 @@ export class UserHttpService {
 
     validateUser(token: string): Promise<null> {
         return this.http
-            .get(serverURL + "/validation?token=" + token, {
+            .post(serverURL + "/validation?token=" + token, {
                 withCredentials: true
             })
             .toPromise() as Promise<null>;
