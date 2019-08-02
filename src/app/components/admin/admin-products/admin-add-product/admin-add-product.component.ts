@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { WineDetailsHttpService } from 'src/app/services/wine-details-http.service';
-import { WineDetails } from 'src/app/interfaces/wine-details';
+import { WineByAdmin } from 'src/app/interfaces/admin-wine';
+import { AdminHttpService } from 'src/app/services/admin-http.service';
 
 @Component({
     selector: 'admin-add-product',
@@ -11,19 +10,29 @@ import { WineDetails } from 'src/app/interfaces/wine-details';
 export class AdminAddProductComponent implements OnInit {
 
     @Input()
-    wineDetails: WineDetails;
-
+    wineByAdmin: WineByAdmin;
     wineId: number;
 
-    constructor(private route: ActivatedRoute, private wineDetailsHttpService: WineDetailsHttpService) {
-        this.wineId = + this.route.snapshot.paramMap.get("id");
+    constructor(private request: AdminHttpService) {
+        this.wineByAdmin = {
+            name: '',
+            volume: null,
+            stock: null,
+            price: null,
+            salePrice: 0,
+            wineTypeId: null,
+            wineryId: null,
+            alcoholRating: null,
+            year: null
+        }
     }
 
-    ngOnInit() {
-        this.wineDetailsHttpService.getWine(this.wineId).then(wineDetails => {
-            console.log(wineDetails);
-            this.wineDetails = wineDetails;
-        })
-    }
+    ngOnInit() { }
 
+    addNewWine():void {
+        this.request.addNewWine(this.wineByAdmin).then( () => {
+            console.log('added new wine.')
+        }).catch(()=>{console.log('nem sikerült')});
+
+    }
 }
