@@ -46,10 +46,9 @@ import { AdminProductsRowComponent } from './components/admin/admin-products/adm
 import { AdminModifyProductComponent } from './components/admin/admin-products/admin-modify-product/admin-modify-product.component';
 import { AdminDeleteProductComponent } from './components/admin/admin-products/admin-delete-product/admin-delete-product.component';
 import { AdminAddProductComponent } from './components/admin/admin-products/admin-add-product/admin-add-product.component';
-import { AdminUsersComponent } from './components/admin/admin-users/admin-users.component';
-import { AdminUserRowComponent } from './components/admin/admin-users/admin-user-row/admin-user-row.component';
 import { RatingModalComponent } from './components/rating-modal/rating-modal.component';
 import { SortingTypePipe } from './pipes/sorting-type';
+import { PreviousOrderItemComponent } from './components/header/previous-order/previous-order-item/previous-order-item.component';
 
 
 
@@ -91,15 +90,14 @@ import { SortingTypePipe } from './pipes/sorting-type';
     SubscribeComponent,
     PaginationComponent,
     ResetPasswordComponent,
-    AdminUsersComponent,
     AdminProductsComponent,
     AdminAddProductComponent,
     AdminModifyProductComponent,
     AdminProductsRowComponent,
     AdminDeleteProductComponent,
-    AdminUserRowComponent,
     RatingModalComponent,
     SortingTypePipe,
+    PreviousOrderItemComponent
     ],
   imports: [
     BrowserModule,

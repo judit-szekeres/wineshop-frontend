@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from '../interfaces/user';
+import { User, Role } from '../interfaces/user';
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { serverURL } from '../server-url';
@@ -52,11 +52,11 @@ export class UserHttpService {
         if (this.currentUser.id !== null) {
             return of(this.currentUser);
         } else {
-            let o = this.http.get(serverURL + "/user", {
+            let o = this.http.get<User>(serverURL + "/user", {
                 withCredentials: true
             });
             o.subscribe(
-                u => (this.currentUser = u as User),
+                u => (this.currentUser = u),
                 () => this.loggedOutUser
             );
             return o as Observable<User>;
@@ -69,13 +69,31 @@ export class UserHttpService {
         } else if (this.currentUser.id !== null) {
             return of(true);
         } else {
-            let o = this.http.get(serverURL + "/user", {
+            let o = this.http.get<User>(serverURL + "/user", {
                 withCredentials: true
             });
             return o.pipe(catchError(() => of(this.loggedOutUser))).pipe(
                 map(u => {
-                    this.currentUser = u as User;
-                    return !!(u as User).id;
+                    this.currentUser = u;
+                    return !! u.id;
+                })
+            );
+        }
+    }
+
+    isUserAdmin(): Observable<boolean> {
+        if (this.currentUser.id === 0) {
+            return of(false);
+        } else if (this.currentUser.id !== null && this.currentUser.role === Role.ADMIN) {
+            return of(true);
+        } else {
+            let o = this.http.get<User>(serverURL + "/user", {
+                withCredentials: true
+            });
+            return o.pipe(catchError(() => of(this.loggedOutUser))).pipe(
+                map(u => {
+                    this.currentUser = u;
+                    return !! u.id && u.role === Role.ADMIN;
                 })
             );
         }
@@ -92,7 +110,7 @@ export class UserHttpService {
 
     validateUser(token: string): Promise<null> {
         return this.http
-            .get(serverURL + "/validation?token=" + token, {
+            .post(serverURL + "/validation?token=" + token, {
                 withCredentials: true
             })
             .toPromise() as Promise<null>;

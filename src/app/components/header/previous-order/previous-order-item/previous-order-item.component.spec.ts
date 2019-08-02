@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminUserRowComponent } from './admin-user-row.component';
+import { PreviousOrderItemComponent } from './previous-order-item.component';
 
-describe('AdminUserRowComponent', () => {
-  let component: AdminUserRowComponent;
-  let fixture: ComponentFixture<AdminUserRowComponent>;
+describe('PreviousOrderItemComponent', () => {
+  let component: PreviousOrderItemComponent;
+  let fixture: ComponentFixture<PreviousOrderItemComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdminUserRowComponent ]
+      declarations: [ PreviousOrderItemComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AdminUserRowComponent);
+    fixture = TestBed.createComponent(PreviousOrderItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

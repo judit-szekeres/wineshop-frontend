@@ -27,13 +27,7 @@
                         {{ pO.orderTime }}
                     </td>
                     <td class="text-center">
-                        <div *ngFor="let item of pO.items; let l = last">
-                            {{ item.itemName }}
-                            <br>
-                            {{ item.grossItemPrice }} Ft
-                            <br>
-                            {{ item.quantity }} piece
-                            <hr *ngIf="!l">
+                        <div app-previous-order-item *ngFor="let item of pO.items; let l = last" [item]="item">
                         </div>
                     </td>
                     <td class="text-center">
