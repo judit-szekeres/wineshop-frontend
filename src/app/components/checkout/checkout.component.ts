@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserHttpService } from "src/app/services/user-http.service";
 import { Country } from "src/app/interfaces/country";
-import { UserDetails } from "src/app/interfaces/user-details"
+import { CheckoutDetails } from "src/app/interfaces/checkout-details";
 
 @Component({
     selector: "app-checkout",
@@ -11,42 +11,44 @@ import { UserDetails } from "src/app/interfaces/user-details"
 export class CheckoutComponent implements OnInit {
     countries: Country[];
     checkboxState: boolean;
-    currentUserDetails: UserDetails;
+    currentUserDetails: CheckoutDetails;
 
     constructor(private userService: UserHttpService) {
         this.currentUserDetails = {
             firstName: "",
             lastName: "",
-            email: "",
-            currentPassword: "",
-            newPassword: "",
-            confirmNewPassword: "",
-            shippingAddress: {
-                street: "",
-                city: "",
-                id: -1
-            },
-            billingAddress: {
-                street: "",
-                city: "",
-                id: -1
-            }
+            addresses: [
+                {
+                    street: "",
+                    city: "",
+                    id: 0
+                },
+                {
+                    street: "",
+                    city: "",
+                    id: 0
+                }
+            ]
         };
         this.countries = [];
         this.checkboxState = false;
     }
 
     ngOnInit() {
+        this.userService.getCheckoutDetails().then(uD => {
+            this.currentUserDetails = uD;
+        });
+
         this.userService.getCountriesList().then(c => {
             this.countries = c;
         });
     }
 
     billingSameAsShipping() {
-        if (this.checkboxState == false ) {
-            this.currentUserDetails.billingAddress = this.currentUserDetails.shippingAddress;
+        if (this.checkboxState == false) {
+            this.currentUserDetails.addresses[1] = this.currentUserDetails.addresses[0];
         } else {
-            this.currentUserDetails.billingAddress = {
+            this.currentUserDetails.addresses[1] = {
                 street: "",
                 city: "",
                 id: -1

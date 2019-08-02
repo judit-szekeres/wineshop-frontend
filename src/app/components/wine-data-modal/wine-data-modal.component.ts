@@ -71,7 +71,7 @@ export class WineDataModalComponent implements OnInit {
     @Output()
     closeThis = new EventEmitter();
 
-    private haveSpecialPrice: boolean;
+    haveSpecialPrice: boolean;
     showLoading: boolean;
 
   constructor(private wineDetailsHttpService: WineDetailsHttpService,public cartConnectionService:CartHTTPService, public service:CartService) {
