@@ -19,7 +19,6 @@ import { AuthGuard } from './auth.guard';
 import { AuthAdminGuard } from './auth.admin.guard';
 import { OrderSuccessComponent } from './components/checkout/order-success/order-success.component';
 import { ResetPasswordComponent } from './components/login-registration-modal/reset-password/reset-password.component';
-import { AdminUsersComponent } from './components/admin/admin-users/admin-users.component';
 import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
 import { AdminAddProductComponent } from './components/admin/admin-products/admin-add-product/admin-add-product.component';
 import { AdminModifyProductComponent } from './components/admin/admin-products/admin-modify-product/admin-modify-product.component';
